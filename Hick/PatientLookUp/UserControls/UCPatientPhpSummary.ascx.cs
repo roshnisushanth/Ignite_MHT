@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -28,8 +29,6 @@ namespace Hick.PatientLookUp.UserControls
         {
             if (!Page.IsPostBack)
             {
-
-
                 long patientid = 0;
                 if (!string.IsNullOrEmpty(Session["ReferenceID"]as string))
                 {
@@ -54,10 +53,6 @@ namespace Hick.PatientLookUp.UserControls
                 BindTestAndProcedures(patientid);
 
                 ClinicalDocument();
-
-
-
-
             }
         }
 
@@ -1013,7 +1008,8 @@ namespace Hick.PatientLookUp.UserControls
 
                     tblDemographics.AddCell(GetCell(objColl[0].Weight + " " + "lbs", 1, 1));
                     tblDemographics.AddCell(GetCell(objColl[0].Gender, 1, 1));
-                    int age = new DateTime(DateTime.Now.Subtract(Convert.ToDateTime(objColl[0].DOB.ToString())).Ticks).Year - 1;
+                    DateTime dob = DateTime.ParseExact(objColl[0].DOB, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                    int age = new DateTime(DateTime.Now.Subtract(dob).Ticks).Year - 1;
                     tblDemographics.AddCell(GetCell(age.ToString(), 1, 1));
                     tblDemographics.AddCell(GetCell(objColl[0].BP, 1, 1));
                     dc.Add(tblDemographics);
@@ -1065,14 +1061,14 @@ namespace Hick.PatientLookUp.UserControls
                     tblIdentification.AddCell(GetCell("HICN: ", objColl[0].HICN.ToString(), 2, 1));
 
                     //4th row
-                    DateTime bdate = Convert.ToDateTime(objColl[0].DOB.ToString());
+                    DateTime bdate = DateTime.ParseExact(objColl[0].DOB, "MM/dd/yyyy", CultureInfo.InvariantCulture);
 
                     int date = bdate.Day;
                     int month = bdate.Month;
                     int year = bdate.Year;
 
-                    string dob = month.ToString() + "/" + date.ToString() + "/" + year.ToString();
-                    tblIdentification.AddCell(GetCell("DOB: ", dob, 1, 1));
+                    string dateofbirth = month.ToString() + "/" + date.ToString() + "/" + year.ToString();
+                    tblIdentification.AddCell(GetCell("DOB: ", dateofbirth, 1, 1));
                     tblIdentification.AddCell(GetCell("Gender: ", objColl[0].Gender, 1, 1));
                     tblIdentification.AddCell(GetCell("Race: ", objColl[0].Race, 2, 1));
 
