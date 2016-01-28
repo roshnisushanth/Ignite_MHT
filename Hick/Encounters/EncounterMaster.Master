@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="EncounterMaster.Master.cs"
+    Inherits="Hick.Encounters.EncounterMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <asp:ContentPlaceHolder ID="cplhead" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+        rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/patientlookup.css" rel="stylesheet" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        var pageMode = '<%=pageMode.Value%>';
+        var asId = '<%=assessmentid.Value%>';
+        var url = '?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>';
+        var isreadonlystring = "<%=isreadonly%>";
+        var isreadyonly = isreadonlystring.toLocaleLowerCase() == "true" ? true : false;
+    </script>
+</head>
+<body style="padding: 0px; position: relative;">
+    <div>
+        <form id="form1" runat="server">
+            <asp:HiddenField ID="hdnpagekey" runat="server" Value="" ClientIDMode="Static" />
+            <div class="patsearch_main_div">
+                <div id="small_left_frame" class="patient_search_left_frame">
+                    <div style="display: inline-flex; display: -webkit-flex;">
+                        <div class="search_img_label" style="width: 36px; height: 36px;">
+                            <img src="../../Images/icon_Encounter.png" alt="search_img" style="width: 100%; height: 100%;" />
+                        </div>
+                        <div class="search_label" id="div_patientsearch" style="display: none;">
+                            Encounters
+                        </div>
+                    </div>
+                    <div class="left_portion_II" style="display: none;" id="patientsearch_leftpart">
+                        <div class="patsearch_listbox" style="padding-left: 10px !important;">
+                            <ul class="patient_search">
+                                <li pagekey="main"><a href="#">Mother's Health Profile</a>
+                                    <ul class="patient_search">
+                                        <li pagekey="encountersmain parent"><a href="../../Encounters/ASPX/EncountersMain.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Mom's OB</a></li>
+                                        <li pagekey="babypcp parent"><a href="../../Encounters/ASPX/BabyPCP.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Baby PCP</a></li>
+                                        <li pagekey="conditions parent"><a href="../../Encounters/ASPX/Conditions.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Conditions</a></li>
+                                        <li pagekey="medications parent"><a href="../../Encounters/ASPX/Medications.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Medications</a></li>
+                                    </ul>
+                                </li>
+                                <li pagekey="breastfeedingbaby"><a href="../../Encounters/ASPX/BreastFeedingBaby.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Breastfeeding Baby</a></li>
+                                <li pagekey="breastfeedingmother"><a href="../../Encounters/ASPX/BreastFeedingMother.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Breastfeeding Mother</a></li>
+                                <li pagekey="breastfeedingobserv"><a href="../../Encounters/ASPX/BreastFeedingObserv.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Breastfeeding Observation</a></li>
+                                <li pagekey="chiefcomplaints"><a href="../../Encounters/ASPX/ChiefComplaints.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Chief Complaints</a></li>
+                                <li pagekey="assessmnt"><a href="../../Encounters/ASPX/Assessmnt.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Assessment</a></li>
+                                <li pagekey="historyillness"><a href="../../Encounters/ASPX/HistoryIllness.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">History Present Illness</a></li>
+                                <li pagekey="coordinationcare"><a href="../../Encounters/ASPX/CoordinationCare.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Coordination of Care</a></li>
+                                <li pagekey="plan"><a href="../../Encounters/ASPX/Plan.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Plan</a></li>
+                                <li pagekey="assessmentsummary"><a href="../../Encounters/ASPX/AssessmentSummary.aspx?pm=<%=pageMode.Value%>&aId=<%=assessmentid.Value%>">Assessment Summary</a></li>
+                            </ul>
+                        </div>
+                        <div class="patsearch_emptygray">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div id="large_right_frame" class="patient_search_right_frame">
+                    <asp:ContentPlaceHolder ID="cplEncounters" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <input type="hidden" name="assessmentId" id="assessmentid" runat="server" />
+            <input type="hidden" name="pageMode" id="pageMode" runat="server" />
+        </form>
+        <%		   
+            Response.WriteFile(Page.ResolveUrl("~/Scripts/Confirm.html"));
+        %>
+    </div>
+
+    <script type="text/javascript">
+
+
+        var pgkey = $("#hdnpagekey").val();
+        $(".patsearch_listbox").find("li").each(function () {
+            var keyattr = $(this).attr("pagekey");
+            if (pgkey == keyattr) {
+                if (keyattr.match('parent')) {
+                    $('#parent').addClass("active_menu");
+                }
+                $(this).addClass("active_menu");
+                $(this).parents("li").addClass("active_menu");
+                return false;
+            }
+        });
+
+
+    </script>
+</body>
+</html>

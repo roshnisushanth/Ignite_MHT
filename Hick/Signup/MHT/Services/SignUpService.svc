@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Hick.SignUp.SignUpService" CodeBehind="SignUpService.svc.cs" %>

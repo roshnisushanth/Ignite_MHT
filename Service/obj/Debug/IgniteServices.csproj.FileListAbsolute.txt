@@ -1,0 +1,13 @@
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\bin\IgniteServices.dll
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\bin\IgniteServices.pdb
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\bin\HPFCONNECT_BLL.dll
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\bin\HPFCONNECT_DAL.dll
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\bin\HPFCONNECT_MODEL.dll
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\bin\HPFCONNECT_SQALDALC.dll
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\bin\HPFCONNECT_BLL.pdb
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\bin\HPFCONNECT_DAL.pdb
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\bin\HPFCONNECT_MODEL.pdb
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\bin\HPFCONNECT_SQALDALC.pdb
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\obj\Debug\IgniteServices.csprojResolveAssemblyReference.cache
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\obj\Debug\IgniteServices.dll
+D:\SVN\HPFConnect\branches\SourceCode\SQLBuilds\SQL BUILDS\BridgeMessangerService\IgniteServices\obj\Debug\IgniteServices.pdb

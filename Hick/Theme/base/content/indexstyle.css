@@ -1,0 +1,466 @@
+.bodystyle{
+ 
+background-color:#FFCC00 !important;
+
+}
+
+
+.border {
+	
+	height:100% !important;
+	}
+
+.border1 {
+	
+	margin: 0px 0px 0px 0px !important;
+	Z-index:1000 !important;
+        position:absolute;
+	right:0px !important;
+	bottom:0px !important;
+	}
+
+.border2 {
+	
+	height:100% !important;
+	Z-index:999 !important;
+	}
+
+
+.rowError
+{
+	/*height:80px !important;*/
+}
+
+.align {
+
+	align:center !important;
+	padding: 10px 95px 20px 95px !important;
+	background-color: #FFCC00;
+}
+
+.alignPic {
+
+	align:center !important;
+
+	background-color: #FFCC00 !important;
+	z-index:999 !important;
+}
+
+
+.color{
+	background-color:#FFCC00 !important;
+}
+
+.borderError1 {
+	height:100% !important;
+}
+
+//
+
+.borderError2 {
+	border:1px solid #333 !important;
+
+}
+
+.textarea{
+	height:58px !important;
+	width:100% !important;
+}
+
+.textareaSubmit{
+	height:58px !important;
+	width:100% !important;
+	background-color:#A36200 !important;
+	color: white !important;
+	font-size:20px !important; 
+	font-weight:normal !important;
+	border: #A36200 !important;
+}
+
+ul#menu li {
+    	display:inline;
+	font-size:12px !important;
+	}
+
+.padding{
+	padding:0px 0px 0px 0px !important;
+}
+
+.Remem {
+	float:right !important;
+	text-decoration: underline !important;
+
+}
+
+.divRight{
+width:60% !important;
+}
+
+.Create {
+
+	text-decoration: underline !important;
+	font-size:16px !important;
+	color: black !important;
+}
+
+.CreateAlign{
+	padding: 0px 50px 0px 165px !important;
+	color:black;
+}
+
+.linkcolor{
+	color: black !important;
+}
+
+.fontweight{
+font-weight:normal !important;
+}
+
+
+.hidden{
+    display:none;
+}
+
+.unhidden{
+    display:block;
+}
+
+
+.errorPadding{
+	
+	z-index:999 !important;
+	padding:20px 140px 20px 140px !important;
+}
+
+
+
+.img{
+	height:100% !important;
+	width:100% !important;
+}
+
+
+
+.errormsg{
+	/*z-index:1000 !important;
+	color: red !important;
+	background-color: white !important;
+	padding:10px 20px 5px 20px !important;*/
+
+    background-color: #f4fbeb;
+    border: 1px solid gray;
+    border-radius: 10px;
+    float: left;
+    height: auto;
+    max-height: 100%;
+    min-width: 250px;
+    position: relative;
+    vertical-align: top;
+    width: auto;
+}
+
+ .crossimg{
+
+	/*width:10% !important;
+	height:100% !important;*/
+
+     width:34px;
+    height:34px;
+    padding:5px;
+}
+
+.marginLeft{
+	margin:0px 20px 0px 0px !important;
+}
+
+.imgpadding{
+ margin: 0 auto;
+}
+
+
+.imgsize{
+		height: ;
+		width: ;
+     		bottom: 0px;
+		float:right !important;
+	}
+
+.footerimg{
+    display:none !important;
+}
+
+
+
+
+/********************************************************************************/
+
+
+
+@media screen and (max-width: 380px) 
+{  
+	.errorPadding{
+
+		padding:0px 0px 0px 0px !important;
+		}
+
+	.CreateAlign{
+		padding: 0px 0px 0px 10px !important ;
+		color:black;
+		}
+
+	.textareaSubmit{
+
+		font-size:22px ; 
+
+		}
+
+		.Create {
+
+			font-size:12px !important;
+			
+			}
+		
+		
+
+		.align {
+
+			
+			padding: 0px 0px 0px 0px !important;
+			
+		}
+
+	.paddingSteth{
+		padding:325px 0px 0px 0px !important;
+		}
+
+/*commeting this to hide image in mobile*/
+	/*.imgsize
+	{
+		height:100px !important;
+		width:60px !important ;
+     		
+	}*/
+
+	
+
+
+
+}
+	@media screen and (max-width: 480px) 
+{  
+	.errorPadding{
+
+		padding:0px 0px 0px 0px !important;
+		}
+
+	.CreateAlign{
+		padding: 0px 0px 0px 10px !important;
+		color:black;
+		}
+
+	.textareaSubmit{
+
+		font-size:22px ; 
+
+		}
+	
+
+	
+	
+		.align {
+
+			align:center !important;
+			padding: 0px 0px 0px 0px !important;
+			background-color: #FFCC00;
+		}
+
+		/*commeting this to hide image in mobile*/
+	/*.imgsize
+	{
+		height:120px ;
+		width:80px  ;
+		bottom: 0px  !important;
+     		
+	}*/
+
+	
+}
+
+
+/*to hide stetho image for small devices */
+@media screen and (max-width: 767px) 
+{
+    /*to hide stetho image for small devices */
+    .imgsize
+    {
+        display:none !important;
+       
+        }
+        /*to size error messages for mobile */
+        .errorPadding{
+
+		
+		padding: 10px 30px 20px 30px !important;
+		
+		}
+		/*reduce size of logo for mobile*/
+		.imgpadding
+		{
+		    width:225px;
+		}
+		/*increase size of logo for mobile*/
+		.textareaSubmit{
+
+		font-size:20px !important ; 
+
+		}
+      
+}
+@media screen and (min-width: 990px) and (max-width:1249px)
+{
+    /*to size error messages for tablet */
+ .errorPadding{
+		padding: 10px 95px 20px 95px !important;
+		}   
+}
+
+@media screen and (max-width: 1250px) 
+{  
+	.errorPadding{
+
+		/*padding:0px 0px 0px 0px !important;*/
+		/*new padding given for devices below 1250px*/
+		padding: 10px 30px 20px 30px ;
+		}
+		
+
+	.CreateAlign{
+		padding: 0px 0px 0px 33% !important; /*changed padding to 33% from 88px*/
+		color:black;
+		}
+
+	.textareaSubmit{
+
+		font-size:20px !important; 
+
+		}
+	
+	.align {
+
+	
+	padding: 10px 30px 20px 30px !important;
+	background-color: #FFCC00;
+		}
+
+	.imgsize{
+		height:200px ; /*removed !important*/
+		width:200px  ; /*removed !important*/
+		bottom: 0px;
+     		
+		}
+	
+
+
+}
+
+@media screen and (max-width: 320px) 
+{  
+	.errorPadding{
+
+		padding:0px 0px 0px 0px !important;
+		}
+
+	.CreateAlign{
+		padding: 0px 0px 0px 10px !important ;
+		color:black;
+		}
+
+	.textareaSubmit{
+
+		font-size:20px  ; 
+
+		}
+
+		.Create {
+
+			font-size:12px !important;
+			
+			}
+		
+		
+
+		.align {
+
+			
+			padding: 0px 0px 0px 0px !important;
+			
+		}
+/*commenting to check image size*/
+	/*.imgsize{
+		height:200px !important;
+		width:60px !important ;*/
+     		
+	}
+
+
+@media screen and (max-width: 370px) 
+{  
+	.errorPadding{
+
+		padding:0px 0px 0px 0px !important;
+		}
+
+	.CreateAlign{
+		padding: 0px 0px 0px 10px  ;
+		color:black;
+		}
+
+	.textareaSubmit{
+
+		font-size:10px  ; 
+
+		}
+
+		.Create {
+
+			font-size:12px !important;
+			
+			}
+		
+		
+
+		.align {
+
+			
+			padding: 0px 0px 0px 0px !important;
+			
+		}
+/*commeting this to hide image in mobile*/
+	/*.imgsize{
+		height:200px !important;
+		width:55px !important ;
+     		
+	}*/
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

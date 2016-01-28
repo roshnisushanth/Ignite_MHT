@@ -1,0 +1,10 @@
+ALTER PROCEDURE [dbo].[sp_hick_TotalAudioCallDurationForGivenPatient]
+@PeerId as bigint,
+@Date as VARCHAR(100)
+AS
+BEGIN
+	select AudioCallLogID as taskid,'audio' as tasktype,'Audio Call' as task, 
+		CONVERT(varchar(10),conversation_date,103),CONVERT(varchar(10),start_time,108) as start_time,CONVERT(varchar(10),end_time,108) as end_time,
+		call_duration from hick_audiocall_log
+	where conversation_date between DATEADD(day,1-day(@date),DATEDIFF(day,0,@date)) and DATEADD (dd, -1, DATEADD(mm, DATEDIFF(mm, 0, @date) + 1, 0)) and (initiator=@PeerId OR answerer=@peerid)
+END

@@ -1,0 +1,12 @@
+ALTER PROCEDURE [dbo].[sp_hick_TotalTextChatDurationForGivenUsers]
+@CurrentUserId as bigint,
+@PeerId as bigint,
+@Date as VARCHAR(100)
+AS
+BEGIN
+
+	select ID as taskid,'text' as tasktype,'Text Chat' as task, CONVERT(varchar(10),ConversationDate,103) as ConversationDate,Convert(varchar,Convert(DateTime,[dbo].[ufn_ConvUserStartTime](ID,@CurrentUserId,@PeerId),121)) as 'StartTime',Convert(varchar,Convert(DateTime,[dbo].[ufn_ConvUserEndTime](ID,@CurrentUserId,@PeerId),121)) as 'EndTime',total_txtchat_dauration from Hick_user_Conversation
+	WHERE((Initiator=@CurrentUserId and Answerer=@PeerId) or (Initiator=@PeerId and Answerer=@CurrentUserId))
+	--and ConversationDate between DATEADD(DAY, 1-DAY(@Date), DATEDIFF(DAY, 0, @Date)) and @Date
+	and total_txtchat_dauration is not null
+END

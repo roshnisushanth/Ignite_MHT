@@ -1,0 +1,30 @@
+ALTER PROCEDURE [dbo].[sp_hick_TotalVideoCallDurationForGivenUsers]
+@CurrentUserId as bigint,
+@PeerId as bigint,
+@Date as VARCHAR(100)
+AS
+BEGIN
+	DECLARE @status int;
+	DECLARE @sm DATETIME;
+	
+	SET @sm = DATEADD(DAY, 1-DAY(@Date), DATEDIFF(DAY, 0, @Date));
+	SET @status=7;
+	
+	SELECT  VideoConversationID as taskid,'video' as tasktype, CONVERT(varchar(10),ConversationDate,103) as ConversationDate,
+		CONVERT(varchar(10),ConversationDate,108) as StartTime,
+		CONVERT(varchar(10),ConversationEndTime,108) as EndTime,
+		DateDiff(s, ConversationDate, ConversationEndTime)/3600 as hrs,
+		DateDiff(s, ConversationDate, ConversationEndTime)%3600/60 as mts,
+		DateDiff(s, ConversationDate, ConversationEndTime)%60 as sec,
+		DateDiff(s,ConversationDate , ConversationEndTime) as [Log Seconds]
+		into #temptable
+		from Hick_VideoConversation_Log
+		where PeerId=@CurrentUserId and Status=@status and ParentVideoId in (select VideoId from Hick_VideoConversation_Log where peerid=@PeerId)
+		and (ConversationDate IS NOT NULL) and (ConversationEndTime IS NOT NULL) and ConversationEndTime >= @sm
+		
+		select MAX(taskid) as taskid,MAX(tasktype) as tasktype,'Video Call' as task,
+		ConversationDate,StartTime,EndTime,[Log Seconds],
+		STR(SUM([Log Seconds])/3600) + RIGHT(CONVERT(char(8),DATEADD(s,SUM([Log Seconds]),0),108),6) as TotalDuration from #temptable
+		group by ConversationDate,StartTime,EndTime,[Log Seconds]
+		drop table  #temptable
+END

@@ -1,0 +1,73 @@
+
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ufn_Numerator_Details]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+	DROP FUNCTION [dbo].[ufn_Numerator_Details]
+	PRINT 'Dropped UDF [dbo].[ufn_Numerator_Details]'
+GO
+PRINT 'Creating UDF [dbo].[ufn_Numerator_Details]'
+GO
+
+CREATE FUNCTION [dbo].[ufn_Numerator_Details](
+@physicanid bigint,
+@Q1_start varchar (10)=null,
+@Q1_end varchar (10)=null,
+@Q2_start varchar (10)=null,
+@Q2_end varchar (10)=null,
+@Q3_start varchar (10)=null,
+@Q3_end varchar (10)=null,
+@Q4_start varchar (10)=null,
+@Q4_end varchar (10)=null)
+RETURNS varchar(max)
+AS
+BEGIN
+declare @sqlMUNumer varchar(max)
+declare @sqlMUAuthNumer varchar(max)
+set @sqlMUNumer= ('select HU.ID as patient_id, Firstname + Lastname as patient_Name from  Hick_Users HU inner join dbo.Audit HA
+on HU.ID = HA.UserId inner join hick_physician_mapping hpm on HU.ID = HPM.patientid 
+inner join Hick_SessionNote HSN on HU.ID = HSN.ToId 
+where (')
+set @sqlMUAuthNumer= (' Union all select HU.ID as patient_id, Firstname + Lastname as patient_Name from IgniteAuthorizedRepMapping HAMP 
+inner join dbo.Audit HA  on HAMP.AuthorizedUserId =HA.UserId
+inner join Hick_Users HU  on HAMP.UserId=HU.ID
+inner join hick_physician_mapping hpm on HU.ID = HPM.patientid 
+inner join Hick_SessionNote HSN on HU.ID = HSN.ToId 
+where (')
+if (@Q1_start is not NULL AND @Q1_end is not NULL)
+Begin
+	set @sqlMUNumer = @sqlMUNumer +' (HA.ActionDate between CONVERT(datetime,'''+@Q1_start+''',103) and CONVERT(datetime,'''+@Q1_end+''',103)) Or'
+	set @sqlMUAuthNumer = @sqlMUAuthNumer +' (HA.ActionDate between CONVERT(datetime,'''+@Q1_start+''',103) and CONVERT(datetime,'''+@Q1_end+''',103)) Or'
+End
+if (@Q2_start is not NULL AND @Q2_end is not NULL)
+Begin
+	set @sqlMUNumer = @sqlMUNumer +' (HA.ActionDate between CONVERT(datetime,'''+@Q2_start+''',103) and CONVERT(datetime,'''+@Q2_end+''',103)) or'
+	set @sqlMUAuthNumer = @sqlMUAuthNumer +' (HA.ActionDate between CONVERT(datetime,'''+@Q2_start+''',103) and CONVERT(datetime,'''+@Q2_end+''',103)) or'
+End
+if (@Q3_start is not NULL AND @Q3_end is not NULL)
+Begin
+	set @sqlMUNumer = @sqlMUNumer +' (HA.ActionDate between CONVERT(datetime,'''+@Q3_start+''',103) and CONVERT(datetime,'''+@Q3_end+''',103)) or'
+	set @sqlMUAuthNumer = @sqlMUAuthNumer +' (HA.ActionDate between CONVERT(datetime,'''+@Q3_start+''',103) and CONVERT(datetime,'''+@Q3_end+''',103)) or'
+End
+if (@Q4_start is not NULL AND @Q4_end is not NULL)
+Begin
+	set @sqlMUNumer = @sqlMUNumer +' (HA.ActionDate between CONVERT(datetime,'''+@Q4_start+''',103) and CONVERT(datetime,'''+@Q4_end+''',103)) or'
+	set @sqlMUAuthNumer = @sqlMUAuthNumer +' (HA.ActionDate between CONVERT(datetime,'''+@Q4_start+''',103) and CONVERT(datetime,'''+@Q4_end+''',103)) or'
+End
+set @sqlMUNumer=LEFT(@sqlMUNumer,DATALENGTH(@sqlMUNumer)-2)
+set @sqlMUNumer = @sqlMUNumer + ')'
+set @sqlMUAuthNumer=LEFT(@sqlMUAuthNumer,DATALENGTH(@sqlMUAuthNumer)-2)
+set @sqlMUAuthNumer = @sqlMUAuthNumer + ')'
+if(@physicanid <>0)
+begin
+set @sqlMUNumer = @sqlMUNumer + ' and HPM.physicianId ='+convert(varchar,@physicanid)+''
+set @sqlMUAuthNumer = @sqlMUAuthNumer + ' and HPM.physicianId = '+convert(varchar,@physicanid)+''
+end
+
+
+
+
+	RETURN @sqlMUNumer +@sqlMUAuthNumer
+
+END
+GO
+PRINT 'Created UDF: ufn_Numerator_Details'
+Go

@@ -1,0 +1,1610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0FA40780-3217-48F3-8663-262C9C2660EB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hick</RootNamespace>
+    <AssemblyName>Hick</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.7.123, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML">
+      <HintPath>Assemblies\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DirectAPI">
+      <HintPath>Assemblies\DirectAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>C:\Users\jothikumar\Desktop\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assemblies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Web.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuditLog.aspx.cs">
+      <DependentUpon>AuditLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuditLog.aspx.designer.cs">
+      <DependentUpon>AuditLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Audit.cs" />
+    <Compile Include="AuthorizedUserForm.aspx.cs">
+      <DependentUpon>AuthorizedUserForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthorizedUserForm.aspx.designer.cs">
+      <DependentUpon>AuthorizedUserForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Base\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chat.aspx.cs">
+      <DependentUpon>Chat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chat.aspx.designer.cs">
+      <DependentUpon>Chat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat_log.aspx.cs">
+      <DependentUpon>Chat_log.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chat_log.aspx.designer.cs">
+      <DependentUpon>Chat_log.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption\EncryptDecryptUtil.cs" />
+    <Compile Include="PatientLookUp\ASPX\AddEditClinicalDocuments.aspx.cs">
+      <DependentUpon>AddEditClinicalDocuments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditClinicalDocuments.aspx.designer.cs">
+      <DependentUpon>AddEditClinicalDocuments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\BillingReport.aspx.cs">
+      <DependentUpon>BillingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\BillingReport.aspx.designer.cs">
+      <DependentUpon>BillingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\ConsentReport.aspx.cs">
+      <DependentUpon>ConsentReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\ConsentReport.aspx.designer.cs">
+      <DependentUpon>ConsentReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\PLComplete.aspx.cs">
+      <DependentUpon>PLComplete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\PLComplete.aspx.designer.cs">
+      <DependentUpon>PLComplete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\PLNotComplete.aspx.cs">
+      <DependentUpon>PLNotComplete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\PLNotComplete.aspx.designer.cs">
+      <DependentUpon>PLNotComplete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\PLPatientList.aspx.cs">
+      <DependentUpon>PLPatientList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\PLPatientList.aspx.designer.cs">
+      <DependentUpon>PLPatientList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\ASPX\UploadConsentForm.ashx.cs">
+      <DependentUpon>UploadConsentForm.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\UserControls\BillingReport.ascx.cs">
+      <DependentUpon>BillingReport.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandCenter\UserControls\BillingReport.ascx.designer.cs">
+      <DependentUpon>BillingReport.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\UserControls\ConsentReport.ascx.cs">
+      <DependentUpon>ConsentReport.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandCenter\UserControls\ConsentReport.ascx.designer.cs">
+      <DependentUpon>ConsentReport.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\UserControls\Dashboard.ascx.cs">
+      <DependentUpon>Dashboard.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandCenter\UserControls\Dashboard.ascx.designer.cs">
+      <DependentUpon>Dashboard.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\UserControls\Login.ascx.cs">
+      <DependentUpon>Login.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandCenter\UserControls\Login.ascx.designer.cs">
+      <DependentUpon>Login.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandCenter\UserControls\CCPatientList.ascx.cs">
+      <DependentUpon>CCPatientList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandCenter\UserControls\CCPatientList.ascx.designer.cs">
+      <DependentUpon>CCPatientList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\AddEditMedications.aspx.cs">
+      <DependentUpon>AddEditMedications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\AddEditMedications.aspx.designer.cs">
+      <DependentUpon>AddEditMedications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\AssessmentSummary.aspx.cs">
+      <DependentUpon>AssessmentSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\AssessmentSummary.aspx.designer.cs">
+      <DependentUpon>AssessmentSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\Assessmnt.aspx.cs">
+      <DependentUpon>Assessmnt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\Assessmnt.aspx.designer.cs">
+      <DependentUpon>Assessmnt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\BabyPCP.aspx.cs">
+      <DependentUpon>BabyPCP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\BabyPCP.aspx.designer.cs">
+      <DependentUpon>BabyPCP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\BreastFeedingBaby.aspx.cs">
+      <DependentUpon>BreastFeedingBaby.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\BreastFeedingBaby.aspx.designer.cs">
+      <DependentUpon>BreastFeedingBaby.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\BreastFeedingMother.aspx.cs">
+      <DependentUpon>BreastFeedingMother.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\BreastFeedingMother.aspx.designer.cs">
+      <DependentUpon>BreastFeedingMother.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\BreastFeedingObserv.aspx.cs">
+      <DependentUpon>BreastFeedingObserv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\BreastFeedingObserv.aspx.designer.cs">
+      <DependentUpon>BreastFeedingObserv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\ChiefComplaints.aspx.cs">
+      <DependentUpon>ChiefComplaints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\ChiefComplaints.aspx.designer.cs">
+      <DependentUpon>ChiefComplaints.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\Conditions.aspx.cs">
+      <DependentUpon>Conditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\Conditions.aspx.designer.cs">
+      <DependentUpon>Conditions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\CoordinationCare.aspx.cs">
+      <DependentUpon>CoordinationCare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\CoordinationCare.aspx.designer.cs">
+      <DependentUpon>CoordinationCare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\EditConditions.aspx.cs">
+      <DependentUpon>EditConditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\EditConditions.aspx.designer.cs">
+      <DependentUpon>EditConditions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\EncountersMain.aspx.cs">
+      <DependentUpon>EncountersMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\EncountersMain.aspx.designer.cs">
+      <DependentUpon>EncountersMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\HistoryIllness.aspx.cs">
+      <DependentUpon>HistoryIllness.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\HistoryIllness.aspx.designer.cs">
+      <DependentUpon>HistoryIllness.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\Medications.aspx.cs">
+      <DependentUpon>Medications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\Medications.aspx.designer.cs">
+      <DependentUpon>Medications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\Plan.aspx.cs">
+      <DependentUpon>Plan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\Plan.aspx.designer.cs">
+      <DependentUpon>Plan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\EncounterMaster.Master.cs">
+      <DependentUpon>EncounterMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\EncounterMaster.Master.designer.cs">
+      <DependentUpon>EncounterMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\Services\EncounterService.svc.cs">
+      <DependentUpon>EncounterService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\Assessmnt.ascx.cs">
+      <DependentUpon>Assessmnt.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\Assessmnt.ascx.designer.cs">
+      <DependentUpon>Assessmnt.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\BabyPCP.ascx.cs">
+      <DependentUpon>BabyPCP.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\BabyPCP.ascx.designer.cs">
+      <DependentUpon>BabyPCP.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\BreastFeedingBaby.ascx.cs">
+      <DependentUpon>BreastFeedingBaby.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\BreastFeedingBaby.ascx.designer.cs">
+      <DependentUpon>BreastFeedingBaby.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\BreastFeedingMother.ascx.cs">
+      <DependentUpon>BreastFeedingMother.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\BreastFeedingMother.ascx.designer.cs">
+      <DependentUpon>BreastFeedingMother.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\BreastFeedingObserv.ascx.cs">
+      <DependentUpon>BreastFeedingObserv.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\BreastFeedingObserv.ascx.designer.cs">
+      <DependentUpon>BreastFeedingObserv.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\ChiefComplaints.ascx.cs">
+      <DependentUpon>ChiefComplaints.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\ChiefComplaints.ascx.designer.cs">
+      <DependentUpon>ChiefComplaints.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\Conditions.ascx.cs">
+      <DependentUpon>Conditions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\Conditions.ascx.designer.cs">
+      <DependentUpon>Conditions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\CoordinationCare.ascx.cs">
+      <DependentUpon>CoordinationCare.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\CoordinationCare.ascx.designer.cs">
+      <DependentUpon>CoordinationCare.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\HistoryIllness.ascx.cs">
+      <DependentUpon>HistoryIllness.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\HistoryIllness.ascx.designer.cs">
+      <DependentUpon>HistoryIllness.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\Medications.ascx.cs">
+      <DependentUpon>Medications.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\Medications.ascx.designer.cs">
+      <DependentUpon>Medications.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\MomsOB.ascx.cs">
+      <DependentUpon>MomsOB.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\MomsOB.ascx.designer.cs">
+      <DependentUpon>MomsOB.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\Plan.ascx.cs">
+      <DependentUpon>Plan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\Plan.ascx.designer.cs">
+      <DependentUpon>Plan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ExportChat.ashx.cs">
+      <DependentUpon>ExportChat.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="FlashResource.ashx.cs">
+      <DependentUpon>FlashResource.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HickChatEngine.svc.cs">
+      <DependentUpon>HickChatEngine.svc</DependentUpon>
+    </Compile>
+    <Compile Include="HickService.svc.cs">
+      <DependentUpon>HickService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="HickUser.svc.cs">
+      <DependentUpon>HickUser.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logon\FLD\LogonControl.ascx.cs">
+      <DependentUpon>LogonControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logon\FLD\LogonControl.ascx.designer.cs">
+      <DependentUpon>LogonControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Logon\MHT\LogonControl.ascx.cs">
+      <DependentUpon>LogonControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logon\MHT\LogonControl.ascx.designer.cs">
+      <DependentUpon>LogonControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Logon\UP\LogonControl.ascx.cs">
+      <DependentUpon>LogonControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logon\UP\LogonControl.ascx.designer.cs">
+      <DependentUpon>LogonControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ClearLog.cs" />
+    <Compile Include="Models\ConversationLog.cs" />
+    <Compile Include="Models\HickGroups.cs" />
+    <Compile Include="Models\PatientInfo.cs" />
+    <Compile Include="Models\TestUsers.cs" />
+    <Compile Include="Models\UserConversation.cs" />
+    <Compile Include="Models\Utility.cs" />
+    <Compile Include="Models\VideoChatSettings.cs" />
+    <Compile Include="PatientLookUp\ASPX\AddEditAllergies.aspx.cs">
+      <DependentUpon>AddEditAllergies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditAllergies.aspx.designer.cs">
+      <DependentUpon>AddEditAllergies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditAuthorizedUser.aspx.cs">
+      <DependentUpon>AddEditAuthorizedUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditAuthorizedUser.aspx.designer.cs">
+      <DependentUpon>AddEditAuthorizedUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditFamilyHistory.aspx.cs">
+      <DependentUpon>AddEditFamilyHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditFamilyHistory.aspx.designer.cs">
+      <DependentUpon>AddEditFamilyHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditLabResults.aspx.cs">
+      <DependentUpon>AddEditLabResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditLabResults.aspx.designer.cs">
+      <DependentUpon>AddEditLabResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditMedications.aspx.cs">
+      <DependentUpon>AddEditMedications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditMedications.aspx.designer.cs">
+      <DependentUpon>AddEditMedications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditRecord.aspx.cs">
+      <DependentUpon>AddEditRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditRecord.aspx.designer.cs">
+      <DependentUpon>AddEditRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditTestAndProcedures.aspx.cs">
+      <DependentUpon>AddEditTestAndProcedures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddEditTestAndProcedures.aspx.designer.cs">
+      <DependentUpon>AddEditTestAndProcedures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddTask.aspx.cs">
+      <DependentUpon>AddTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AddTask.aspx.designer.cs">
+      <DependentUpon>AddTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AjaxSessionNoteModification.aspx.cs">
+      <DependentUpon>AjaxSessionNoteModification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\AjaxSessionNoteModification.aspx.designer.cs">
+      <DependentUpon>AjaxSessionNoteModification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Allergies.aspx.cs">
+      <DependentUpon>Allergies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Allergies.aspx.designer.cs">
+      <DependentUpon>Allergies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\aspx\Assessments.aspx.cs">
+      <DependentUpon>Assessments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\aspx\Assessments.aspx.designer.cs">
+      <DependentUpon>Assessments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ClinicalDocuments.aspx.cs">
+      <DependentUpon>ClinicalDocuments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ClinicalDocuments.aspx.designer.cs">
+      <DependentUpon>ClinicalDocuments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Conditions.aspx.cs">
+      <DependentUpon>Conditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Conditions.aspx.designer.cs">
+      <DependentUpon>Conditions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\CreatePatient.aspx.cs">
+      <DependentUpon>CreatePatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\CreatePatient.aspx.designer.cs">
+      <DependentUpon>CreatePatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\DeleteAuthorizedUser.aspx.cs">
+      <DependentUpon>DeleteAuthorizedUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\DeleteAuthorizedUser.aspx.designer.cs">
+      <DependentUpon>DeleteAuthorizedUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\EditConditions.aspx.cs">
+      <DependentUpon>EditConditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\EditConditions.aspx.designer.cs">
+      <DependentUpon>EditConditions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\EditDemographics.aspx.cs">
+      <DependentUpon>EditDemographics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\EditDemographics.aspx.designer.cs">
+      <DependentUpon>EditDemographics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\EditEncounters.aspx.cs">
+      <DependentUpon>EditEncounters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\EditEncounters.aspx.designer.cs">
+      <DependentUpon>EditEncounters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\EditImmunizations.aspx.cs">
+      <DependentUpon>EditImmunizations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\EditImmunizations.aspx.designer.cs">
+      <DependentUpon>EditImmunizations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\EditSocialHistory.aspx.cs">
+      <DependentUpon>EditSocialHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\EditSocialHistory.aspx.designer.cs">
+      <DependentUpon>EditSocialHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Encounters.aspx.cs">
+      <DependentUpon>Encounters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Encounters.aspx.designer.cs">
+      <DependentUpon>Encounters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\FamilyHistory.aspx.cs">
+      <DependentUpon>FamilyHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\FamilyHistory.aspx.designer.cs">
+      <DependentUpon>FamilyHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Immunizations.aspx.cs">
+      <DependentUpon>Immunizations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Immunizations.aspx.designer.cs">
+      <DependentUpon>Immunizations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\LabResults.aspx.cs">
+      <DependentUpon>LabResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\LabResults.aspx.designer.cs">
+      <DependentUpon>LabResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Medications.aspx.cs">
+      <DependentUpon>Medications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Medications.aspx.designer.cs">
+      <DependentUpon>Medications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\MostRecent.aspx.cs">
+      <DependentUpon>MostRecent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\MostRecent.aspx.designer.cs">
+      <DependentUpon>MostRecent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\TestAndProcedures.aspx.cs">
+      <DependentUpon>TestAndProcedures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\TestAndProcedures.aspx.designer.cs">
+      <DependentUpon>TestAndProcedures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ViewDemographics.aspx.cs">
+      <DependentUpon>ViewDemographics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ViewDemographics.aspx.designer.cs">
+      <DependentUpon>ViewDemographics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\Services\PHPService.svc.cs">
+      <DependentUpon>PHPService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCClinicalDocuments.ascx.cs">
+      <DependentUpon>UCClinicalDocuments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCClinicalDocuments.ascx.designer.cs">
+      <DependentUpon>UCClinicalDocuments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCLabResults.ascx.cs">
+      <DependentUpon>UCLabResults.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCLabResults.ascx.designer.cs">
+      <DependentUpon>UCLabResults.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCTestAndProcedures.ascx.cs">
+      <DependentUpon>UCTestAndProcedures.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCTestAndProcedures.ascx.designer.cs">
+      <DependentUpon>UCTestAndProcedures.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SuperUser\ASPX\AjaxMUReportDetails.aspx.cs">
+      <DependentUpon>AjaxMUReportDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SuperUser\ASPX\AjaxMUReportDetails.aspx.designer.cs">
+      <DependentUpon>AjaxMUReportDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SuperUser\ASPX\MUReport.aspx.cs">
+      <DependentUpon>MUReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SuperUser\ASPX\MUReport.aspx.designer.cs">
+      <DependentUpon>MUReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\PatientList.aspx.cs">
+      <DependentUpon>PatientList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\PatientList.aspx.designer.cs">
+      <DependentUpon>PatientList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\PatientPhpSummary.aspx.cs">
+      <DependentUpon>PatientPhpSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\PatientPhpSummary.aspx.designer.cs">
+      <DependentUpon>PatientPhpSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\PatientSearch.aspx.cs">
+      <DependentUpon>PatientSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\PatientSearch.aspx.designer.cs">
+      <DependentUpon>PatientSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\PhpSummary.aspx.cs">
+      <DependentUpon>PhpSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\PhpSummary.aspx.designer.cs">
+      <DependentUpon>PhpSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Recordaccess.aspx.cs">
+      <DependentUpon>Recordaccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\Recordaccess.aspx.designer.cs">
+      <DependentUpon>Recordaccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ReferralReceipt.aspx.cs">
+      <DependentUpon>ReferralReceipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ReferralReceipt.aspx.designer.cs">
+      <DependentUpon>ReferralReceipt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ReferralView.aspx.cs">
+      <DependentUpon>ReferralView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ReferralView.aspx.designer.cs">
+      <DependentUpon>ReferralView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\SessionNote.aspx.cs">
+      <DependentUpon>SessionNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\SessionNote.aspx.designer.cs">
+      <DependentUpon>SessionNote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ShareMail.aspx.cs">
+      <DependentUpon>ShareMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ShareMail.aspx.designer.cs">
+      <DependentUpon>ShareMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\TimerLog.aspx.cs">
+      <DependentUpon>TimerLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\TimerLog.aspx.designer.cs">
+      <DependentUpon>TimerLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ViewPHPSummery.aspx.cs">
+      <DependentUpon>ViewPHPSummery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ViewPHPSummery.aspx.designer.cs">
+      <DependentUpon>ViewPHPSummery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ViewSocialHistory.aspx.cs">
+      <DependentUpon>ViewSocialHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\ASPX\ViewSocialHistory.aspx.designer.cs">
+      <DependentUpon>ViewSocialHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\LookUpMaster.Master.cs">
+      <DependentUpon>LookUpMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\LookUpMaster.Master.designer.cs">
+      <DependentUpon>LookUpMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Encounters\UserControls\AssessmentSummary.ascx.cs">
+      <DependentUpon>AssessmentSummary.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encounters\UserControls\AssessmentSummary.ascx.designer.cs">
+      <DependentUpon>AssessmentSummary.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SuperUser\Services\SuperUserService.svc.cs">
+      <DependentUpon>SuperUserService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\TimerLog.Master.cs">
+      <DependentUpon>TimerLog.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\TimerLog.Master.designer.cs">
+      <DependentUpon>TimerLog.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCAddEditDemographics.ascx.cs">
+      <DependentUpon>UCAddEditDemographics.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCAddEditDemographics.ascx.designer.cs">
+      <DependentUpon>UCAddEditDemographics.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCAddEditSocialHistory.ascx.cs">
+      <DependentUpon>UCAddEditSocialHistory.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCAddEditSocialHistory.ascx.designer.cs">
+      <DependentUpon>UCAddEditSocialHistory.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCAddTask.ascx.cs">
+      <DependentUpon>UCAddTask.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCAddTask.ascx.designer.cs">
+      <DependentUpon>UCAddTask.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCCreatePatient.ascx.cs">
+      <DependentUpon>UCCreatePatient.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCCreatePatient.ascx.designer.cs">
+      <DependentUpon>UCCreatePatient.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCEncounters.ascx.cs">
+      <DependentUpon>UCEncounters.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCEncounters.ascx.designer.cs">
+      <DependentUpon>UCEncounters.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCFamilyHistory.ascx.cs">
+      <DependentUpon>UCFamilyHistory.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCFamilyHistory.ascx.designer.cs">
+      <DependentUpon>UCFamilyHistory.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCImmunizations.ascx.cs">
+      <DependentUpon>UCImmunizations.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCImmunizations.ascx.designer.cs">
+      <DependentUpon>UCImmunizations.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCMostRecent.ascx.cs">
+      <DependentUpon>UCMostRecent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCMostRecent.ascx.designer.cs">
+      <DependentUpon>UCMostRecent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCAllergies.ascx.cs">
+      <DependentUpon>UCAllergies.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCAllergies.ascx.designer.cs">
+      <DependentUpon>UCAllergies.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCConditions.ascx.cs">
+      <DependentUpon>UCConditions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCConditions.ascx.designer.cs">
+      <DependentUpon>UCConditions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCMedications.ascx.cs">
+      <DependentUpon>UCMedications.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCMedications.ascx.designer.cs">
+      <DependentUpon>UCMedications.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\Services\AuthorizedService.svc.cs">
+      <DependentUpon>AuthorizedService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SuperUser\UserControls\UCMUReport.ascx.cs">
+      <DependentUpon>UCMUReport.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SuperUser\UserControls\UCMUReport.ascx.designer.cs">
+      <DependentUpon>UCMUReport.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCPatientList.ascx.cs">
+      <DependentUpon>UCPatientList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCPatientList.ascx.designer.cs">
+      <DependentUpon>UCPatientList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCPatientMenu.ascx.cs">
+      <DependentUpon>UCPatientMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCPatientMenu.ascx.designer.cs">
+      <DependentUpon>UCPatientMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCPatientPhpSummary.ascx.cs">
+      <DependentUpon>UCPatientPhpSummary.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCPatientPhpSummary.ascx.designer.cs">
+      <DependentUpon>UCPatientPhpSummary.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCPatientSearch.ascx.cs">
+      <DependentUpon>UCPatientSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCPatientSearch.ascx.designer.cs">
+      <DependentUpon>UCPatientSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCPhpSummary.ascx.cs">
+      <DependentUpon>UCPhpSummary.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCPhpSummary.ascx.designer.cs">
+      <DependentUpon>UCPhpSummary.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCRecordaccess.ascx.cs">
+      <DependentUpon>UCRecordaccess.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCRecordaccess.ascx.designer.cs">
+      <DependentUpon>UCRecordaccess.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCRecordAccessMenu.ascx.cs">
+      <DependentUpon>UCRecordAccessMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCRecordAccessMenu.ascx.designer.cs">
+      <DependentUpon>UCRecordAccessMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCReferralReceipt.ascx.cs">
+      <DependentUpon>UCReferralReceipt.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCReferralReceipt.ascx.designer.cs">
+      <DependentUpon>UCReferralReceipt.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCReferrals.ascx.cs">
+      <DependentUpon>UCReferrals.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCReferrals.ascx.designer.cs">
+      <DependentUpon>UCReferrals.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCTimerLog.ascx.cs">
+      <DependentUpon>UCTimerLog.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientLookUp\UserControls\UCTimerLog.ascx.designer.cs">
+      <DependentUpon>UCTimerLog.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceiveFile.ashx.cs">
+      <DependentUpon>ReceiveFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SendFile.ashx.cs">
+      <DependentUpon>SendFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\UCCallToActionBar.ascx.cs">
+      <DependentUpon>UCCallToActionBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shared\UCCallToActionBar.ascx.designer.cs">
+      <DependentUpon>UCCallToActionBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SuperUser\SuperUserMaster.Master.cs">
+      <DependentUpon>SuperUserMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SuperUser\SuperUserMaster.Master.designer.cs">
+      <DependentUpon>SuperUserMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Signup\MHT\Services\SignUpService.svc.cs">
+      <DependentUpon>SignUpService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="TermsConditions.aspx.cs">
+      <DependentUpon>TermsConditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermsConditions.aspx.designer.cs">
+      <DependentUpon>TermsConditions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TermsConditions_INMB.aspx.cs">
+      <DependentUpon>TermsConditions_INMB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermsConditions_INMB.aspx.designer.cs">
+      <DependentUpon>TermsConditions_INMB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testform.aspx.cs">
+      <DependentUpon>testform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testform.aspx.designer.cs">
+      <DependentUpon>testform.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs" />
+    <Compile Include="VideoChat.aspx.cs">
+      <DependentUpon>VideoChat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VideoChat.aspx.designer.cs">
+      <DependentUpon>VideoChat.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assemblies\Newtonsoft.Json.dll" />
+    <Content Include="Assemblies\Newtonsoft.Json.Net35.dll" />
+    <Content Include="AuditLog.aspx" />
+    <Content Include="AuthorizedUserForm.aspx" />
+    <Content Include="PatientLookUp\ASPX\AddEditClinicalDocuments.aspx" />
+    <Content Include="CommandCenter\ASPX\BillingReport.aspx" />
+    <Content Include="CommandCenter\ASPX\ConsentReport.aspx" />
+    <Content Include="CommandCenter\ASPX\Dashboard.aspx" />
+    <Content Include="CommandCenter\UserControls\BillingReport.ascx" />
+    <Content Include="CommandCenter\UserControls\ConsentReport.ascx" />
+    <Content Include="CommandCenter\UserControls\Dashboard.ascx" />
+    <Content Include="CommandCenter\UserControls\Login.ascx" />
+    <Content Include="Content\patientsummary.css" />
+    <Content Include="Content\session.css" />
+    <Content Include="Dependencies\itextsharp.dll" />
+    <Content Include="Encounters\aspx\AddEditMedications.aspx" />
+    <Content Include="Encounters\aspx\AssessmentSummary.aspx" />
+    <Content Include="Encounters\aspx\Assessmnt.aspx" />
+    <Content Include="Encounters\aspx\BabyPCP.aspx" />
+    <Content Include="Encounters\aspx\BreastFeedingBaby.aspx" />
+    <Content Include="Encounters\aspx\BreastFeedingMother.aspx" />
+    <Content Include="Encounters\aspx\BreastFeedingObserv.aspx" />
+    <Content Include="Encounters\aspx\ChiefComplaints.aspx" />
+    <Content Include="Encounters\aspx\Conditions.aspx" />
+    <Content Include="Encounters\aspx\CoordinationCare.aspx" />
+    <Content Include="Encounters\aspx\EditConditions.aspx" />
+    <Content Include="Encounters\aspx\EncountersMain.aspx" />
+    <Content Include="Encounters\aspx\HistoryIllness.aspx" />
+    <Content Include="Encounters\aspx\Medications.aspx" />
+    <Content Include="Encounters\aspx\Plan.aspx" />
+    <Content Include="Encounters\Services\EncounterService.svc" />
+    <Content Include="Encounters\UserControls\Assessmnt.ascx" />
+    <Content Include="Encounters\UserControls\BabyPCP.ascx" />
+    <Content Include="Encounters\UserControls\BreastFeedingBaby.ascx" />
+    <Content Include="Encounters\UserControls\BreastFeedingMother.ascx" />
+    <Content Include="Encounters\UserControls\BreastFeedingObserv.ascx" />
+    <Content Include="Encounters\UserControls\ChiefComplaints.ascx" />
+    <Content Include="Encounters\UserControls\Conditions.ascx" />
+    <Content Include="Encounters\UserControls\CoordinationCare.ascx" />
+    <Content Include="Encounters\UserControls\HistoryIllness.ascx" />
+    <Content Include="Encounters\UserControls\Medications.ascx" />
+    <Content Include="Encounters\UserControls\MomsOB.ascx" />
+    <Content Include="Encounters\UserControls\Plan.ascx" />
+    <Content Include="Images\adduser.png" />
+    <Content Include="Images\arrow_yellow.png" />
+    <Content Include="Images\button_close.jpg" />
+    <Content Include="Images\button_download.jpg" />
+    <Content Include="Images\button_edit.jpg" />
+    <Content Include="Images\button_edit1.jpg" />
+    <Content Include="Images\call_connect.png" />
+    <Content Include="Images\call_disconnect.png" />
+    <Content Include="Images\checkbox.gif" />
+    <Content Include="Images\checkbox1.gif" />
+    <Content Include="Images\checkbox_active.gif" />
+    <Content Include="Images\commandcenter.png" />
+    <Content Include="Encounters\aspx\Assessments.aspx" />
+    <Content Include="Encounters\UserControls\AssessmentSummary.ascx" />
+    <Content Include="Images\command_center_icon.png" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\down-arrow.png" />
+    <Content Include="Images\download-org.png" />
+    <Content Include="Images\edit-user.png" />
+    <Content Include="Images\edit_icon.png" />
+    <Content Include="Images\eye.png" />
+    <Content Include="Images\folder_03.png" />
+    <Content Include="Images\Icon-Demographics.png" />
+    <Content Include="Images\Icon-Encounter-1.png" />
+    <Content Include="Images\Icon-Encounter-1_old.png" />
+    <Content Include="Images\Icon-Encounters.png" />
+    <Content Include="Images\Icon-Flags.png" />
+    <Content Include="Images\Icon-Lab.png" />
+    <Content Include="Images\Icon-Lab_1.png" />
+    <Content Include="Images\Icon-Most-Recent-visit.png" />
+    <Content Include="Images\Icon-Problems.png" />
+    <Content Include="Images\Icon-Referrals.png" />
+    <Content Include="Images\Icon-Tests-and-Procedures.png" />
+    <Content Include="Images\Icon-Vital-signs.png" />
+    <Content Include="Images\icon_details.png" />
+    <Content Include="Images\icon_Encounter.png" />
+    <Content Include="Images\icon_Encounter_old.png" />
+    <Content Include="Images\icon_refresh.png" />
+    <Content Include="Images\MUdashboard.png" />
+    <Content Include="Images\overlay.png" />
+    <Content Include="Images\patient_myrecord.png" />
+    <Content Include="Images\PHP.jpg" />
+    <Content Include="Images\PHP2.png" />
+    <Content Include="Images\printer.png" />
+    <Content Include="Images\search_icon.png" />
+    <Content Include="Images\session-note.png" />
+    <Content Include="Images\share-view_recordaccess.png" />
+    <Content Include="Images\share.png" />
+    <Content Include="Images\shareView.png" />
+    <Content Include="Images\downloadPHP.png" />
+    <Content Include="Images\folder-sharePHP.png" />
+    <Content Include="Images\timer_deletetask.png" />
+    <Content Include="Images\timer_edittask.png" />
+    <Content Include="Images\up-arrow.png" />
+    <Content Include="Logon\FLD\LogonControl.ascx" />
+    <Content Include="Logon\MHT\LogonControl.ascx" />
+    <Content Include="Logon\UP\LogonControl.ascx" />
+    <Content Include="Images\Conditions.png" />
+    <Content Include="Images\DownloadnShare.png" />
+    <Content Include="Images\FamilyHistory.png" />
+    <Content Include="Images\Immunizations.png" />
+    <Content Include="Images\Medications.png" />
+    <Content Include="Images\Results.png" />
+    <Content Include="Images\SocialHistory.png" />
+    <Content Include="Images\yellow_arrow.png" />
+    <Content Include="PatientLookUp\ASPX\AddEditAuthorizedUser.aspx" />
+    <Content Include="PatientLookUp\ASPX\AddEditFamilyHistory.aspx" />
+    <Content Include="PatientLookUp\ASPX\AddEditLabResults.aspx" />
+    <Content Include="PatientLookUp\ASPX\AddEditRecord.aspx" />
+    <Content Include="PatientLookUp\ASPX\AddEditTestAndProcedures.aspx" />
+    <Content Include="PatientLookUp\ASPX\AjaxSessionNoteModification.aspx" />
+    <Content Include="PatientLookUp\ASPX\ClinicalDocuments.aspx" />
+    <Content Include="PatientLookUp\ASPX\CreatePatient.aspx" />
+    <Content Include="PatientLookUp\ASPX\DeleteAuthorizedUser.aspx" />
+    <Content Include="PatientLookUp\ASPX\EditDemographics.aspx" />
+    <Content Include="PatientLookUp\ASPX\EditEncounters.aspx" />
+    <Content Include="PatientLookUp\ASPX\EditImmunizations.aspx" />
+    <Content Include="PatientLookUp\ASPX\EditSocialHistory.aspx" />
+    <Content Include="PatientLookUp\ASPX\Encounters.aspx" />
+    <Content Include="PatientLookUp\ASPX\FamilyHistory.aspx" />
+    <Content Include="PatientLookUp\ASPX\Immunizations.aspx" />
+    <Content Include="PatientLookUp\ASPX\LabResults.aspx" />
+    <Content Include="PatientLookUp\ASPX\TestAndProcedures.aspx" />
+    <Content Include="PatientLookUp\ASPX\ViewDemographics.aspx" />
+    <Content Include="PatientLookUp\Services\PHPService.svc" />
+    <Content Include="PatientLookUp\UserControls\UCClinicalDocuments.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCLabResults.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCTestAndProcedures.ascx" />
+    <Content Include="Scripts\HighCharts\highcharts-more.js" />
+    <Content Include="Scripts\HighCharts\solid-gauge.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\pop-script.js" />
+    <Content Include="SuperUser\ASPX\AjaxMUReportDetails.aspx" />
+    <Content Include="SuperUser\ASPX\MUReport.aspx" />
+    <Content Include="PatientLookUp\ASPX\PatientPhpSummary.aspx" />
+    <Content Include="PatientLookUp\ASPX\PhpSummary.aspx" />
+    <Content Include="PatientLookUp\ASPX\Recordaccess.aspx" />
+    <Content Include="PatientLookUp\ASPX\ReferralReceipt.aspx" />
+    <Content Include="PatientLookUp\ASPX\ReferralView.aspx" />
+    <Content Include="PatientLookUp\ASPX\SessionNote.aspx" />
+    <Content Include="PatientLookUp\ASPX\ShareMail.aspx" />
+    <Content Include="PatientLookUp\ASPX\ViewPHPSummery.aspx" />
+    <Content Include="PatientLookUp\ASPX\ViewSocialHistory.aspx" />
+    <Content Include="SuperUser\Services\SuperUserService.svc" />
+    <Content Include="PatientLookUp\UserControls\UCAddEditDemographics.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCAddEditSocialHistory.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCCreatePatient.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCEncounters.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCFamilyHistory.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCImmunizations.ascx" />
+    <Content Include="PatientLookUp\Services\AuthorizedService.svc" />
+    <Content Include="SuperUser\UserControls\UCMUReport.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCPatientMenu.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCPatientPhpSummary.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCPhpSummary.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCRecordaccess.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCRecordAccessMenu.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCReferralReceipt.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCReferrals.ascx" />
+    <Content Include="Scripts\Audit_Log.js" />
+    <Content Include="Encounters\EncounterMaster.Master" />
+    <Content Include="Images\pdf.png" />
+    <Content Include="Scripts\Confirm.html" />
+    <Content Include="Scripts\HighCharts\exporting.js" />
+    <Content Include="Scripts\HighCharts\gray.js" />
+    <Content Include="Scripts\HighCharts\highcharts.js" />
+    <Content Include="Scripts\validate.js" />
+    <Content Include="CommandCenter\ASPX\UploadConsentForm.ashx" />
+    <None Include="Properties\PublishProfiles\Garage.pubxml" />
+    <None Include="Service References\BridgeMessanger\BridgeMessanger.disco" />
+    <None Include="Service References\BridgeMessanger\configuration91.svcinfo" />
+    <None Include="Service References\BridgeMessanger\configuration.svcinfo" />
+    <Content Include="Shared\UCCallToActionBar.ascx" />
+    <Content Include="Signup\MHT\Services\SignUpService.svc" />
+    <Content Include="Signup\MHT\UI\css\bootstrap.min.css" />
+    <Content Include="Signup\MHT\UI\css\jquery-ui.css" />
+    <Content Include="Signup\MHT\UI\css\jquery.ui.css" />
+    <Content Include="Signup\MHT\UI\css\kendo.common.min.css" />
+    <Content Include="Signup\MHT\UI\css\kendo.dataviz.default.min.css" />
+    <Content Include="Signup\MHT\UI\css\kendo.dataviz.min.css" />
+    <Content Include="Signup\MHT\UI\css\kendo.default.min.css" />
+    <Content Include="Signup\MHT\UI\css\style.css" />
+    <Content Include="Signup\MHT\UI\fonts\Roboto-Light.svg" />
+    <Content Include="Signup\MHT\UI\fonts\roboto-regular-webfont.svg" />
+    <Content Include="Signup\MHT\UI\images\down-arrow.png" />
+    <Content Include="Signup\MHT\UI\images\logo.png" />
+    <Content Include="Signup\MHT\UI\images\medical.png" />
+    <Content Include="Signup\MHT\UI\images\poweredby.png" />
+    <Content Include="Signup\MHT\UI\images\time.png" />
+    <Content Include="Signup\MHT\UI\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Signup\MHT\UI\js\bootstrap.min.js" />
+    <Content Include="Signup\MHT\UI\js\jquery-ui.js" />
+    <Content Include="Signup\MHT\UI\js\jquery.js" />
+    <Content Include="Signup\MHT\UI\js\jquery.min.js" />
+    <Content Include="Signup\MHT\UI\js\kendo.all.min.js" />
+    <Content Include="TermsConditions_INMB.aspx" />
+    <Content Include="Theme\base\images\ignite_logo_small.png" />
+    <Content Include="Theme\INMB\content\indexstyle.css" />
+    <Content Include="Theme\INMB\images\ignite_logo_small.png" />
+    <Content Include="Theme\INMB\images\Index\Ignite-footer-logo.png" />
+    <Content Include="Theme\INMB\images\ignite_logo.png" />
+    <Content Include="Theme\INMB\images\Index\stethoscope.png" />
+    <Content Include="Theme\MHT\content\indexstyle.css" />
+    <Content Include="Theme\MHT\images\ignite_logo.png" />
+    <Content Include="Theme\MHT\images\ignite_logo_small.png" />
+    <Content Include="Theme\MHT\images\Index\Ignite-footer-logo.png" />
+    <Content Include="Theme\MHT\images\Index\stethoscope.png" />
+    <Content Include="Theme\PPD\content\indexstyle.css" />
+    <Content Include="Theme\PPD\images\ignite_logo.png" />
+    <Content Include="Theme\PPD\images\ignite_logo_small.png" />
+    <Content Include="Theme\PPD\images\Index\Ignite-footer-logo.png" />
+    <Content Include="Theme\PPD\images\Index\stethoscope.png" />
+    <Content Include="Zoiper_Web_Example.html" />
+    <EmbeddedResource Include="broadcast_fms.swf" />
+    <Content Include="Chat.aspx" />
+    <Content Include="Chat_log.aspx" />
+    <Content Include="CommandCenter\ASPX\PLComplete.aspx" />
+    <Content Include="CommandCenter\ASPX\PLNotComplete.aspx" />
+    <Content Include="CommandCenter\ASPX\PLPatientList.aspx" />
+    <Content Include="CommandCenter\UserControls\CCPatientList.ascx" />
+    <Content Include="Content\dialpad.css" />
+    <Content Include="Content\emoticons.css" />
+    <Content Include="Content\emoticons.png" />
+    <Content Include="Theme\base\content\indexstyle.css" />
+    <Content Include="Content\patientlookup.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="DialPad.htm" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="HickChatEngine.svc" />
+    <Content Include="HickService.svc" />
+    <Content Include="HickUser.svc" />
+    <Content Include="Images\Actions-edit-clear-icon.png" />
+    <Content Include="Images\add-user.png" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\backspace.png" />
+    <Content Include="Images\bandaid-icon.png" />
+    <Content Include="Images\black_arrow.png" />
+    <Content Include="Images\blood-icon.png" />
+    <Content Include="Images\bp-icon.png" />
+    <Content Include="Images\calendar.jpg" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\call-incoming-icon.png" />
+    <Content Include="Images\call-outgoing-icon.png" />
+    <Content Include="Images\call.png" />
+    <Content Include="Images\callend-icon.png" />
+    <Content Include="Images\chemical-icon.png" />
+    <Content Include="Images\close-icon.png" />
+    <Content Include="Images\close_btn.png" />
+    <Content Include="Images\default_user.png" />
+    <Content Include="Images\disablility-icon.png" />
+    <Content Include="Images\dme.png" />
+    <Content Include="Images\download.png" />
+    <Content Include="Images\drafts-icon.png" />
+    <Content Include="Images\edit-icon.png" />
+    <Content Include="Images\EditConditions.jpg" />
+    <Content Include="Images\endcall.png" />
+    <Content Include="Images\endcl.jpg" />
+    <Content Include="Images\error_hich.png" />
+    <Content Include="Images\fileupload-loader.gif" />
+    <Content Include="Images\folder-icon.png" />
+    <Content Include="Images\gray_arrow.png" />
+    <Content Include="Images\group-chat_icon.png" />
+    <Content Include="Images\group-fav_icon.png" />
+    <Content Include="Images\group-starred_icon.png" />
+    <Content Include="Images\group_chat.png" />
+    <Content Include="Images\group_icon.png" />
+    <Content Include="Images\group_image.png" />
+    <Content Include="Images\heart-greay.png" />
+    <Content Include="Images\heart-green.png" />
+    <Content Include="Images\heart-icon.png" />
+    <Content Include="Images\heart-red.png" />
+    <Content Include="Images\hick_logo.png" />
+    <Content Include="Images\homehealth.png" />
+    <Content Include="Images\hospice.png" />
+    <Content Include="Images\hospital-icon.png" />
+    <Content Include="Theme\base\images\ignite_logo.png" />
+    <Content Include="Images\ignite_logo200x100.png" />
+    <Content Include="Images\ignite_logo_small.png" />
+    <Content Include="Images\imgcall.png" />
+    <Content Include="Theme\base\images\Index\cross.jpg" />
+    <Content Include="Theme\base\images\Index\cross1.jpg" />
+    <Content Include="Theme\base\images\Index\errormsg.png" />
+    <Content Include="Theme\base\images\Index\hick.jpg" />
+    <Content Include="Theme\base\images\Index\HICK_screen_1.jpg" />
+    <Content Include="Theme\base\images\Index\stethoscope.png" />
+    <Content Include="Images\laboratory.png" />
+    <Content Include="Images\logo_green.png" />
+    <Content Include="Images\message-1.png" />
+    <Content Include="Images\messages-icon.png" />
+    <Content Include="Images\next.png" />
+    <Content Include="Images\notebook.png" />
+    <Content Include="Images\notes-icon.png" />
+    <Content Include="Images\notsure.png" />
+    <Content Include="Images\option_selected.png" />
+    <Content Include="Images\option_selected_waiting.png" />
+    <Content Include="Images\option_unselected.png" />
+    <Content Include="Images\popup_close.png" />
+    <Content Include="Images\portrait-icon.png" />
+    <Content Include="Images\prev.png" />
+    <Content Include="Images\pulse-icon.png" />
+    <Content Include="Images\rab-icon.png" />
+    <Content Include="Images\radiology.png" />
+    <Content Include="Images\search_users.png" />
+    <Content Include="Images\search_users_logo.jpg" />
+    <Content Include="Images\send_btn.png" />
+    <Content Include="Images\smileicon.png" />
+    <Content Include="Images\smilies\angel_30.png" />
+    <Content Include="Images\smilies\angry_30.png" />
+    <Content Include="Images\smilies\bandit_30.png" />
+    <Content Include="Images\smilies\bartlett_30.png" />
+    <Content Include="Images\smilies\beer_30.png" />
+    <Content Include="Images\smilies\biggrin.png" />
+    <Content Include="Images\smilies\bigsmile_30.png" />
+    <Content Include="Images\smilies\blushing_30.png" />
+    <Content Include="Images\smilies\bow_30.png" />
+    <Content Include="Images\smilies\brokenheart_30.png" />
+    <Content Include="Images\smilies\bug_30.png" />
+    <Content Include="Images\smilies\cake_30.png" />
+    <Content Include="Images\smilies\call_30.png" />
+    <Content Include="Images\smilies\cash_30.png" />
+    <Content Include="Images\smilies\clapping_30.png" />
+    <Content Include="Images\smilies\coffee_30.png" />
+    <Content Include="Images\smilies\confused.png" />
+    <Content Include="Images\smilies\cool.png" />
+    <Content Include="Images\smilies\cool_30.png" />
+    <Content Include="Images\smilies\cry.png" />
+    <Content Include="Images\smilies\crying_30.png" />
+    <Content Include="Images\smilies\dancing_30.png" />
+    <Content Include="Images\smilies\devil_30.png" />
+    <Content Include="Images\smilies\doh_30.png" />
+    <Content Include="Images\smilies\drink_30.png" />
+    <Content Include="Images\smilies\drunk_30.png" />
+    <Content Include="Images\smilies\dull_30.png" />
+    <Content Include="Images\smilies\dull_tauri_30.png" />
+    <Content Include="Images\smilies\eek.png" />
+    <Content Include="Images\smilies\emo_30.png" />
+    <Content Include="Images\smilies\envy_30.png" />
+    <Content Include="Images\smilies\evil.png" />
+    <Content Include="Images\smilies\evilgrin_30.png" />
+    <Content Include="Images\smilies\facepalm_30.png" />
+    <Content Include="Images\smilies\fingerscrossed_30.png" />
+    <Content Include="Images\smilies\finger_30.png" />
+    <Content Include="Images\smilies\flower_30.png" />
+    <Content Include="Images\smilies\fubar_30.png" />
+    <Content Include="Images\smilies\giggle_30.png" />
+    <Content Include="Images\smilies\handshake_30.png" />
+    <Content Include="Images\smilies\happy_30.png" />
+    <Content Include="Images\smilies\headbang_30.png" />
+    <Content Include="Images\smilies\heart_30.png" />
+    <Content Include="Images\smilies\heidy_30.png" />
+    <Content Include="Images\smilies\highfive_30.png" />
+    <Content Include="Images\smilies\hi_30.png" />
+    <Content Include="Images\smilies\hollest_30.png" />
+    <Content Include="Images\smilies\hug_30.png" />
+    <Content Include="Images\smilies\inlove_30.png" />
+    <Content Include="Images\smilies\itwasntme_30.png" />
+    <Content Include="Images\smilies\kiss_30.png" />
+    <Content Include="Images\smilies\lalala_30.png" />
+    <Content Include="Images\smilies\like.png" />
+    <Content Include="Images\smilies\lipssealed_30.png" />
+    <Content Include="Images\smilies\lol.png" />
+    <Content Include="Images\smilies\love.png" />
+    <Content Include="Images\smilies\mad.png" />
+    <Content Include="Images\smilies\mail_30.png" />
+    <Content Include="Images\smilies\makeup_30.png" />
+    <Content Include="Images\smilies\malthe_30.png" />
+    <Content Include="Images\smilies\mmm_30.png" />
+    <Content Include="Images\smilies\mooning_30.png" />
+    <Content Include="Images\smilies\movie_30.png" />
+    <Content Include="Images\smilies\mrgreen.png" />
+    <Content Include="Images\smilies\muscle_30.png" />
+    <Content Include="Images\smilies\music_30.png" />
+    <Content Include="Images\smilies\nerd_30.png" />
+    <Content Include="Images\smilies\neutral.png" />
+    <Content Include="Images\smilies\ninja_30.png" />
+    <Content Include="Images\smilies\nod_30.png" />
+    <Content Include="Images\smilies\no_30.png" />
+    <Content Include="Images\smilies\oliver_30.png" />
+    <Content Include="Images\smilies\party_30.png" />
+    <Content Include="Images\smilies\phone_30.png" />
+    <Content Include="Images\smilies\pizza_30.png" />
+    <Content Include="Images\smilies\poolparty_30.png" />
+    <Content Include="Images\smilies\priidu_30.png" />
+    <Content Include="Images\smilies\puking_30.png" />
+    <Content Include="Images\smilies\punch_30.png" />
+    <Content Include="Images\smilies\question.png" />
+    <Content Include="Images\smilies\rain_30.png" />
+    <Content Include="Images\smilies\razz.png" />
+    <Content Include="Images\smilies\redface.png" />
+    <Content Include="Images\smilies\rock_30.png" />
+    <Content Include="Images\smilies\rofl_30.png" />
+    <Content Include="Images\smilies\rolleyes.png" />
+    <Content Include="Images\smilies\sad.png" />
+    <Content Include="Images\smilies\sadsmile_30.png" />
+    <Content Include="Images\smilies\shake_30.png" />
+    <Content Include="Images\smilies\sleepy_30.png" />
+    <Content Include="Images\smilies\smile.png" />
+    <Content Include="Images\smilies\smile_30.png" />
+    <Content Include="Images\smilies\smirk_30.png" />
+    <Content Include="Images\smilies\smoking_30.png" />
+    <Content Include="Images\smilies\speechless_30.png" />
+    <Content Include="Images\smilies\star_30.png" />
+    <Content Include="Images\smilies\sunshine_30.png" />
+    <Content Include="Images\smilies\surprised.png" />
+    <Content Include="Images\smilies\surprised_30.png" />
+    <Content Include="Images\smilies\swear_30.png" />
+    <Content Include="Images\smilies\sweating_30.png" />
+    <Content Include="Images\smilies\talking_30.png" />
+    <Content Include="Images\smilies\thinking_30.png" />
+    <Content Include="Images\smilies\thumbdown.png" />
+    <Content Include="Images\smilies\thumbup.png" />
+    <Content Include="Images\smilies\time_30.png" />
+    <Content Include="Images\smilies\tmi_30.png" />
+    <Content Include="Images\smilies\toivo_30.png" />
+    <Content Include="Images\smilies\tongueout_30.png" />
+    <Content Include="Images\smilies\tumbleweed_30.png" />
+    <Content Include="Images\smilies\twisted.png" />
+    <Content Include="Images\smilies\waiting_30.png" />
+    <Content Include="Images\smilies\wait_30.png" />
+    <Content Include="Images\smilies\wfh_30.png" />
+    <Content Include="Images\smilies\whew_30.png" />
+    <Content Include="Images\smilies\wink.png" />
+    <Content Include="Images\smilies\wink_30.png" />
+    <Content Include="Images\smilies\wondering_30.png" />
+    <Content Include="Images\smilies\worried_30.png" />
+    <Content Include="Images\smilies\wtf_30.png" />
+    <Content Include="Images\smilies\yawning_30.png" />
+    <Content Include="Images\smilies\yes_30.png" />
+    <Content Include="Images\specialist.png" />
+    <Content Include="Images\syringe-icon.png" />
+    <Content Include="Images\timermanagement.png" />
+    <Content Include="Images\user-active.png" />
+    <Content Include="Images\user-icon.png" />
+    <Content Include="Images\user1.png" />
+    <Content Include="Images\user2.png" />
+    <Content Include="Images\user3.png" />
+    <Content Include="Images\user4.png" />
+    <Content Include="Images\user5.png" />
+    <Content Include="Images\user6.png" />
+    <Content Include="Images\user7.png" />
+    <Content Include="Images\user8.png" />
+    <Content Include="Images\userimage.jpg" />
+    <Content Include="Images\web_camera.png" />
+    <EmbeddedResource Include="receive_fms.swf" />
+    <Content Include="Index.aspx" />
+    <Content Include="FlashResource.ashx" />
+    <Content Include="ExportChat.ashx" />
+    <Content Include="PatientLookUp\ASPX\AddEditAllergies.aspx" />
+    <Content Include="PatientLookUp\ASPX\AddEditMedications.aspx" />
+    <Content Include="PatientLookUp\ASPX\AddTask.aspx" />
+    <Content Include="PatientLookUp\ASPX\Allergies.aspx" />
+    <Content Include="PatientLookUp\ASPX\Conditions.aspx" />
+    <Content Include="PatientLookUp\ASPX\EditConditions.aspx" />
+    <Content Include="PatientLookUp\ASPX\Medications.aspx" />
+    <Content Include="PatientLookUp\ASPX\MostRecent.aspx" />
+    <Content Include="PatientLookUp\ASPX\PatientList.aspx" />
+    <Content Include="PatientLookUp\ASPX\PatientSearch.aspx" />
+    <Content Include="PatientLookUp\ASPX\TimerLog.aspx" />
+    <Content Include="PatientLookUp\LookUpMaster.Master" />
+    <Content Include="PatientLookUp\TimerLog.Master" />
+    <None Include="Properties\PublishProfiles\hick_release.pubxml" />
+    <Content Include="PatientLookUp\UserControls\UCAddTask.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCMostRecent.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCAllergies.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCConditions.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCMedications.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCPatientList.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCPatientSearch.ascx" />
+    <Content Include="PatientLookUp\UserControls\UCTimerLog.ascx" />
+    <Content Include="Scripts\Chat.js" />
+    <Content Include="Scripts\Chat_log.js" />
+    <Content Include="Scripts\Chat_test.js" />
+    <Content Include="Scripts\dialpad.js" />
+    <Content Include="Scripts\emoticons.js" />
+    <Content Include="Scripts\infragistics.core.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.ajaxfileupload.js" />
+    <Content Include="Scripts\jquery.jqote2.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="templates.html" />
+    <Content Include="TermsConditions.aspx" />
+    <Content Include="testform.aspx" />
+    <Content Include="VideoChat.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="SendFile.ashx" />
+    <Content Include="ReceiveFile.ashx" />
+    <None Include="Service References\BridgeMessanger\BridgeMessanger.wsdl" />
+    <None Include="Service References\BridgeMessanger\BridgeMessanger.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BridgeMessanger\BridgeMessanger1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BridgeMessanger\BridgeMessanger2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BridgeMessanger\BridgeMessanger3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BridgeMessanger\BridgeMessanger4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="SuperUser\SuperUserMaster.Master" />
+    <Content Include="Signup\MHT\UI\fonts\Roboto-Light.eot" />
+    <Content Include="Signup\MHT\UI\fonts\Roboto-Light.ttf" />
+    <Content Include="Signup\MHT\UI\fonts\Roboto-Light.woff" />
+    <Content Include="Signup\MHT\UI\fonts\roboto-regular-webfont.eot" />
+    <Content Include="Signup\MHT\UI\fonts\roboto-regular-webfont.ttf" />
+    <Content Include="Signup\MHT\UI\fonts\roboto-regular-webfont.woff" />
+    <Content Include="Signup\MHT\UI\fonts\roboto-regular-webfont.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
+    <Folder Include="UserFiles\ClinicalForms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Encryption\Encryption.csproj">
+      <Project>{e837546b-ad80-4648-85ef-d208098836ed}</Project>
+      <Name>Encryption</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IGNITE_BLL\IGNITE_BLL.csproj">
+      <Project>{584719b6-3ba8-44d5-b9e6-c30dfbc18667}</Project>
+      <Name>IGNITE_BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IGNITE_DAL\IGNITE_DAL.csproj">
+      <Project>{926257cf-e36a-43d4-9ce8-3bf8ca6bc674}</Project>
+      <Name>IGNITE_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IGNITE_MODEL\IGNITE_MODEL.csproj">
+      <Project>{6baac468-ebb4-4d65-a5a3-e65487b042fb}</Project>
+      <Name>IGNITE_MODEL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BridgeMessanger\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57520</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57520/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

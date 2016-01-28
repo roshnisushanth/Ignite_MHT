@@ -1,0 +1,30 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_hick_GetAuthorizedUser]') AND type in (N'P', N'PC'))
+BEGIN
+	DROP PROCEDURE [dbo].[sp_hick_GetAuthorizedUser]
+	PRINT 'Dropped [dbo].[sp_hick_GetAuthorizedUser]'
+END	
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[sp_hick_GetAuthorizedUser]
+@action as varchar(50),
+@UserId AS bigint ,
+@AutherizedUserId as bigint = NULL 
+AS
+BEGIN
+
+IF(@action='SelectOnId')
+BEGIN
+Select AP.AuthorizedUserId,U.Username,u.EmailID,U.Firstname,U.Lastname,AP.Passcode Password,U.dateofbirth,AP.Relationship,AP.OtherRelationship from dbo.Hick_Users as U
+Inner Join dbo.IgniteAuthorizedRepMapping AP on AP.AuthorizedUserId=U.ID where AP.AuthorizedUserId=@AutherizedUserId and UserId=@UserId 
+END
+ELSE
+BEGIN
+Select AP.AuthorizedUserId,U.Username,u.EmailID,U.Firstname,U.Lastname,AP.Passcode Password,U.dateofbirth,AP.Relationship,AP.OtherRelationship,AP.LastAccessedIn from dbo.Hick_Users as U
+Inner Join dbo.IgniteAuthorizedRepMapping AP on AP.AuthorizedUserId=U.ID where  UserId=@UserId and ActiveStatus='True' and RevokeAccess='False'
+END
+
+END

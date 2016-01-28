@@ -1,0 +1,9 @@
+ALTER PROCEDURE [dbo].[sp_hick_TotalTaskDurationForGivenUsers]
+@CurrentUserId as bigint,
+@PeerId as bigint,
+@Date as VARCHAR(100)
+AS
+BEGIN
+	SELECT taskid, 'task' as tasktype, task,CONVERT(varchar(10),task_date,103) as conversationdate,category,start_time,end_time,total_time from hick_tasks
+	WHERE (patient_id=@PeerId and created_by=@CurrentUserId) and task_date between DATEADD(DAY, 1-DAY(@Date), DATEDIFF(DAY, 0, @Date)) and @Date
+END

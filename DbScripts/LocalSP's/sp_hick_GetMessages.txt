@@ -1,0 +1,71 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_hick_GetMessages]') AND type in (N'P', N'PC'))
+BEGIN
+	DROP PROCEDURE [dbo].[sp_hick_GetMessages]
+	PRINT 'Dropped [dbo].[sp_hick_GetMessages]'
+END	
+GO
+
+PRINT 'Creating [dbo].[sp_hick_GetMessages]'
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_hick_GetMessages]
+@ConvId AS VARCHAR(50),
+@CurUsrId AS BIGINT,
+@PeerId AS BIGINT,
+@GroupId AS BIGINT,
+@MsgTypeTxt AS INT,
+@MagTypeFile AS INT
+AS
+BEGIN
+	IF(@GroupId=0)
+	BEGIN
+		select l.Id,l.Conversation_Id,l.Conversation_log,l.Message_Type,l.Read_Status,l.Conversation_date,l.peerid,l.Message_To,
+		peeruserF=(select top 1 FirstName as Username from Hick_Users where ID=l.peerid),
+		peeruserL=(select top 1 Lastname as Username from Hick_Users where ID=l.peerid),
+		peerusername =(select top 1 Username from Hick_Users where ID=l.peerid),
+		totaltextchat=(select top 1 total_txtchat_dauration from Hick_user_Conversation where ID IN (SELECT * FROM SplitDelimiterString(@ConvId, ',')) ORDER BY ID DESC) 
+		from Hick_Conversation_log as l
+		left outer join Hick_Clear_Log as cl on l.Conversation_Id=cl.Conversation_Id and cl.UserId=@CurUsrId
+		where l.Conversation_Id IN
+		(select top 1 MAX(subuc.ID) AS ID from Hick_user_Conversation as subuc
+		inner join Hick_Conversation_log as subcl on subuc.ID=subcl.Conversation_Id
+		where ((subuc.Initiator=@CurUsrId and subuc.Answerer=@PeerId) or (subuc.Initiator=@PeerId and subuc.Answerer=@CurUsrId ))
+		and subuc.ConversationDate<>CONVERT(date,SYSUTCDATETIME())
+		UNION
+		SELECT ID FROM Hick_user_Conversation WHERE ID IN (SELECT * FROM SplitDelimiterString(@ConvId, ',')))
+		and l.Conversation_date>= CASE WHEN  cl.Cleared_Date IS NULL THEN
+		l.Conversation_date ELSE cl.Cleared_Date END
+		and (l.Message_Type=@MsgTypeTxt OR l.Message_Type=@MagTypeFile)
+		order by l.Id asc
+	END
+	ELSE IF(@GroupId<>0)
+	BEGIN
+		select l.Id,l.Conversation_Id,l.Conversation_log,l.Message_Type,l.Conversation_date,l.peerid,l.Message_To,
+		peeruserF=(select top 1 FirstName as Username from Hick_Users where ID=l.peerid),
+		peeruserL=(select top 1 Lastname as Username from Hick_Users where ID=l.peerid),
+		peerusername =(select top 1 Username from Hick_Users where ID=l.peerid),
+		totaltextchat=(select top 1 total_txtchat_dauration from Hick_user_Conversation where ID IN (SELECT * FROM SplitDelimiterString(@ConvId, ',')) ORDER BY ID DESC),
+		Read_Status=(select top 1 message_status from hick_group_users where group_id=@GroupId and user_id=@CurUsrId)
+		from Hick_Conversation_log as l
+		left outer join Hick_Clear_Log as cl on l.Conversation_Id=cl.Conversation_Id and cl.UserId=@CurUsrId
+		left outer join hick_previous_log as Prlog on l.Conversation_Id=Prlog.conversation_id
+		where l.Conversation_Id IN ((select DISTINCT top 2 subuc.ID from Hick_user_Conversation as subuc
+		inner join Hick_Conversation_log as subcl on subuc.ID=subcl.Conversation_Id
+		left outer join hick_previous_log as pl on subcl.Conversation_Id=pl.conversation_id
+		where ((subuc.group_id=@GroupId OR pl.group_id=@GroupId)) order by subuc.ID desc))
+		and l.Conversation_date>= CASE WHEN  cl.Cleared_Date IS NULL THEN
+		l.Conversation_date ELSE cl.Cleared_Date END
+		and (l.Message_Type=@MsgTypeTxt OR l.Message_Type=@MagTypeFile)
+		and ISNULL(Prlog.created_date,l.Conversation_date)>=l.Conversation_date
+		and ISNULL(Prlog.group_id,0)=Case when Prlog.group_id IS NULL Then 0 Else @GroupId end
+		order by l.Id asc
+	END
+END
+
+
+GO
+PRINT 'Created the procedure sp_hick_GetMessages'
+GO  

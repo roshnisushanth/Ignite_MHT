@@ -1,0 +1,285 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_HickPatientList]') AND type in (N'P', N'PC'))
+BEGIN
+	DROP PROCEDURE [dbo].[sp_HickPatientList]
+	PRINT 'Dropped [dbo].[sp_HickPatientList]'
+END	
+GO
+
+PRINT 'Creating [dbo].[sp_HickPatientList]'
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_HickPatientList] 	
+	@CurrentUserId AS BIGINT,
+	@CurrentDate DATETIME,
+	@Flag AS SMALLINT
+AS
+	DECLARE @StartDate AS DATETIME,
+			@UserType VARCHAR(100),
+			@ID AS BIGINT,
+			@TotalDuration AS VARCHAR(30),
+			@TotalSeconds AS BIGINT,
+			@TotalSecondsTemp AS BIGINT,
+			@TotalDurationTemp AS VARCHAR(30)
+			
+	DECLARE @MyCursor CURSOR	 	
+	DECLARE @TotalDurTable AS TABLE
+	(
+	ID BIGINT,
+	VideoDuration VARCHAR(30),
+	TextDuration VARCHAR(30),
+	TaskDuration VARCHAR(30),
+	AudioCallDuration VARCHAR(30),
+	TotalDuration VARCHAR(30)
+	)
+	
+BEGIN	
+	SET NOCOUNT ON;	
+	SET @StartDate=DATEADD(DAY, 1-DAY(@CurrentDate), DATEDIFF(DAY, 0, @CurrentDate));
+	SET @UserType='Patient'
+	/* Video Chat Duration */
+	SELECT  VL.ConversationId,VL.PeerId,VL.ConversationDate,VL.ConversationEndTime,
+			DateDiff(s, VL.ConversationDate, ConversationEndTime)/3600 as hrs,
+			DateDiff(s, VL.ConversationDate, ConversationEndTime)%3600/60 as mts,
+			DateDiff(s, VL.ConversationDate, ConversationEndTime)%60 as sec,
+			DateDiff(s,VL.ConversationDate , ConversationEndTime) as TotalSeconds
+			INTO #temptable
+	FROM Hick_VideoConversation_Log AS VL
+	INNER JOIN Hick_Users AS U ON VL.PeerId=U.ID AND U.user_type=@UserType	
+	WHERE VL.ParentVideoId IS NOT NULL AND VL.Status=7 
+		  AND VL.ConversationEndTime IS NOT NULL 
+		  AND VL.ConversationEndTime>=@StartDate	  		
+		
+	SET @MyCursor = CURSOR FOR SELECT DISTINCT PeerId FROM #temptable WHERE TotalSeconds>0
+	OPEN @MyCursor
+	FETCH NEXT FROM @MyCursor INTO @ID
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+			
+		SET @TotalSeconds=(SELECT SUM(TotalSeconds)
+						   FROM #temptable WHERE PeerId=@ID)							
+							
+		SET @TotalDuration=(SELECT dbo.hick_formatTime(@TotalSeconds))
+		
+		--SET @TotalDuration=(SELECT STR(SUM(TotalSeconds)/3600) + RIGHT(CONVERT(char(8),DATEADD(s,SUM(TotalSeconds),0),108),7) FROM #temptable WHERE PeerId=@ID)
+		PRINT('Video:'+@TotalDuration)
+		INSERT INTO @TotalDurTable (ID,VideoDuration,TotalDuration) VALUES(@ID,@TotalDuration,@TotalDuration)
+		FETCH NEXT FROM @MyCursor INTO @ID
+	END
+	CLOSE @MyCursor	
+	DEALLOCATE @MyCursor	
+	DROP TABLE #temptable
+	
+	
+	/* Text Chat Duration */	
+	SELECT DISTINCT CL.peerid,CL.Conversation_Id,
+		   UC.total_txtchat_dauration INTO #temptextchat
+	FROM Hick_Conversation_log AS CL
+	INNER JOIN Hick_user_Conversation AS UC ON CL.Conversation_Id=UC.ID 
+	INNER JOIN Hick_Users AS U ON CL.peerid=U.ID AND U.user_type=@UserType
+	WHERE CL.Conversation_date>=@StartDate	
+		  AND UC.total_txtchat_dauration IS NOT NULL	  
+	ORDER BY CL.peerid			
+	
+	SET @MyCursor = CURSOR FOR SELECT DISTINCT PeerId FROM #temptextchat 
+	OPEN @MyCursor
+	FETCH NEXT FROM @MyCursor INTO @ID
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		
+		--SET @TotalDuration=(SELECT CONVERT(TIME(0),DATEADD(ms, SUM(DATEDIFF(ms, '00:00:00.000', total_txtchat_dauration)), '00:00:00.000')) 
+		--					FROM #temptextchat where peerid =@ID)		
+		
+		SET @TotalSeconds=(SELECT SUM(dbo.getTotalTimeInSeconds(total_txtchat_dauration))
+						   FROM #temptextchat where peerid =@ID)							
+							
+		SET @TotalDuration=(SELECT dbo.hick_formatTime(@TotalSeconds))
+		PRINT('Text:'+@TotalDuration)
+		
+		IF(EXISTS(SELECT ID FROM @TotalDurTable WHERE ID=@ID))
+		BEGIN			
+			begin try
+			SET @TotalSecondsTemp=(SELECT @TotalSeconds + SUM(dbo.getTotalTimeInSeconds(T.TotalDuration))
+								   FROM @TotalDurTable AS T WHERE ID=@ID)								   
+				end try
+				begin catch 
+				SET @TotalSecondsTemp=(0)
+				end catch
+			SET @TotalDurationTemp=(SELECT dbo.hick_formatTime(@TotalSecondsTemp))
+							
+			UPDATE @TotalDurTable			
+			SET TotalDuration=@TotalDurationTemp,
+				TextDuration=@TotalDuration
+			WHERE ID=@ID
+		END
+		ELSE
+		BEGIN
+			INSERT INTO @TotalDurTable (ID,TextDuration,TotalDuration) VALUES(@ID,@TotalDuration,@TotalDuration)
+		END		
+		FETCH NEXT FROM @MyCursor INTO @ID
+	END
+	CLOSE @MyCursor
+	DROP TABLE #temptextchat
+	DEALLOCATE @MyCursor	
+	
+	/* Added Task Duration */
+	
+	SELECT patient_id,total_time INTO #temptaskdetls
+	FROM hick_tasks AS T
+		 INNER JOIN Hick_Users AS U ON T.patient_id=U.ID AND U.user_type=@UserType
+	WHERE T.task_date>=@StartDate AND T.total_time IS NOT NULL
+	ORDER BY T.patient_id ASC		
+	
+	SET @MyCursor = CURSOR FOR SELECT DISTINCT patient_id FROM #temptaskdetls
+	OPEN @MyCursor
+	FETCH NEXT FROM @MyCursor INTO @ID
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		SET @TotalSeconds=(SELECT SUM(dbo.getTotalTimeInSeconds(total_time))
+						   FROM #temptaskdetls where patient_id =@ID)						
+							
+		SET @TotalDuration=(SELECT dbo.hick_formatTime(@TotalSeconds))
+	
+		--SET @TotalDuration=(SELECT CONVERT(TIME(0),DATEADD(ms, SUM(DATEDIFF(ms, '00:00:00.000', total_time)), '00:00:00.000')) 
+		--					FROM #temptaskdetls where patient_id =@ID)
+		
+		PRINT('TASK:'+@TotalDuration)
+		IF(EXISTS(SELECT ID FROM @TotalDurTable WHERE ID=@ID))
+		BEGIN
+		begin try
+			SET @TotalSecondsTemp=(SELECT @TotalSeconds + SUM(dbo.getTotalTimeInSeconds(T.TotalDuration))
+								   FROM @TotalDurTable AS T WHERE ID=@ID)								   
+		end try
+		begin catch
+		SET @TotalSecondsTemp=(0)
+		end catch
+			SET @TotalDurationTemp=(SELECT dbo.hick_formatTime(@TotalSecondsTemp))
+			
+			UPDATE @TotalDurTable			
+			SET TotalDuration=@TotalDurationTemp,
+				TaskDuration=@TotalDuration
+			WHERE ID=@ID
+		END
+		ELSE
+		BEGIN
+			INSERT INTO @TotalDurTable (ID,TaskDuration,TotalDuration) VALUES(@ID,@TotalDuration,@TotalDuration)
+		END		
+		FETCH NEXT FROM @MyCursor INTO @ID
+	END
+	CLOSE @MyCursor	
+	DEALLOCATE @MyCursor
+	DROP TABLE #temptaskdetls
+	
+	
+	/* Audio Call Duration */
+	
+	SELECT initiator,call_duration INTO #tempaudiocall
+	FROM hick_audiocall_log AS AL
+		 INNER JOIN Hick_Users AS U ON AL.initiator=U.ID AND U.user_type=@UserType
+	WHERE AL.conversation_date>=@StartDate AND AL.call_duration IS NOT NULL
+	ORDER BY AL.initiator ASC		
+	
+	SET @MyCursor = CURSOR FOR SELECT DISTINCT initiator FROM #tempaudiocall
+	OPEN @MyCursor
+	FETCH NEXT FROM @MyCursor INTO @ID
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		SET @TotalSeconds=(SELECT SUM(dbo.getTotalTimeInSeconds(call_duration))
+						   FROM #tempaudiocall where initiator =@ID)				
+							
+		SET @TotalDuration=(SELECT dbo.hick_formatTime(@TotalSeconds))
+		
+		--SET @TotalDuration=(SELECT CONVERT(TIME(0),DATEADD(ms, SUM(DATEDIFF(ms, '00:00:00.000', call_duration)), '00:00:00.000')) 
+		--					FROM #tempaudiocall where initiator =@ID)
+		PRINT('AudioCall:'+@TotalDuration)
+		IF(EXISTS(SELECT ID FROM @TotalDurTable WHERE ID=@ID))
+		BEGIN
+			SET @TotalSecondsTemp=(SELECT @TotalSeconds + SUM(dbo.getTotalTimeInSeconds(T.TotalDuration))
+								   FROM @TotalDurTable AS T WHERE ID=@ID)								   
+				
+			SET @TotalDurationTemp=(SELECT dbo.hick_formatTime(@TotalSecondsTemp))
+		
+			UPDATE @TotalDurTable			
+			SET TotalDuration=@TotalDurationTemp,
+				AudioCallDuration=@TotalDuration
+			WHERE ID=@ID
+		END
+		ELSE
+		BEGIN
+			INSERT INTO @TotalDurTable (ID,AudioCallDuration,TotalDuration) VALUES(@ID,@TotalDuration,@TotalDuration)
+		END		
+		FETCH NEXT FROM @MyCursor INTO @ID
+	END
+	CLOSE @MyCursor	
+	DEALLOCATE @MyCursor
+	DROP TABLE #tempaudiocall
+	
+	/*Flag=0 All Patient List Both Completed and Not Completed 20 Minutes of Chat*/
+	IF(@Flag=0)
+	BEGIN
+		WITH RESULT AS(
+			SELECT ROW_NUMBER() OVER(PARTITION BY U.ID ORDER BY U.ID ASC) AS rownum,U.ID,U.Lastname,U.Firstname, U.dateofbirth as dateofbirth,U.phone_number,U.user_type,
+				   TD.VideoDuration,TD.TextDuration,TD.TaskDuration,TD.AudioCallDuration,TD.TotalDuration,u.referenceid,
+				   PhysicianFirst=(SELECT P.Firstname FROM Hick_Users AS P WHERE P.ID=PM.physicianId),
+				   PhysicianLast=(SELECT P.Lastname FROM Hick_Users AS P WHERE P.ID=PM.physicianId)   
+			FROM Hick_Users AS U
+				 INNER JOIN hick_physician_mapping AS PM ON U.ID=PM.patientId
+				 LEFT OUTER JOIN @TotalDurTable AS TD  ON U.ID=TD.ID
+			WHERE U.user_type=@UserType
+				  AND PM.physicianId IN (SELECT DISTINCT physicianId from hick_physician_practice 
+										 WHERE practiceId IN (SELECT practiceId FROM hick_physician_practice WHERE physicianId=@CurrentUserId))
+		)
+		SELECT * FROM RESULT  WHERE rownum=1
+		ORDER BY Lastname ASC	
+		--added by roshni
+	END
+	/*Flag=1 Patients Completed 20 Minutes of Chat*/
+	ELSE IF(@Flag=1)
+	BEGIN
+		WITH RESULT AS(
+			SELECT ROW_NUMBER() OVER(PARTITION BY U.ID ORDER BY U.ID ASC) AS rownum,U.ID,U.Lastname,U.Firstname,U.dateofbirth as dateofbirth,U.phone_number,U.user_type,
+				   TD.VideoDuration,TD.TextDuration,TD.TaskDuration,TD.AudioCallDuration,TD.TotalDuration,u.referenceid,
+				    PhysicianFirst=(SELECT P.Firstname FROM Hick_Users AS P WHERE P.ID=PM.physicianId),
+				   PhysicianLast=(SELECT P.Lastname FROM Hick_Users AS P WHERE P.ID=PM.physicianId)	   			    
+			FROM Hick_Users AS U
+				 INNER JOIN hick_physician_mapping AS PM ON U.ID=PM.patientId
+				 LEFT OUTER JOIN @TotalDurTable AS TD  ON U.ID=TD.ID
+			WHERE U.user_type=@UserType 
+				  AND (DATEPART(HH,TD.TotalDuration)>0 OR DATEPART(MI,TD.TotalDuration)>=20)
+				  AND PM.physicianId IN (SELECT DISTINCT physicianId from hick_physician_practice 
+										 WHERE practiceId IN (SELECT practiceId FROM hick_physician_practice WHERE physicianId=@CurrentUserId))
+		)
+		SELECT * FROM RESULT WHERE rownum=1
+		ORDER BY Lastname ASC 
+		--changed by roshni
+	END
+	/*Flag=2 Patients Not Completed 20 Minutes of Chat*/
+	ELSE IF(@Flag=2)
+	BEGIN
+		WITH RESULT AS(
+			SELECT ROW_NUMBER() OVER(PARTITION BY U.ID ORDER BY U.ID ASC) AS rownum,U.ID,U.Lastname,U.Firstname, U.dateofbirth as dateofbirth,U.phone_number,U.user_type,
+				   TD.VideoDuration,TD.TextDuration,TD.TaskDuration,TD.AudioCallDuration,TD.TotalDuration,u.referenceid,
+				    PhysicianFirst=(SELECT P.Firstname FROM Hick_Users AS P WHERE P.ID=PM.physicianId),
+				   PhysicianLast=(SELECT P.Lastname FROM Hick_Users AS P WHERE P.ID=PM.physicianId)	 			    
+			FROM Hick_Users AS U
+				 INNER JOIN hick_physician_mapping AS PM ON U.ID=PM.patientId
+				 left JOIN @TotalDurTable AS TD  ON U.ID=TD.ID
+			WHERE U.user_type=@UserType 
+				  AND (TD.TotalDuration IS NULL OR DATEPART(HH,TD.TotalDuration)=0 AND DATEPART(MI,TD.TotalDuration)<20)
+				  AND PM.physicianId IN (SELECT DISTINCT physicianId from hick_physician_practice 
+										 WHERE practiceId IN (SELECT practiceId FROM hick_physician_practice WHERE physicianId=@CurrentUserId))
+									
+		)
+		SELECT * FROM RESULT WHERE rownum=1
+		ORDER BY Lastname ASC
+		--changed by roshni
+	END
+END
+
+
+GO
+PRINT 'Created the procedure sp_HickPatientList'
+GO  

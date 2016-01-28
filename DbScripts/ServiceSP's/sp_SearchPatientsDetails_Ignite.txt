@@ -1,0 +1,147 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_SearchPatientsDetails_Ignite]') AND type in (N'P', N'PC'))
+BEGIN
+	DROP PROCEDURE [dbo].[sp_SearchPatientsDetails_Ignite]
+	PRINT 'Dropped [dbo].[sp_SearchPatientsDetails_Ignite]'
+END	
+GO
+
+PRINT 'Creating [dbo].[sp_SearchPatientsDetails_Ignite]'
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[sp_SearchPatientsDetails_Ignite]  
+(  
+@Lastname as nvarchar(50)= null,  
+@FirstName as nvarchar(50)= null,  
+@DateOfBirth as nvarchar(50)= null,  
+@Gender as nvarchar(100)= null,  
+@SSN as nvarchar(50)= null,  
+@Physician as nvarchar(50)= null,  
+@CareManager as nvarchar(50)= null,  
+@HealthCoach as nvarchar(50)= null,  
+@CareAdmin as nvarchar(50)= null,  
+@ActionItem as nvarchar(50)= null,  
+@RiskProfile VARCHAR(45)= null  
+)  
+as begin  
+  
+ declare @strSql as nvarchar(max);  
+ declare @strSqlRef as nvarchar(max);  
+ declare @strOrder as nvarchar(max);  
+ declare @iAddAnd as int;  
+  IF(@DateOfBirth <> '')
+  BEGIN
+	set @DateOfBirth = convert(nvarchar(10), convert(datetime, @DateOfBirth ,101) ,121)
+ END
+    set @iAddAnd=0;  
+ set @strSql = ('SELECT DISTINCT  P.PatientId,  P.Lastname,  P.FirstName,  P.DateOfBirth,  p.Gender,  PhoneNumber,right(p.PhoneNumber,10) as PhoneNumber, Last4SSN, right(p.Last4SSN,4)as Last4SSN1,  
+P.EmailId,  p.Password,  p.Addres,  P.City,  P.State,  P.ZipCode,  
+P.Createddate,  P.Modifieddate,  P.OtherInfo,  P.Physician,  P.CareManager,  P.HealthCoach,  P.CareAdmin,  P.Race,  p.Education,  p.Question,  p.Answer,  p.MiddleName,  p.MaidenName,  p.MaritalStatus,  p.PrimaryAddress2,  p.AlternateAddress1,  p.AlternateAddress2, 
+p.AlternateCity,  p.AlternateState,  p.AlternateZip,  p.WorkPhone,  p.CellPhone,  p.Height,  p.Weight,  p.EyeColor,  p.HairColor,  p.BloodRH,  p.BirthmarkScars,  p.SpecialConditions,  p.PrimaryHealthInsurance,  p.PrimaryPolicyNumber,  p.SecondaryHealthInsurance,  p.SecondaryPolicyNumber,  
+p.BMI,  p.PrimaryFinancialClass,  p.PrimarySpecify,  p.SecondaryFinancialClass,  p.SecondarySpecify,  p.OriginalPBP,  p.OriginalPolicyNumber,  p.ManagedPBP,  p.ManagedPolicyNumber,  p.RiskProfile,  p.YourName,  p.PatientRelationship,  p.CumulativeRisksTratification,  p.AppValue,  
+p.AppText,  p.Appoint_difficulty,  p.PatientIP,  p.APPSuite,  p.HICN,  P.PrimaryGroupNumber,  P.SecondaryGroupNumber,  P.Status,  p.EmployeeStatus,  p.ReligiousPreferences,  
+pm.ProviderName as Provider 
+from tblpatient p
+join tblpatientprovidermapping ppm on ppm.PatientID = p.PatientId
+join tblprovidersmaster pm on ppm.ProviderID = pm.ProviderID
+where ppm.ProviderID in ('+@Physician+') ')  
+   
+ if @FirstName!=''  
+ begin  
+      if(@iAddAnd = 0)   
+         begin   
+             set @iAddAnd = 1;  
+           set @strSql = @strSql + ' and  FirstName LIKE ''' + @FirstName + '%'''  
+         end  
+      else  
+         begin   
+             set @strSql = @strSql + ' and FirstName LIKE ''' + @FirstName + '%'''  
+         end  
+   
+ end  
+ if @DateOfBirth != ''  
+ begin  
+  
+           if(@iAddAnd = 0)   
+         begin   
+            set @iAddAnd = 1;  
+           set @strSql = @strSql + ' and  convert(nvarchar(10), DateOfBirth, 121) = convert(nvarchar(10), ''' +@DateOfBirth  + ''' , 121)'  
+         end  
+      else  
+         begin   
+             set @strSql = @strSql + ' and convert(nvarchar(10), DateOfBirth, 121) = convert(nvarchar(10), ''' + @DateOfBirth  + ''' , 121)'  
+         end  
+    
+    
+ end  
+ if @Lastname!=''  
+     begin   
+         if(@iAddAnd = 0)   
+    begin   
+     set @iAddAnd = 1;  
+      set @strSql = @strSql + ' and LastName LIKE ''' + @Lastname + '%'''   
+        
+             end  
+         else  
+    begin   
+     set @strSql = @strSql + ' and LastName LIKE ''' + @Lastname + '%'''  
+      
+    end  
+     end  
+      if @SSN!=''  
+            begin  
+     if(@iAddAnd =0)  
+      begin  
+        set @iAddAnd =1;  
+     set @strSql = @strSql +'and  Last4SSN ='+'''' + @SSN +''''  
+      end  
+  else   
+    begin  
+     set @strSql = @strSql + ' and Last4SSN ='+'''' + @SSN +''''  
+       end   
+   end  
+     
+     
+  if @Gender!=''  
+            begin  
+     if(@iAddAnd =0)  
+      begin  
+        set @iAddAnd =1;  
+     set @strSql = @strSql +' and Gender ='+'''' + @Gender +''''  
+      end  
+              else   
+    begin  
+     set @strSql = @strSql + ' and Gender ='+'''' + @Gender +''''  
+       end   
+   end   
+     
+   if @RiskProfile!=''  
+            begin  
+     if(@iAddAnd =0)  
+      begin  
+        set @iAddAnd =1;  
+     set @strSql = @strSql +'and  RiskProfile ='+'''' + @RiskProfile +''''  
+      end  
+              else   
+    begin  
+     set @strSql = @strSql + ' and RiskProfile ='+'''' + @RiskProfile +''''  
+       end   
+   end   
+  
+begin   
+  
+  
+ print (@strSql + ' order by P.Lastname asc')  
+ exec (@strSql )  
+end  
+  
+end  
+
+GO
+PRINT 'Created the procedure sp_SearchPatientsDetails_Ignite'
+GO  

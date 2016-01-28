@@ -1,0 +1,42 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_deletetasks]') AND type in (N'P', N'PC'))
+BEGIN
+	DROP PROCEDURE [dbo].[sp_deletetasks]
+	PRINT 'Dropped [dbo].[sp_deletetasks]'
+END	
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[sp_deletetasks] 
+	@TaskType varchar(max)='',
+	@TaskID varchar(max)=''
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+	if LOWER(@TaskType)='task'
+	begin
+		delete from hick_tasks where taskid=@TaskID
+	end
+	else if LOWER(@TaskType)='video'
+	begin
+		delete from Hick_VideoConversation_Log where videoconversationid=@TaskID
+	end
+	else if LOWER(@TaskType)='audio'
+	begin
+		delete from hick_audiocall_log where AudioCallLogID=@TaskID
+	end
+	else if LOWER(@TaskType)='text'
+	begin
+	    delete from Hick_Conversation_log where Conversation_Id=@TaskID
+		delete from Hick_user_Conversation where ID=@TaskID
+	end
+
+END
+
+GO
+
+
+

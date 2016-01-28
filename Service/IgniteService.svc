@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="IgniteServices.Service1" CodeBehind="IgniteService.svc.cs" %>

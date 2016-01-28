@@ -1,0 +1,1615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\Hareendra\Desktop\Publishedfile</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Assemblies/Newtonsoft.Json.dll">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="Assemblies/Newtonsoft.Json.Net35.dll">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="AuditLog.aspx">
+      <publishTime>12/19/2015 11:38:20</publishTime>
+    </File>
+    <File Include="AuthorizedUserForm.aspx">
+      <publishTime>12/21/2015 19:12:58</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/DirectAPI.dll">
+      <publishTime>12/14/2015 15:42:50</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Hick.dll">
+      <publishTime>12/22/2015 18:24:33</publishTime>
+    </File>
+    <File Include="bin/IGNITE_BLL.dll">
+      <publishTime>12/22/2015 18:21:41</publishTime>
+    </File>
+    <File Include="bin/IGNITE_DAL.dll">
+      <publishTime>12/22/2015 18:21:40</publishTime>
+    </File>
+    <File Include="bin/IGNITE_MODEL.dll">
+      <publishTime>12/22/2015 18:21:40</publishTime>
+    </File>
+    <File Include="bin/itextsharp.dll">
+      <publishTime>12/07/2015 13:19:53</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.DataVisualization.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Chat.aspx">
+      <publishTime>12/22/2015 18:15:34</publishTime>
+    </File>
+    <File Include="Chat_log.aspx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="CommandCenter/ASPX/BillingReport.aspx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="CommandCenter/ASPX/ConsentReport.aspx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="CommandCenter/ASPX/Dashboard.aspx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="CommandCenter/ASPX/PLComplete.aspx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="CommandCenter/ASPX/PLNotComplete.aspx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="CommandCenter/ASPX/PLPatientList.aspx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="CommandCenter/ASPX/UploadConsentForm.ashx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="CommandCenter/UserControls/BillingReport.ascx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="CommandCenter/UserControls/CCPatientList.ascx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="CommandCenter/UserControls/ConsentReport.ascx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="CommandCenter/UserControls/Dashboard.ascx">
+      <publishTime>12/18/2015 23:08:13</publishTime>
+    </File>
+    <File Include="CommandCenter/UserControls/Login.ascx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/dialpad.css">
+      <publishTime>12/22/2015 18:15:34</publishTime>
+    </File>
+    <File Include="Content/emoticons.css">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="Content/emoticons.png">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="Content/indexstyle.css">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/patientlookup.css">
+      <publishTime>12/22/2015 16:58:50</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="Content/style.css">
+      <publishTime>12/22/2015 18:19:08</publishTime>
+    </File>
+    <File Include="Dependencies/itextsharp.dll">
+      <publishTime>12/07/2015 13:19:53</publishTime>
+    </File>
+    <File Include="DialPad.htm">
+      <publishTime>12/22/2015 18:15:34</publishTime>
+    </File>
+    <File Include="Encounters/aspx/AddEditMedications.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/Assessments.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/AssessmentSummary.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/Assessmnt.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/BabyPCP.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/BreastFeedingBaby.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/BreastFeedingMother.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/BreastFeedingObserv.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/ChiefComplaints.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/Conditions.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/CoordinationCare.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/EditConditions.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/EncountersMain.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/HistoryIllness.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/Medications.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/MomsOB.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/aspx/Plan.aspx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/EncounterMaster.Master">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/Services/EncounterService.svc">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/AssessmentSummary.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/Assessmnt.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/BabyPCP.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/BreastFeedingBaby.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/BreastFeedingMother.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/BreastFeedingObserv.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/ChiefComplaints.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/Conditions.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/CoordinationCare.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/HistoryIllness.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/Medications.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/MomsOB.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="Encounters/UserControls/Plan.ascx">
+      <publishTime>12/07/2015 13:19:48</publishTime>
+    </File>
+    <File Include="ExportChat.ashx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="FlashResource.ashx">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>12/07/2015 13:19:44</publishTime>
+    </File>
+    <File Include="HickChatEngine.svc">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="HickService.svc">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="HickUser.svc">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/Actions-edit-clear-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/add-user.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/adduser.png">
+      <publishTime>12/08/2015 11:29:03</publishTime>
+    </File>
+    <File Include="Images/ajax-loader.gif">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/arrow_yellow.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/backspace.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/bandaid-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/black_arrow.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/blood-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/bp-icon.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/button_close.jpg">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/button_download.jpg">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/button_edit.jpg">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/button_edit1.jpg">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/calendar.jpg">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/calendar.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/call-incoming-icon.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/call-outgoing-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/call.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/callend-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/call_connect.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/call_disconnect.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/checkbox.gif">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/checkbox1.gif">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/checkbox_active.gif">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/chemical-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/close-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/close_btn.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/commandcenter.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/command_center_icon.png">
+      <publishTime>12/08/2015 21:12:30</publishTime>
+    </File>
+    <File Include="Images/Conditions.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/default_user.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/delete.png">
+      <publishTime>12/08/2015 11:29:03</publishTime>
+    </File>
+    <File Include="Images/disablility-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/dme.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/down-arrow.png">
+      <publishTime>12/16/2015 12:34:40</publishTime>
+    </File>
+    <File Include="Images/download-org.png">
+      <publishTime>12/08/2015 11:17:31</publishTime>
+    </File>
+    <File Include="Images/download.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/DownloadnShare.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/downloadPHP.png">
+      <publishTime>12/21/2015 20:42:45</publishTime>
+    </File>
+    <File Include="Images/drafts-icon.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/edit-icon.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/edit-user.png">
+      <publishTime>12/08/2015 11:29:03</publishTime>
+    </File>
+    <File Include="Images/EditConditions.jpg">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/edit_icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/endcall.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/endcl.jpg">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/error_hich.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/eye.png">
+      <publishTime>12/08/2015 11:16:43</publishTime>
+    </File>
+    <File Include="Images/FamilyHistory.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/fileupload-loader.gif">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/folder-icon.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/folder-sharePHP.png">
+      <publishTime>12/21/2015 20:42:45</publishTime>
+    </File>
+    <File Include="Images/folder_03.png">
+      <publishTime>12/10/2015 22:56:40</publishTime>
+    </File>
+    <File Include="Images/gray_arrow.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/group-chat_icon.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/group-fav_icon.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/group-starred_icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/group_chat.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/group_icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/group_image.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/heart-greay.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/heart-green.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/heart-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/heart-red.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/hick_logo.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/homehealth.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/hospice.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/hospital-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/Icon-Demographics.png">
+      <publishTime>12/08/2015 22:13:54</publishTime>
+    </File>
+    <File Include="Images/Icon-Encounter-1.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/Icon-Encounter-1_old.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/Icon-Encounters.png">
+      <publishTime>12/08/2015 22:13:54</publishTime>
+    </File>
+    <File Include="Images/Icon-Flags.png">
+      <publishTime>12/08/2015 22:13:54</publishTime>
+    </File>
+    <File Include="Images/Icon-Lab.png">
+      <publishTime>12/08/2015 22:13:54</publishTime>
+    </File>
+    <File Include="Images/Icon-Lab_1.png">
+      <publishTime>12/08/2015 22:13:54</publishTime>
+    </File>
+    <File Include="Images/Icon-Most-Recent-visit.png">
+      <publishTime>12/08/2015 22:13:54</publishTime>
+    </File>
+    <File Include="Images/Icon-Problems.png">
+      <publishTime>12/08/2015 22:13:54</publishTime>
+    </File>
+    <File Include="Images/Icon-Referrals.png">
+      <publishTime>12/08/2015 22:13:54</publishTime>
+    </File>
+    <File Include="Images/Icon-Tests-and-Procedures.png">
+      <publishTime>12/08/2015 22:13:54</publishTime>
+    </File>
+    <File Include="Images/Icon-Vital-signs.png">
+      <publishTime>12/08/2015 22:13:54</publishTime>
+    </File>
+    <File Include="Images/icon_details.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/icon_Encounter.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/icon_Encounter_old.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/icon_refresh.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/ignite_logo.png">
+      <publishTime>09/07/2015 12:54:12</publishTime>
+    </File>
+    <File Include="Images/ignite_logo200x100.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/ignite_logo_small.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/imgcall.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/Immunizations.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/Index/cross.jpg">
+      <publishTime>09/07/2015 12:54:13</publishTime>
+    </File>
+    <File Include="Images/Index/cross1.jpg">
+      <publishTime>09/07/2015 12:54:13</publishTime>
+    </File>
+    <File Include="Images/Index/errormsg.png">
+      <publishTime>09/07/2015 12:54:13</publishTime>
+    </File>
+    <File Include="Images/Index/hick.jpg">
+      <publishTime>09/07/2015 12:54:13</publishTime>
+    </File>
+    <File Include="Images/Index/HICK_screen_1.jpg">
+      <publishTime>09/07/2015 12:54:13</publishTime>
+    </File>
+    <File Include="Images/Index/stethoscope.jpg">
+      <publishTime>02/10/2015 17:37:09</publishTime>
+    </File>
+    <File Include="Images/Index/stethoscope.png">
+      <publishTime>09/07/2015 12:54:13</publishTime>
+    </File>
+    <File Include="Images/laboratory.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/logo_green.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/Medications.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/message-1.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/messages-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/next.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/notebook.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/notes-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/notsure.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/option_selected.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/option_selected_waiting.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/option_unselected.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/overlay.png">
+      <publishTime>12/22/2015 18:15:34</publishTime>
+    </File>
+    <File Include="Images/pdf.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/popup_close.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/portrait-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/prev.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/printer.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/pulse-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/rab-icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/radiology.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/Results.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/search_icon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/search_users.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/search_users_logo.jpg">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/send_btn.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/share.png">
+      <publishTime>12/08/2015 11:16:37</publishTime>
+    </File>
+    <File Include="Images/shareView.png">
+      <publishTime>12/18/2015 15:17:33</publishTime>
+    </File>
+    <File Include="Images/smileicon.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/smilies/angel_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/angry_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/bandit_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/bartlett_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/beer_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/biggrin.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/bigsmile_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/blushing_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/bow_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/brokenheart_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/bug_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/cake_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/call_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/cash_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/clapping_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/coffee_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/confused.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/cool.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/cool_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/cry.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/crying_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/dancing_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/devil_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/doh_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/downloadPHP.png">
+      <publishTime>12/21/2015 20:42:45</publishTime>
+    </File>
+    <File Include="Images/smilies/drink_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/drunk_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/dull_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/dull_tauri_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/eek.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/emo_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/envy_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/evil.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/evilgrin_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/facepalm_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/fingerscrossed_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/finger_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/flower_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/folder-sharePHP.png">
+      <publishTime>12/21/2015 20:42:45</publishTime>
+    </File>
+    <File Include="Images/smilies/fubar_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/giggle_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/handshake_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/happy_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/headbang_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/heart_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/heidy_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/highfive_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/hi_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/hollest_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/hug_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/inlove_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/itwasntme_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/kiss_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/lalala_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/like.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/lipssealed_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/lol.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/love.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/mad.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/mail_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/makeup_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/malthe_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/mmm_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/mooning_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/movie_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/mrgreen.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/muscle_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/music_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/nerd_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/neutral.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/ninja_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/nod_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/no_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/oliver_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/party_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/phone_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/pizza_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/poolparty_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/priidu_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/puking_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/punch_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/question.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/rain_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/razz.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/redface.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/rock_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/rofl_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/rolleyes.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/sad.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/sadsmile_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/shake_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/sleepy_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/smile.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/smile_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/smirk_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/smoking_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/speechless_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/star_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/sunshine_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/surprised.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/surprised_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/swear_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/sweating_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/talking_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/thinking_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/thumbdown.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/thumbup.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/time_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/tmi_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/toivo_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/tongueout_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/tumbleweed_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/twisted.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/waiting_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/wait_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/wfh_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/whew_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/wink.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/wink_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/wondering_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/worried_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/wtf_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/yawning_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/smilies/yes_30.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/SocialHistory.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/specialist.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/syringe-icon.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/timermanagement.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/timer_deletetask.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/timer_edittask.png">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Images/up-arrow.png">
+      <publishTime>12/16/2015 12:34:40</publishTime>
+    </File>
+    <File Include="Images/user-active.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/user-icon.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/user1.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/user2.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/user3.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/user4.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/user5.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/user6.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/user7.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/user8.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/userimage.jpg">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/web_camera.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Images/yellow_arrow.png">
+      <publishTime>12/07/2015 13:19:46</publishTime>
+    </File>
+    <File Include="Index.aspx">
+      <publishTime>12/07/2015 13:19:53</publishTime>
+    </File>
+    <File Include="Logon/FLD/LogonControl.ascx">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Logon/MHT/LogonControl.ascx">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+    <File Include="Logon/UP/LogonControl.ascx">
+      <publishTime>12/18/2015 23:08:13</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/AddEditAllergies.aspx">
+      <publishTime>12/08/2015 12:13:58</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/AddEditAuthorizedUser.aspx">
+      <publishTime>12/21/2015 13:23:15</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/AddEditFamilyHistory.aspx">
+      <publishTime>12/18/2015 19:11:35</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/AddEditMedications.aspx">
+      <publishTime>12/18/2015 18:54:13</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/AddEditRecord.aspx">
+      <publishTime>12/09/2015 22:37:44</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/AddTask.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/Allergies.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/Conditions.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/CreatePatient.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/DeleteAuthorizedUser.aspx">
+      <publishTime>12/10/2015 00:09:54</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/EditConditions.aspx">
+      <publishTime>12/18/2015 18:44:11</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/EditDemographics.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/EditEncounters.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/EditImmunizations.aspx">
+      <publishTime>12/18/2015 20:00:01</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/EditSocialHistory.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/Encounters.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/FamilyHistory.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/Immunizations.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/Medications.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/MostRecent.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/MUReport.aspx">
+      <publishTime>12/22/2015 16:56:14</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/PatientList.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/PatientPhpSummary.aspx">
+      <publishTime>12/18/2015 18:28:06</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/PatientSearch.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/PhpSummary.aspx">
+      <publishTime>12/18/2015 15:27:02</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/Recordaccess.aspx">
+      <publishTime>12/10/2015 22:10:34</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/ReferralReceipt.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/ReferralView.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/SessionNote.aspx">
+      <publishTime>12/22/2015 18:15:34</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/ShareMail.aspx">
+      <publishTime>12/11/2015 17:46:16</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/TimerLog.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/ViewPHPReport.aspx">
+      <publishTime>12/21/2015 19:03:05</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/ViewPHPSummery.aspx">
+      <publishTime>12/19/2015 14:52:04</publishTime>
+    </File>
+    <File Include="PatientLookUp/ASPX/ViewSocialHistory.aspx">
+      <publishTime>12/18/2015 11:59:42</publishTime>
+    </File>
+    <File Include="PatientLookUp/LookUpMaster.Master">
+      <publishTime>12/18/2015 12:03:51</publishTime>
+    </File>
+    <File Include="PatientLookUp/Services/AuthorizedService.svc">
+      <publishTime>12/08/2015 21:58:35</publishTime>
+    </File>
+    <File Include="PatientLookUp/TimerLog.Master">
+      <publishTime>12/08/2015 21:12:30</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCAddEditDemographics.ascx">
+      <publishTime>12/17/2015 11:04:28</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCAddEditSocialHistory.ascx">
+      <publishTime>12/16/2015 18:16:54</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCAddTask.ascx">
+      <publishTime>12/08/2015 21:12:30</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCAllergies.ascx">
+      <publishTime>12/07/2015 13:19:55</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCConditions.ascx">
+      <publishTime>12/11/2015 18:43:10</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCCreatePatient.ascx">
+      <publishTime>12/07/2015 13:19:55</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCEncounters.ascx">
+      <publishTime>12/07/2015 13:19:55</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCFamilyHistory.ascx">
+      <publishTime>12/07/2015 13:19:55</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCImmunizations.ascx">
+      <publishTime>12/07/2015 13:19:55</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCMedications.ascx">
+      <publishTime>12/16/2015 15:28:33</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCMostRecent.ascx">
+      <publishTime>12/07/2015 13:19:55</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCMUReport.ascx">
+      <publishTime>12/22/2015 18:21:08</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCPatientList.ascx">
+      <publishTime>12/07/2015 13:19:55</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCPatientMenu.ascx">
+      <publishTime>12/17/2015 13:21:02</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCPatientPhpSummary.ascx">
+      <publishTime>12/21/2015 21:54:31</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCPatientSearch.ascx">
+      <publishTime>12/18/2015 23:07:31</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCPhpSummary.ascx">
+      <publishTime>12/18/2015 23:07:31</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCRecordaccess.ascx">
+      <publishTime>12/22/2015 13:14:00</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCRecordAccessMenu.ascx">
+      <publishTime>12/18/2015 22:19:10</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCReferralReceipt.ascx">
+      <publishTime>12/08/2015 21:12:30</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCReferrals.ascx">
+      <publishTime>12/17/2015 13:13:26</publishTime>
+    </File>
+    <File Include="PatientLookUp/UserControls/UCTimerLog.ascx">
+      <publishTime>12/07/2015 13:19:55</publishTime>
+    </File>
+    <File Include="ReceiveFile.ashx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="Scripts/Audit_Log.js">
+      <publishTime>12/19/2015 11:03:57</publishTime>
+    </File>
+    <File Include="Scripts/AVcallscript.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/bit6.min.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/bit6core.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/Chat.js">
+      <publishTime>12/22/2015 18:15:34</publishTime>
+    </File>
+    <File Include="Scripts/Chat_log.js">
+      <publishTime>12/07/2015 13:19:53</publishTime>
+    </File>
+    <File Include="Scripts/Chat_test.js">
+      <publishTime>12/07/2015 13:19:54</publishTime>
+    </File>
+    <File Include="Scripts/Confirm.html">
+      <publishTime>12/07/2015 13:19:53</publishTime>
+    </File>
+    <File Include="Scripts/dialpad.js">
+      <publishTime>12/07/2015 13:19:54</publishTime>
+    </File>
+    <File Include="Scripts/emoticons.js">
+      <publishTime>12/07/2015 13:19:53</publishTime>
+    </File>
+    <File Include="Scripts/HighCharts/exporting.js">
+      <publishTime>12/07/2015 13:19:53</publishTime>
+    </File>
+    <File Include="Scripts/HighCharts/gray.js">
+      <publishTime>12/07/2015 13:19:53</publishTime>
+    </File>
+    <File Include="Scripts/HighCharts/highcharts.js">
+      <publishTime>12/18/2015 23:08:15</publishTime>
+    </File>
+    <File Include="Scripts/infragistics.core.js">
+      <publishTime>12/07/2015 13:19:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>12/07/2015 13:19:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/jquery.ajaxfileupload.js">
+      <publishTime>12/07/2015 13:19:53</publishTime>
+    </File>
+    <File Include="Scripts/jquery.jqote2.js">
+      <publishTime>12/07/2015 13:19:53</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Scripts/validate.js">
+      <publishTime>12/07/2015 13:19:54</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>12/22/2015 18:15:34</publishTime>
+    </File>
+    <File Include="SendFile.ashx">
+      <publishTime>12/07/2015 13:19:55</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.Allergies.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.CompositeType.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.Conditions.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.EmergencyContact.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.FamilyHistory.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.Immunizations.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.LifeStyle.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.Medication.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.MessageBox.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.PatientDetails.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.ToFields.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Service References/BridgeMessenger/Hick.BridgeMessenger.UserDetails.datasource">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Shared/UCCallToActionBar.ascx">
+      <publishTime>12/22/2015 18:15:34</publishTime>
+    </File>
+    <File Include="templates.html">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="TermsConditions.aspx">
+      <publishTime>12/07/2015 13:19:44</publishTime>
+    </File>
+    <File Include="TermsConditions_INMB.aspx">
+      <publishTime>12/07/2015 13:19:56</publishTime>
+    </File>
+    <File Include="testform.aspx">
+      <publishTime>12/07/2015 13:19:53</publishTime>
+    </File>
+    <File Include="Theme/base/content/indexstyle.css">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/base/images/ignite_logo.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/base/images/ignite_logo_small.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/base/images/Index/cross.jpg">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/base/images/Index/cross1.jpg">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/base/images/Index/errormsg.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/base/images/Index/hick.jpg">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/base/images/Index/HICK_screen_1.jpg">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/base/images/Index/stethoscope.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/INMB/content/indexstyle.css">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/INMB/images/ignite_logo.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/INMB/images/ignite_logo_small.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/INMB/images/Index/Ignite-footer-logo.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/INMB/images/Index/stethoscope.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/MHT/content/indexstyle.css">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/MHT/images/ignite_logo.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/MHT/images/ignite_logo_small.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/MHT/images/Index/Ignite-footer-logo.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="Theme/MHT/images/Index/stethoscope.png">
+      <publishTime>12/07/2015 13:19:49</publishTime>
+    </File>
+    <File Include="VideoChat.aspx">
+      <publishTime>12/07/2015 13:19:43</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginFailure.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Account/Manage.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Account/_ChangePasswordPartial.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Account/_RemoveAccountPartial.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Account/_SetPasswordPartial.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Hick/Create.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Hick/Delete.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Hick/Details.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Hick/Edit.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Hick/Index.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Hick/Main.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/TestIndex.aspx">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/19/2015 12:25:33</publishTime>
+    </File>
+    <File Include="Zoiper_Web_Example.html">
+      <publishTime>12/07/2015 13:19:47</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

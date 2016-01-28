@@ -1,0 +1,79 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_hick_InsertAuthorizedUser]') AND type in (N'P', N'PC'))
+BEGIN
+	DROP PROCEDURE [dbo].[sp_hick_InsertAuthorizedUser]
+	PRINT 'Dropped [dbo].[sp_hick_InsertAuthorizedUser]'
+END	
+GO
+
+PRINT 'Creating [dbo].[sp_hick_InsertAuthorizedUser]'
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_hick_InsertAuthorizedUser]
+@Action as varchar(50),
+@Autherizeduserid bigint,
+@UserId AS bigint,
+@FirstName AS NVARCHAR(max),
+@LastName AS NVARCHAR(max),
+@Email AS NVARCHAR(max),
+@DOB AS NVARCHAR(max),
+@Password AS NVARCHAR(max),
+@Relationship AS VARCHAR(200),
+@OtherRelationship AS VARCHAR(200),
+@CreatedDate datetime
+AS
+BEGIN
+
+
+IF(@Action='Insert')
+BEGIN 
+	IF EXISTS(select ID from Hick_Users where  EmailID=@Email and dateofbirth=@DOB and user_type<>'AuthorizedUser')
+		BEGIN 
+			set @Autherizeduserid=(select ID from Hick_Users where  EmailID=@Email and dateofbirth=@DOB)
+			IF NOT EXISTS(select Id from dbo.IgniteAuthorizedRepMapping where UserId=@UserId and AuthorizedUserId=@Autherizeduserid)
+			BEGIN
+			INSERT INTO dbo.IgniteAuthorizedRepMapping(UserId,AuthorizedUserId,Relationship,OtherRelationship,Passcode,CreatedDate,RevokeAccess,OneTimePasswordstatus,ActiveStatus)
+			VALUES(@UserId,@Autherizeduserid,@Relationship,@OtherRelationship,@Password,@CreatedDate,'False','False','True')
+			select 'Exists'
+			END
+			ELSE
+			BEGIN
+			UPDATE dbo.IgniteAuthorizedRepMapping set RevokeAccess='False', ActiveStatus='True' where UserId=@UserId and AuthorizedUserId=@Autherizeduserid
+			select 'Already Exists'
+			END
+		END
+	ELSE
+	BEGIN
+
+		INSERT INTO Hick_Users (Username,Firstname,Lastname,Status,StatusMessage,Password,dateofbirth,user_type,EmailID) 
+		VALUES(@Email,@FirstName,@LastName,0,'Offline',@Password,@DOB,'AuthorizedUser',@Email)
+	     set @Autherizeduserid=(SELECT SCOPE_IDENTITY())
+		INSERT INTO dbo.IgniteAuthorizedRepMapping(UserId,AuthorizedUserId,Relationship,OtherRelationship,Passcode,CreatedDate,RevokeAccess,OneTimePasswordstatus,ActiveStatus)
+		VALUES(@UserId,@Autherizeduserid,@Relationship,@OtherRelationship,@Password,@CreatedDate,'False','False','True')
+		select 'Not Exists'
+	END
+END	
+ELSE
+BEGIN
+	UPDATE dbo.IgniteAuthorizedRepMapping SET Relationship=@Relationship,
+					  OtherRelationship=@OtherRelationship,
+					  Passcode=@Password
+					  WHERE UserId=@UserId and AuthorizedUserId=@Autherizeduserid
+	if not exists(select OneTimePasswordstatus from  dbo.IgniteAuthorizedRepMapping WHERE UserId=@UserId and AuthorizedUserId=@Autherizeduserid and Passcode=@Password)				  
+	begin				  
+	Update dbo.IgniteAuthorizedRepMapping set OneTimePasswordstatus='False' where AuthorizedUserId=@UserId and UserId=@AutherizedUserId 
+	update Hick_Users  set Password=@Password where ID=@UserId
+	End
+select 'Updated'
+END
+
+
+
+END
+
+GO
+PRINT 'Created the procedure sp_hick_InsertAuthorizedUser'
+GO  

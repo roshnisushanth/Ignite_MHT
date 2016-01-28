@@ -1,0 +1,16 @@
+CREATE FUNCTION [dbo].[ufn_ConvUserEndTime](
+@ID as int,
+@CurrentUserId as bigint,
+@PeerId as bigint)
+RETURNS varchar(max)
+AS
+BEGIN
+declare @endTime varchar(max)
+
+set @endTime= (select top 1 HCL.Conversation_date
+	from Hick_user_Conversation HC join [dbo].[Hick_Conversation_log] HCL on HC.ID=HCL.Conversation_Id
+	WHERE((Initiator=@CurrentUserId and Answerer=@PeerId) or (Initiator=@PeerId and Answerer=@CurrentUserId))
+	and total_txtchat_dauration is not null and HC.ID = @ID order by HCL.Conversation_date desc)
+	RETURN @endTime
+
+END

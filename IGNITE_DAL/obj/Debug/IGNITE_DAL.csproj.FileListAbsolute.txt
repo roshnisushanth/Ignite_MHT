@@ -1,0 +1,9 @@
+C:\Aman_BugID-12289\IGNITE_DAL\bin\Debug\IGNITE_DAL.dll
+C:\Aman_BugID-12289\IGNITE_DAL\bin\Debug\IGNITE_DAL.pdb
+C:\Aman_BugID-12289\IGNITE_DAL\bin\Debug\IGNITE_MODEL.dll
+C:\Aman_BugID-12289\IGNITE_DAL\bin\Debug\IGNITE_MODEL.pdb
+C:\Aman_BugID-12289\IGNITE_DAL\obj\Debug\IGNITE_DAL.csprojResolveAssemblyReference.cache
+C:\Aman_BugID-12289\IGNITE_DAL\obj\Debug\IGNITE_DAL.Properties.Resources.resources
+C:\Aman_BugID-12289\IGNITE_DAL\obj\Debug\IGNITE_DAL.csproj.GenerateResource.Cache
+C:\Aman_BugID-12289\IGNITE_DAL\obj\Debug\IGNITE_DAL.dll
+C:\Aman_BugID-12289\IGNITE_DAL\obj\Debug\IGNITE_DAL.pdb

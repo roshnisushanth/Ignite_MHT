@@ -1,0 +1,58 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_hick_SessionNote_Modification]') AND type in (N'P', N'PC'))
+BEGIN
+	DROP PROCEDURE [dbo].[sp_hick_SessionNote_Modification]
+	PRINT 'Dropped [dbo].[sp_hick_SessionNote_Modification]'
+END	
+GO
+
+PRINT 'Creating [dbo].[sp_hick_SessionNote_Modification]'
+GO
+
+/* ******************************** PROLOG *******************************************
+# Procedure Name: sp_hick_SessionNote_Modification
+# File Path:
+# CreatedDate: 04-01-2015
+# Author: Sooraj
+# Description: This stored procedure to modify our session note
+ # Return Parameter: None
+# History  of changes:
+#--------------------------------------------------------------------------------------
+# Version No.	Date of Change		Changed By		Reason for change
+#--------------------------------------------------------------------------------------
+*/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_hick_SessionNote_Modification]
+	-- Add the parameters for the stored procedure here
+	@action varchar(30),
+	@id int,
+	@note varchar(max)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	IF(@action = 'SelectById')
+	BEGIN
+		SELECT * FROM Hick_SessionNote where Id=@id
+	END
+
+	ELSE IF(@action = 'Delete')
+	BEGIN
+		DELETE FROM Hick_SessionNote where Id=@id
+	END
+
+	ELSE IF(@action = 'Edit')
+	BEGIN
+		UPDATE Hick_SessionNote SET Note = @note where id=@id
+	END
+END
+GO
+PRINT 'Created the procedure sp_hick_SessionNote_Modification'
+GO  
+
+

@@ -1,0 +1,42 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_hick_GetSessionNote]') AND type in (N'P', N'PC'))
+BEGIN
+	DROP PROCEDURE [dbo].[sp_hick_GetSessionNote]
+	PRINT 'Dropped [dbo].[sp_hick_GetSessionNote]'
+END	
+GO
+
+PRINT 'Creating [dbo].[sp_hick_GetSessionNote]'
+GO
+
+/* ******************************** PROLOG *******************************************
+# Procedure Name: sp_hick_GetSessionNote
+# File Path:
+# CreatedDate: 04-Dec-2016
+# Author: Sooraj
+# Description: This stored procedure to get all session note by userId and peerId
+# Return Parameter: None
+# History  of changes:
+#--------------------------------------------------------------------------------------
+# Version No.	Date of Change		Changed By		Reason for change
+#--------------------------------------------------------------------------------------
+*/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[sp_hick_GetSessionNote]
+	@UserId int,
+	@PeerId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT * from Hick_SessionNote where FromId=@UserId AND ToId = @PeerId order by Date desc
+
+END
+
+GO
+PRINT 'Created the procedure sp_hick_GetSessionNote'
+GO  

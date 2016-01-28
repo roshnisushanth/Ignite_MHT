@@ -1,0 +1,22 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_hick_GetAuthorizedUsersFor]') AND type in (N'P', N'PC'))
+BEGIN
+	DROP PROCEDURE [dbo].[sp_hick_GetAuthorizedUsersFor]
+	PRINT 'Dropped [dbo].[sp_hick_GetAuthorizedUsersFor]'
+END	
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create PROCEDURE [dbo].[sp_hick_GetAuthorizedUsersFor]
+
+@AutherizedUserId as bigint
+AS
+BEGIN
+
+select * from(Select distinct(AP.UserId),U.ReferenceId,U.Username,u.EmailID,U.Firstname,U.Lastname,U.Password,U.dateofbirth,AP.Relationship,AP.OtherRelationship,AP.AuthorizedUserId from dbo.Hick_Users as U
+Inner Join dbo.IgniteAuthorizedRepMapping AP on AP.UserId=U.ID where AP.UserId in(select UserId from dbo.IgniteAuthorizedRepMapping where AuthorizedUserId=@AutherizedUserId )
+ and  RevokeAccess='False' and ActiveStatus='True')m where m.AuthorizedUserId=@AutherizedUserId
+GO
+	PRINT 'Created [dbo].[sp_hick_GetAuthorizedUsersFor]'
