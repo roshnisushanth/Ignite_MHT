@@ -122,6 +122,7 @@
       <DependentUpon>Chat_log.aspx</DependentUpon>
     </Compile>
     <Compile Include="Encryption\EncryptDecryptUtil.cs" />
+    <Compile Include="Models\C32_CDA.cs" />
     <Compile Include="PatientLookUp\ASPX\AddEditClinicalDocuments.aspx.cs">
       <DependentUpon>AddEditClinicalDocuments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -659,6 +660,9 @@
     <Compile Include="PatientLookUp\ASPX\ViewDemographics.aspx.designer.cs">
       <DependentUpon>ViewDemographics.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PatientLookUp\Services\CCDGeneratorService.svc.cs">
+      <DependentUpon>CCDGeneratorService.svc</DependentUpon>
+    </Compile>
     <Compile Include="PatientLookUp\Services\PHPService.svc.cs">
       <DependentUpon>PHPService.svc</DependentUpon>
     </Compile>
@@ -1144,6 +1148,7 @@
     <Content Include="PatientLookUp\ASPX\LabResults.aspx" />
     <Content Include="PatientLookUp\ASPX\TestAndProcedures.aspx" />
     <Content Include="PatientLookUp\ASPX\ViewDemographics.aspx" />
+    <Content Include="PatientLookUp\Services\CCDGeneratorService.svc" />
     <Content Include="PatientLookUp\Services\PHPService.svc" />
     <Content Include="PatientLookUp\UserControls\UCClinicalDocuments.ascx" />
     <Content Include="PatientLookUp\UserControls\UCLabResults.ascx" />

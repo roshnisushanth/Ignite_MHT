@@ -18,6 +18,7 @@ using System.Data;
 using System.Reflection;
 using Hick.Authorized;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace Hick.PatientLookUp.UserControls
 {
@@ -1023,8 +1024,8 @@ namespace Hick.PatientLookUp.UserControls
                         {
                             lblheight.Text = "N/A";
                         }
-
-                        int age = new DateTime(DateTime.Now.Subtract(Convert.ToDateTime(objColl[0].DOB.ToString())).Ticks).Year - 1;
+                        DateTime dateofbirth= DateTime.ParseExact(objColl[0].DOB, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                        int age = new DateTime(DateTime.Now.Subtract(dateofbirth).Ticks).Year - 1;
                         lblAge.Text = age.ToString();
                     }
                 }
@@ -1224,7 +1225,8 @@ namespace Hick.PatientLookUp.UserControls
 
                     tblDemographics.AddCell(GetCell(objColl[0].Weight + " " + "lbs", 1, 1));
                     tblDemographics.AddCell(GetCell(objColl[0].Gender, 1, 1));
-                    int age = new DateTime(DateTime.Now.Subtract(Convert.ToDateTime(objColl[0].DOB.ToString())).Ticks).Year - 1;
+                    DateTime db= DateTime.ParseExact(objColl[0].DOB, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                    int age = new DateTime(DateTime.Now.Subtract(db).Ticks).Year - 1;
                     tblDemographics.AddCell(GetCell(age.ToString(), 1, 1));
                     tblDemographics.AddCell(GetCell(objColl[0].BP, 1, 1));
                     dc.Add(tblDemographics);
@@ -1281,7 +1283,7 @@ namespace Hick.PatientLookUp.UserControls
                     tblIdentification.AddCell(GetCell("HICN: ", objColl[0].HICN.ToString(), 2, 1));
 
                     //4th row
-                    DateTime bdate = Convert.ToDateTime(objColl[0].DOB.ToString());
+                    DateTime bdate = DateTime.ParseExact(objColl[0].DOB, "MM/dd/yyyy", CultureInfo.InvariantCulture);
 
                     int date = bdate.Day;
                     int month = bdate.Month;

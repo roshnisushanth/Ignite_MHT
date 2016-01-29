@@ -1,5 +1,5 @@
 ﻿using Hick.Authorized;
-//using Hick.CCDGenerator;
+using Hick.CCDGenerator;
 using Hick.Models;
 using Hick.PHP;
 using IGNITE_MODEL.PHPView;
@@ -21,7 +21,7 @@ namespace Hick.PatientLookUp.ASPX
     public partial class ShareMail : System.Web.UI.Page
     {
         AuthorizedService service = new AuthorizedService();
-        //CCDGeneratorService ccdService = new CCDGeneratorService();
+      CCDGeneratorService ccdService = new CCDGeneratorService();
         protected void Page_Load(object sender, EventArgs e)
         {
             hdnuser.Value = Request.QueryString["id"].ToString();
@@ -56,27 +56,21 @@ namespace Hick.PatientLookUp.ASPX
 
         protected void CCDA_Click(object sender, EventArgs e)
         {
-            //string xmlResult = ccdService.GenerateCCD(Convert.ToInt32(hdnuser.Value), "");
-            //var strPath = @"" + Server.MapPath("~\\Uploads\\") + DateTime.Now.ToString("MMddyyyymmsstt") + "CCDA.xml";
-            //try
-            //{
-            //    string PatientDocumentsResult = ccdService.GenerateCCD(Convert.ToInt32(hdnuser.Value), "");
-            //    System.IO.File.WriteAllText(strPath, PatientDocumentsResult);
-            //    FileInfo file = new FileInfo(strPath); // full file path on disk
-            //    Response.ClearContent(); // neded to clear previous (if any) written content
-            //    Response.AddHeader("Content-Disposition",
-            //        "attachment; filename=" + file.Name);
-            //    Response.AddHeader("Content-Length", file.Length.ToString());
-            //    Response.ContentType = "text/xml"; //RFC 3023
-            //    Response.TransmitFile(file.FullName);
-            //    Response.End();
+            try
+            {
+                string xmlResult = ccdService.GenerateCCD(Convert.ToInt32(hdnuser.Value), Session["FirstName"].ToString(), Session["LastName"].ToString());
+            string filename_set = DateTime.Now.ToString("MMddyyyyHHmmss");
+            var strPath = @"" + Server.MapPath("~\\Uploads\\")+ "CCDA" + filename_set + ".xml";  
+                System.IO.File.WriteAllText(strPath, xmlResult);
+                WebClient myClient = new WebClient();
+                ViewState["newFile"] = strPath;
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    Response.Write(ex.ToString() + strPath);
-            //    //var m = ex.ToString();
-            //}
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+                //var m = ex.ToString();
+            }
 
         }
 
@@ -86,14 +80,14 @@ namespace Hick.PatientLookUp.ASPX
             myClient.UseDefaultCredentials = true;
             string MyUrl = Request.Url.Scheme + "://" + Request.Url.Host + ":" + Request.Url.Port;
             MyUrl = MyUrl + Request.Url.AbsolutePath.Replace("ShareMail.aspx", "");
-            string currentPageUrl = MyUrl + "ViewPHPSummery.aspx?id="+iPatientid;
+            string currentPageUrl = MyUrl + "ViewPHPSummery.aspx?id=" + iPatientid;
             byte[] data = myClient.DownloadData(currentPageUrl);
             string filename_set = DateTime.Now.ToString("MMddyyyyHHmmss");
-            File.WriteAllBytes(@""+Server.MapPath("~\\Uploads\\")+"" + "PHPView_"+ filename_set + ".pdf", data);
-            ViewState["newFile"] = Server.MapPath("~\\Uploads\\")+"PHPViewReport_" + filename_set + ".pdf";
+            File.WriteAllBytes(@"" + Server.MapPath("~\\Uploads\\") + "" + "PHPView_" + filename_set + ".pdf", data);
+            ViewState["newFile"] = Server.MapPath("~\\Uploads\\") + "PHPViewReport_" + filename_set + ".pdf";
 
-          
         }
+        
 
     }
 }

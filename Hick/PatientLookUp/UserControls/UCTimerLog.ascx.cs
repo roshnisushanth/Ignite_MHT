@@ -11,6 +11,7 @@ using System.Text;
 using System.IO;
 using Hick.Models;
 using IGNITE.DBUtility;
+using System.Globalization;
 
 namespace Hick.PatientLookUp.UserControls
 {
@@ -82,8 +83,8 @@ namespace Hick.PatientLookUp.UserControls
                         {
                             DataRow dr = dt.NewRow();
                             DateTime dateval = new DateTime();
-
-                            dateval = DateTime.Parse(DBHelper.getString(sdr,"ConversationDate"));
+                            string converstionDate = DBHelper.getString(sdr, "ConversationDate");
+                            dateval = DateTime.ParseExact(converstionDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             dr[0] = dateval.ToString(Utility.GlobalDateMonthDayYearFormat);
                             dr[1] = "System";
 

@@ -191,8 +191,8 @@ namespace Hick.PatientLookUp.UserControls
                         {
                             lblheight.Text = "N/A";
                         }
-
-                        int age = new DateTime(DateTime.Now.Subtract(Convert.ToDateTime(objColl[0].DOB.ToString())).Ticks).Year - 1;
+                        DateTime db= DateTime.ParseExact(objColl[0].DOB, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                        int age = new DateTime(DateTime.Now.Subtract(db).Ticks).Year - 1;
                         lblAge.Text = age.ToString();
                     }
                 }
@@ -762,6 +762,7 @@ namespace Hick.PatientLookUp.UserControls
                             ddlTemperatureUnit.Items[1].Selected = true;
                         }
                     }
+                    
                     txt_pulse.Text = objColl[0].Pulse;
                     txtRespiration.Text = objColl[0].Respiration;
                     if (!string.IsNullOrWhiteSpace(objColl[0].BloodPressure))
