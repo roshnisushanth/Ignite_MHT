@@ -142,16 +142,15 @@ namespace Hick.SuperUser
                 while (sqlobj.Read())
                 {
                     var MUobj = new IGNITE_MODEL.SuperUser.MUReportDetails();
-                    MUobj.PatientName = DBHelper.getString(sqlobj, "patient_Name");
+                    MUobj.PatientName = ecd.DecryptData(DBHelper.getString(sqlobj, "patientFirstName"), ecd.GetEncryptType()) + " " + ecd.DecryptData(DBHelper.getString(sqlobj, "patientLastName"), ecd.GetEncryptType());
                     MUobj.DataType = DBHelper.getString(sqlobj, "InformationType");
-                    MUobj.DataValue = DBHelper.getString(sqlobj, "DataValue");
-                    MUobj.DateOfActivity = DBHelper.getString(sqlobj, "Audit_Date");
+                    MUobj.DataValue =DBHelper.getString(sqlobj, "DataValue");
+                    MUobj.DateOfActivity =Convert.ToDateTime(DBHelper.getString(sqlobj, "Audit_Date")).ToString("MM/dd/yyyy");
                     MUobj.TimeOfActivity = DBHelper.getString(sqlobj, "Audit_Time");
                     MUobj.IpAddress = "";//DBHelper.getString(sqlobj, "meet");
                     list.Add(MUobj);
                 }
             }
-
             return new MUReportDetailList
             {
                 MUReportDetail_List = list

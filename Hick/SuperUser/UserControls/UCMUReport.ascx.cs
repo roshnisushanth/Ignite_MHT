@@ -13,7 +13,6 @@ using System.Data;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Text;
-
 namespace Hick.SuperUser.UserControls
 {
     public partial class UCMUReport : System.Web.UI.UserControl
@@ -245,7 +244,7 @@ namespace Hick.SuperUser.UserControls
                 Response.Buffer = true;
                 Response.Charset = "";
                 Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                Response.AddHeader("content-disposition", "attachment;filename=Excel_File.xlsx");
+                Response.AddHeader("content-disposition", "attachment;filename=Meaningful_Use_Report.xlsx");
                 using (MemoryStream MyMemoryStream = new MemoryStream())
                 {
                     wb.SaveAs(MyMemoryStream);
@@ -282,7 +281,7 @@ namespace Hick.SuperUser.UserControls
 
             HttpContext.Current.Response.Clear();
             HttpContext.Current.Response.ContentType = "text/xml";
-            HttpContext.Current.Response.AppendHeader("Content-Disposition", "attachment; filename= XML.xml");
+            HttpContext.Current.Response.AppendHeader("Content-Disposition", "attachment; filename= Meaningful_Use_Report.xml");
             HttpContext.Current.Response.AddHeader("Content-Length", data.Length.ToString());
             HttpContext.Current.Response.ContentType = "application/octet-stream";
             HttpContext.Current.Response.BinaryWrite(data);

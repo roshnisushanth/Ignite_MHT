@@ -22,11 +22,11 @@ BEGIN
 
 declare @sqlMUNumer varchar(max)
 declare @sqlMUAuthNumer varchar(max)
-create table #auditDetails(patient_id bigint,patient_Name varchar(max),Audit_Date varchar (15),Audit_Time varchar(15),InformationType varchar(10),DataValue varchar(10))
+create table #auditDetails(patient_id bigint,patientFirstName varchar(max),patientLastName varchar(max),Audit_Date varchar (15),Audit_Time varchar(15),InformationType varchar(10),DataValue varchar(10))
 if(@measure=1)
 begin
 
-set @sqlMUNumer= ('select HU.ID as patient_id, Firstname + Lastname as patient_Name,CONVERT(DATE,ActionDate)Audit_Date,CONVERT(TIME(0),ActionDate) Audit_Time,InformationType,
+set @sqlMUNumer= ('select HU.ID as patient_id,Firstname as patientFirstName ,Lastname as patientLastName,CONVERT(DATE,ActionDate)Audit_Date,CONVERT(TIME(0),ActionDate) Audit_Time,InformationType,
 Case When Type =1 Then ''Download''
      When Type=2 Then ''Transmit''
      Else ''View'' End from  Hick_Users HU inner join dbo.Audit HA
@@ -62,14 +62,14 @@ exec (@sqlMUNumer)
 end
 if(@measure=2)
 begin
-set @sqlMUNumer= ('select HU.ID as patient_id, Firstname + Lastname as patient_Name ,CONVERT(DATE,ActionDate)Audit_Date,CONVERT(TIME(0),ActionDate) Audit_Time,InformationType,
+set @sqlMUNumer= ('select HU.ID as patient_id,Firstname as patientFirstName ,Lastname as patientLastName,CONVERT(DATE,ActionDate)Audit_Date,CONVERT(TIME(0),ActionDate) Audit_Time,InformationType,
 Case When Type =1 Then ''Download''
      When Type=2 Then ''Transmit''
      Else ''View'' End from  Hick_Users HU inner join dbo.Audit HA
 on HU.ID = HA.UserId inner join hick_physician_mapping hpm on HU.ID = HPM.patientid 
 inner join Hick_SessionNote HSN on HU.ID = HSN.ToId 
 where (')
-set @sqlMUAuthNumer= (' Union all select HU.ID as patient_id, Firstname + Lastname as patient_Name ,CONVERT(DATE,ActionDate)Audit_Date,CONVERT(TIME(0),ActionDate) Audit_Time,InformationType,
+set @sqlMUAuthNumer= (' Union all select HU.ID as patient_id, Firstname as patientFirstName ,Lastname as patientLastName,CONVERT(DATE,ActionDate)Audit_Date,CONVERT(TIME(0),ActionDate) Audit_Time,InformationType,
 Case When Type =1 Then ''Download''
      When Type=2 Then ''Transmit''
      Else ''View'' End  from IgniteAuthorizedRepMapping HAMP 
