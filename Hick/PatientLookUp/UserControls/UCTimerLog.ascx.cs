@@ -154,7 +154,9 @@ namespace Hick.PatientLookUp.UserControls
                             DateTime dateval = new DateTime();
                             if (!string.IsNullOrEmpty(DBHelper.getString(sdr1,"ConversationDate")))
                             {
-                                dateval = DateTime.Parse(DBHelper.getString(sdr1,"ConversationDate"));
+                                string converstionDate = DBHelper.getString(sdr1, "ConversationDate");
+                                dateval = DateTime.ParseExact(converstionDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                //dateval = DateTime.Parse(DBHelper.getString(sdr1,"ConversationDate"));
                                 dr[0] = dateval.ToString(Utility.GlobalDateMonthDayYearFormat);
                             }
                             else
@@ -233,7 +235,9 @@ namespace Hick.PatientLookUp.UserControls
 
                             if (!string.IsNullOrEmpty(Convert.ToString(sdr2["ConversationDate"])))
                             {
-                                dateval = DateTime.Parse(Convert.ToString(sdr2["ConversationDate"]));
+                                string converstionDate = Convert.ToString(sdr2["ConversationDate"]);
+                                dateval = DateTime.ParseExact(converstionDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                //dateval = DateTime.Parse(Convert.ToString(sdr2["ConversationDate"]));
                                 dr[0] = dateval.ToString(Utility.GlobalDateMonthDayYearFormat);
                             }
                             else
