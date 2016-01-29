@@ -1754,5 +1754,5 @@ img#closebtn {
     display: none;
 }
 .list a#signout {
-    float: right;
+    float: right; padding-right:10px;
 }
