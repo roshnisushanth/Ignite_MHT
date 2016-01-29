@@ -1338,7 +1338,7 @@ namespace Hick.PatientLookUp.UserControls
                     postData = new IgJObject();
                     postData.Add("PatientID", iPatient);
                     List<Conditons> objcon = Utility.PostRequest<Conditons>(uri, postData.ToString(Formatting.None));
-                    objcon = objcon.Where(x => (x.Condition == "Chronic Heart Failure (CHF)" || x.Condition == "Chronic Obstructive Pulmonary Disease (COPD)" || x.Condition == "Coronary Artery Disease (CAD)" || x.Condition == "Diabetes Mellitus Type 1" || x.Condition == "Diabetes Mellitus Type 2" || x.Condition == "Ischemic Vascular Disease (IVD)" || x.Condition == "Hypertension (HTN)") && (x.ConditionStatus == "Active" || x.ConditionStatus == "" || x.ConditionStatus == null)).ToList();
+                    //objcon = objcon.Where(x => (x.Condition == "Chronic Heart Failure (CHF)" || x.Condition == "Chronic Obstructive Pulmonary Disease (COPD)" || x.Condition == "C*/oronary Artery Disease (CAD)" || x.Condition == "Diabetes Mellitus Type 1" || x.Condition == "Diabetes Mellitus Type 2" || x.Condition == "Ischemic Vascular Disease (IVD)" || x.Condition == "Hypertension (HTN)") && (x.ConditionStatus == "Active" || x.ConditionStatus == "" || x.ConditionStatus == null)).ToList();
 
 
                     if (objcon.Count > 0)
@@ -1582,15 +1582,14 @@ namespace Hick.PatientLookUp.UserControls
 
                     #endregion
 
-                    #region Family Member History
+                    #region family history
 
-                    // line space
-                    Chunk cSpaceFamilyHistory = new Chunk("\r\r");
+                    Chunk cSpaceFamilyHistory = new Chunk("\r");
                     Phrase phSpaceFamilyHistory = new Phrase();
                     phSpaceFamilyHistory.Add(cSpaceFamilyHistory);
                     dc.Add(phSpaceFamilyHistory);
 
-                    // Family Member History Heading
+                    // Emergency Heading
                     Chunk cLabelFamilyHistory = new Chunk("Family History", fLabel);
                     Phrase phFamilyHistory = new Phrase();
                     phFamilyHistory.Add(cLabelFamilyHistory);
@@ -1599,326 +1598,395 @@ namespace Hick.PatientLookUp.UserControls
                     dc.Add(phFamilyHistory);
 
                     // line space
-                    Chunk cSpaceFamilyHistory1 = new Chunk("\r");
+                    Chunk cSpaceFamilyHistory1 = new Chunk("\r\r");
                     dc.Add(cSpaceFamilyHistory1);
 
-                    PdfPTable tblFamilyHistory = new PdfPTable(4);
-                    tblFamilyHistory.TotalWidth = 550f;
-                    tblFamilyHistory.LockedWidth = true;
+                    iTextSharp.text.Table tblFamilyHistory = new iTextSharp.text.Table(3);
+                    tblFamilyHistory.Width = 105;
+                    tblFamilyHistory.BorderWidth = 0;
+                    //tblProviders.BorderColor = Color.BLACK;
+                    tblFamilyHistory.Padding = 3;
+                    tblFamilyHistory.Spacing = 1;
+                    Cell cFamilyHistory1 = new Cell(new Phrase("Relation", fLabelNormal));
+                    cFamilyHistory1.HorizontalAlignment = 1;
+                    Cell cFamilyHistory2 = new Cell(new Phrase("Condition", fLabelNormal));
+                    cFamilyHistory2.HorizontalAlignment = 1;
+                    Cell cFamilyHistory3 = new Cell(new Phrase("Onset Date", fLabelNormal));
+                    cFamilyHistory3.HorizontalAlignment = 1;
+                    tblFamilyHistory.AddCell(cFamilyHistory1);
+                    tblFamilyHistory.AddCell(cFamilyHistory2);
+                    tblFamilyHistory.AddCell(cFamilyHistory3);
 
-                    // 1st row
-                    tblFamilyHistory.AddCell(GetBoldCell("Relation", 1, 1));
-                    tblFamilyHistory.AddCell(GetBoldCell("Age", 1, 1));
-                    tblFamilyHistory.AddCell(GetBoldCell("If deceased:", 1, 1));
-                    tblFamilyHistory.AddCell(GetBoldCell("Health  Conditions", 1, 1));
+                    uri = Utility.GetServiceUrl("patientfamilyhistory");
 
-                    // 2nd row
-                    //tblFamilyHistory.AddCell(GetBoldCell("", 1, 1));
-                    //tblFamilyHistory.AddCell(GetBoldCell("", 1, 1));
-                    //tblFamilyHistory.AddCell(GetBoldCell("Age at death", 1, 1));
-                    //tblFamilyHistory.AddCell(GetBoldCell("Cause of death", 1, 1));
-                    //tblFamilyHistory.AddCell(GetBoldCell("", 1, 1));
-
-                    uri = Utility.GetServiceUrl("familyhistory");
                     postData = new IgJObject();
                     postData.Add("PatientID", iPatient);
-                    List<FamilyHistory> objfamhdr = Utility.PostRequest<FamilyHistory>(uri, postData.ToString(Formatting.None));
+                    List<FamilyHistoryDetailInfo> objfmhst = Utility.PostRequest<FamilyHistoryDetailInfo>(uri, postData.ToString(Formatting.None));
+                    //objcon = objcon.Where(x => (x.Condition == "Chronic Heart Failure (CHF)" || x.Condition == "Chronic Obstructive Pulmonary Disease (COPD)" || x.Condition == "C*/oronary Artery Disease (CAD)" || x.Condition == "Diabetes Mellitus Type 1" || x.Condition == "Diabetes Mellitus Type 2" || x.Condition == "Ischemic Vascular Disease (IVD)" || x.Condition == "Hypertension (HTN)") && (x.ConditionStatus == "Active" || x.ConditionStatus == "" || x.ConditionStatus == null)).ToList();
 
 
-
-                    //List<FamilyHistory> objfamhdr = null;
-                    //uri = ConfigurationManager.AppSettings["serviceURL"] + "/familyhistory";
-                    //postData = "{\"Pin\":\"" + PinValue + "\",\"PatientID\":\"" + iPatient + "\"}";
-                    //objfamhdr = Utility.PostRequest<FamilyHistory>(uri, postData);
-
-                    //      IList<FamilyHistoryInfo> iFamilyHistoryInfo = (new GHPFamilyHistoryBLL()).GetFamilyHistoryHdr(iPatient, Convert.ToInt32(Session["UID"]));
-                    if (objfamhdr.Count > 0)
+                    if (objfmhst.Count > 0)
                     {
-                        ViewState["FamilyHistoryId"] = objfamhdr[0].FamilyHistoryId.ToString();
-                        string noofsiblings = objfamhdr[0].NoOfSibling.ToString();
-                        string noofchildrens = objfamhdr[0].NoOfChildren.ToString();
-
-                        //Mother
-
-                        tblFamilyHistory.AddCell(GetCell("Mother", 1, 1));
-
-                        uri = Utility.GetServiceUrl("familyhistorydtl");
-                        postData = new IgJObject();
-                        postData.Add("PatientID", iPatient);
-                        postData.Add("FamilyHistoryId", Convert.ToInt32(ViewState["FamilyHistoryId"]));
-                        postData.Add("MedicalHistoryOf", "Mother");
-
-                        List<FamilyHistoryDetailInfo> objfammother = Utility.PostRequest<FamilyHistoryDetailInfo>(uri, postData.ToString(Formatting.None));
-
-                        //List<FamilyHistoryDetailInfo> objfammother = null;
-                        //uri = ConfigurationManager.AppSettings["serviceURL"] + "/familyhistorydtl";
-                        //postData = "{\"Pin\":\"" + PinValue + "\",\"PatientID\":\"" + iPatient + "\",
-                        //    \"FamilyHistoryId\":\"" + Convert.ToInt32(ViewState["FamilyHistoryId"]) + "\",\"MedicalHistoryOf\":\"Mother\"}";
-                        //objfammother = Utility.PostRequest<FamilyHistoryDetailInfo>(uri, postData);
-
-                        if (objfammother.Count > 0)
+                        for (int i = 0; i < objfmhst.Count; i++)
                         {
-                            if (objfammother[0].AgeOfLiving.ToString() == "0")
-                            {
-                                tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                            }
-                            else
-                            {
-                                tblFamilyHistory.AddCell(GetCell(objfammother[0].AgeOfLiving.ToString(), 1, 1));
-                            }
-                            if (objfammother[0].LivingOrDeceased == "Living")
-                            {
-                                PdfPTable tblFamilyHistoryInner = new PdfPTable(4);
-                                tblFamilyHistoryInner.TotalWidth = 550f;
-
-                                tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
-                                tblFamilyHistoryInner.AddCell(GetInnerCell("Yes", "", 1, 1));
-                                tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
-                                tblFamilyHistoryInner.AddCell(GetInnerCell("No", "", 1, 1));
-
-                                tblFamilyHistory.AddCell(tblFamilyHistoryInner);
-                            }
-                            else
-                            {
-                                PdfPTable tblFamilyHistoryInner = new PdfPTable(4);
-                                tblFamilyHistoryInner.TotalWidth = 550f;
-
-                                tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
-                                tblFamilyHistoryInner.AddCell(GetInnerCell("Yes", "", 1, 1));
-                                tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
-                                tblFamilyHistoryInner.AddCell(GetInnerCell("No", "", 1, 1));
-
-                                tblFamilyHistory.AddCell(tblFamilyHistoryInner);
-                            }
-                            //if (iMotherHistoryDetail[0].AgeAtDeath.ToString() == "0")
-                            //{
-                            //    tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                            //}
-                            //else
-                            //{
-                            //    tblFamilyHistory.AddCell(GetCell(iMotherHistoryDetail[0].AgeAtDeath.ToString(), 1, 1));
-                            //}
-
-                            //tblFamilyHistory.AddCell(GetCell(iMotherHistoryDetail[0].CauseOfDeath.ToString(), 1, 1));
-                            tblFamilyHistory.AddCell(GetCell(objfammother[0].MajorHealthProblem.ToString(), 1, 1));
-                        }
-                        else
-                        {
-                            tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                            tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                            tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                            tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                            tblFamilyHistory.AddCell(new Phrase(Convert.ToString(objfmhst[i].Relationship), fText));
+                            tblFamilyHistory.AddCell(new Phrase(Convert.ToString(objfmhst[i].ConditionName), fText));
+                            tblFamilyHistory.AddCell(new Phrase(Convert.ToString(objfmhst[i].OnsetDate), fText));
                         }
 
-                        //Father
-                        uri = Utility.GetServiceUrl("familyhistorydtl");
-                        postData = new IgJObject();
-                        postData.Add("PatientID", iPatient);
-                        postData.Add("FamilyHistoryId", Convert.ToInt32(ViewState["FamilyHistoryId"]));
-                        postData.Add("MedicalHistoryOf", "Father");
-                        List<FamilyHistoryDetailInfo> objfather = Utility.PostRequest<FamilyHistoryDetailInfo>(uri, postData.ToString(Formatting.None));
+                        dc.Add(tblFamilyHistory);
+                    }
+                    else
+                    {
+                        dc.Add(tblFamilyHistory);
 
-
-                        //tblFamilyHistory.AddCell(GetCell("Father", 1, 1));
-                        //List<FamilyHistoryDetailInfo> objfather = null;
-                        //uri = ConfigurationManager.AppSettings["serviceURL"] + "/familyhistorydtl";
-                        //postData = "{\"Pin\":\"" + PinValue + "\",\"PatientId\":\"" + iPatient + "\",
-                        //    \"FamilyHistoryId\":\"" + Convert.ToInt32(ViewState["FamilyHistoryId"]) + "\",\"MedicalHistoryOf\":\"Father\"}";
-                        //objfather = Utility.PostRequest<FamilyHistoryDetailInfo>(uri, postData);
-
-                        if (objfather.Count > 0)
-                        {
-                            if (objfather[0].AgeOfLiving.ToString() == "0")
-                            {
-                                tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                            }
-                            else
-                            {
-                                tblFamilyHistory.AddCell(GetCell(objfather[0].AgeOfLiving.ToString(), 1, 1));
-                            }
-                            if (objfather[0].LivingOrDeceased == "Living")
-                            {
-                                PdfPTable tblFamilyHistoryInner = new PdfPTable(4);
-                                tblFamilyHistoryInner.TotalWidth = 550f;
-
-                                tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
-                                tblFamilyHistoryInner.AddCell(GetInnerCell("Yes", "", 1, 1));
-                                tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
-                                tblFamilyHistoryInner.AddCell(GetInnerCell("No", "", 1, 1));
-
-                                tblFamilyHistory.AddCell(tblFamilyHistoryInner);
-                            }
-                            else
-                            {
-                                PdfPTable tblFamilyHistoryInner = new PdfPTable(4);
-                                tblFamilyHistoryInner.TotalWidth = 550f;
-
-                                tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
-                                tblFamilyHistoryInner.AddCell(GetInnerCell("Yes", "", 1, 1));
-                                tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
-                                tblFamilyHistoryInner.AddCell(GetInnerCell("No", "", 1, 1));
-
-                                tblFamilyHistory.AddCell(tblFamilyHistoryInner);
-                            }
-                            //if (iFatherHistoryDetail[0].AgeAtDeath.ToString() == "0")
-                            //{
-                            //    tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                            //}
-                            //else
-                            //{
-                            //    tblFamilyHistory.AddCell(GetCell(iFatherHistoryDetail[0].AgeAtDeath.ToString(), 1, 1));
-                            //}
-
-                            //tblFamilyHistory.AddCell(GetCell(iFatherHistoryDetail[0].CauseOfDeath.ToString(), 1, 1));
-                            tblFamilyHistory.AddCell(GetCell(objfather[0].MajorHealthProblem.ToString(), 1, 1));
-                        }
-                        else
-                        {
-                            tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                            tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                            tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                            tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                        }
-
-                        //sibling
-
-
-                        tblFamilyHistory.AddCell(GetCell("Do you have Siblings?", 2, 1));
-                        tblFamilyHistory.AddCell(GetCell("Number of Siblings:  ", objfamhdr[0].NoOfSibling.ToString(), 2, 1));
-                        tblFamilyHistory.AddCell(GetCell("Do you have Children?", 2, 1));
-                        tblFamilyHistory.AddCell(GetCell("Number of Children:  ", objfamhdr[0].NoOfChildren.ToString(), 2, 1));
-                        //if (iFamilyHistoryInfo[0].Siblings == "Yes")
-                        //{
-                        //    PdfPTable tblFamilyHistoryInner = new PdfPTable(5);
-                        //    tblFamilyHistoryInner.TotalWidth = 550f;
-                        //    tblFamilyHistoryInner.AddCell(GetCell("Do you have Siblings?"));
-                        //    tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
-                        //    tblFamilyHistoryInner.AddCell(GetCell("Yes"));
-                        //    tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
-                        //    tblFamilyHistoryInner.AddCell(GetCell("No"));
-
-                        //    tblFamilyHistory.AddCell(tblFamilyHistoryInner);
-                        //}
-                        //else
-                        //{
-                        //    PdfPTable tblFamilyHistoryInner = new PdfPTable(5);
-                        //    tblFamilyHistoryInner.TotalWidth = 550f;
-                        //    tblFamilyHistoryInner.AddCell(GetCell("Do you have Siblings"));
-                        //    tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
-                        //    tblFamilyHistoryInner.AddCell(GetCell("Yes"));
-                        //    tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
-                        //    tblFamilyHistoryInner.AddCell(GetCell("No"));
-
-                        //    tblFamilyHistory.AddCell(tblFamilyHistoryInner);
-                        //}
-
-                        //if (iFamilyHistoryInfo[0].Children == "Yes")
-                        //{
-                        //    PdfPTable tblFamilyHistoryInner = new PdfPTable(5);
-                        //    tblFamilyHistoryInner.TotalWidth = 550f;
-                        //    tblFamilyHistory.AddCell(GetCell("Do you have Children?"));
-                        //    tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
-                        //    tblFamilyHistoryInner.AddCell(GetCell("Yes"));
-                        //    tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
-                        //    tblFamilyHistoryInner.AddCell(GetCell("No"));
-
-                        //    tblFamilyHistory.AddCell(tblFamilyHistoryInner);
-                        //}
-                        //else
-                        //{
-                        //    PdfPTable tblFamilyHistoryInner = new PdfPTable(5);
-                        //    tblFamilyHistoryInner.TotalWidth = 550f;
-                        //    tblFamilyHistory.AddCell(GetCell("Do you have Children?"));
-                        //    tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
-                        //    tblFamilyHistoryInner.AddCell(GetCell("Yes"));
-                        //    tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
-                        //    tblFamilyHistoryInner.AddCell(GetCell("No"));
-
-                        //    tblFamilyHistory.AddCell(tblFamilyHistoryInner);
-                        //}
-
-                        //    FamilyHistoryDetail oSiblingFamilyHistoryDetail = new FamilyHistoryDetail();
-                        //    oSiblingFamilyHistoryDetail.FamilyHistoryId = Convert.ToInt32(ViewState["FamilyHistoryId"]);//hdnFamilyHistory.Value
-                        //    oSiblingFamilyHistoryDetail.MedicalHistoryOf = "Sibling";
-                        //    oSiblingFamilyHistoryDetail.PatientId = iPatient;
-                        //    oSiblingFamilyHistoryDetail.UserId = Convert.ToInt32(Session["UID"]);
-
-                        //    IList<FamilyHistoryDetail> iSiblingHistoryDetail = (new GHPFamilyHistoryBLL()).GetFamilyHistoryDtl(oSiblingFamilyHistoryDetail);
-                        //    if (iSiblingHistoryDetail.Count > 0)
-                        //    {
-                        //        for (int i = 0; i < iSiblingHistoryDetail.Count; i++)
-                        //        {
-                        //            int j = i + 1;
-                        //            tblFamilyHistory.AddCell(GetCell("Sibling#" + j, 1, 1));
-
-                        //            if (iSiblingHistoryDetail[i].AgeOfLiving.ToString() == "0")
-                        //            {
-                        //                tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                        //            }
-                        //            else
-                        //            {
-                        //                tblFamilyHistory.AddCell(GetCell(iSiblingHistoryDetail[i].AgeOfLiving.ToString(), 1, 1));
-                        //            }
-                        //            if (iSiblingHistoryDetail[i].AgeAtDeath.ToString() == "0")
-                        //            {
-                        //                tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                        //            }
-                        //            else
-                        //            {
-                        //                tblFamilyHistory.AddCell(GetCell(iSiblingHistoryDetail[i].AgeAtDeath.ToString(), 1, 1));
-                        //            }
-
-                        //            tblFamilyHistory.AddCell(GetCell(iSiblingHistoryDetail[i].CauseOfDeath.ToString(), 1, 1));
-                        //            tblFamilyHistory.AddCell(GetCell(iSiblingHistoryDetail[i].MajorHealthProblem.ToString(), 1, 1));
-                        //        }
-                        //    }
-
-                        //    //children
-                        //    FamilyHistoryDetail oChildFamilyHistoryDetail = new FamilyHistoryDetail();
-                        //    oChildFamilyHistoryDetail.FamilyHistoryId = Convert.ToInt32(ViewState["FamilyHistoryId"]);
-                        //    oChildFamilyHistoryDetail.PatientId = iPatient;
-                        //    oChildFamilyHistoryDetail.MedicalHistoryOf = "Children";
-                        //    oChildFamilyHistoryDetail.UserId = Convert.ToInt32(Session["UID"]);
-
-                        //    IList<FamilyHistoryDetail> iChildHistoryDetail = (new GHPFamilyHistoryBLL()).GetFamilyHistoryDtl(oChildFamilyHistoryDetail);
-                        //    if (iChildHistoryDetail.Count > 0)
-                        //    {
-                        //        for (int i = 0; i < iChildHistoryDetail.Count; i++)
-                        //        {
-                        //            int j = i + 1;
-                        //            tblFamilyHistory.AddCell(GetCell("Child#" + j, 1, 1));
-
-                        //            if (iChildHistoryDetail[i].AgeOfLiving.ToString() == "0")
-                        //            {
-                        //                tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                        //            }
-                        //            else
-                        //            {
-                        //                tblFamilyHistory.AddCell(GetCell(iChildHistoryDetail[i].AgeOfLiving.ToString(), 1, 1));
-                        //            }
-                        //            if (iChildHistoryDetail[i].AgeAtDeath.ToString() == "0")
-                        //            {
-                        //                tblFamilyHistory.AddCell(GetCell("", 1, 1));
-                        //            }
-                        //            else
-                        //            {
-                        //                tblFamilyHistory.AddCell(GetCell(iChildHistoryDetail[i].AgeAtDeath.ToString(), 1, 1));
-                        //            }
-
-                        //            tblFamilyHistory.AddCell(GetCell(iChildHistoryDetail[i].CauseOfDeath.ToString(), 1, 1));
-                        //            tblFamilyHistory.AddCell(GetCell(iChildHistoryDetail[i].MajorHealthProblem.ToString(), 1, 1));
-                        //        }
-                        //    }
-
-
-                        //}
-
+                        Chunk cNAFamilyHistory = new Chunk(" No Records found for Family History.", fTextItalic);
+                        dc.Add(cNAFamilyHistory);
                     }
 
-
-                    dc.Add(tblFamilyHistory);
-
                     #endregion
+
+
+                    //#region Family Member History
+
+                    //// line space
+                    //Chunk cSpaceFamilyHistory = new Chunk("\r\r");
+                    //Phrase phSpaceFamilyHistory = new Phrase();
+                    //phSpaceFamilyHistory.Add(cSpaceFamilyHistory);
+                    //dc.Add(phSpaceFamilyHistory);
+
+                    //// Family Member History Heading
+                    //Chunk cLabelFamilyHistory = new Chunk("Family History", fLabel);
+                    //Phrase phFamilyHistory = new Phrase();
+                    //phFamilyHistory.Add(cLabelFamilyHistory);
+                    //Paragraph pFamilyHistory = new Paragraph();
+                    //pFamilyHistory.Add(phFamilyHistory);
+                    //dc.Add(phFamilyHistory);
+
+                    //// line space
+                    //Chunk cSpaceFamilyHistory1 = new Chunk("\r");
+                    //dc.Add(cSpaceFamilyHistory1);
+
+                    //PdfPTable tblFamilyHistory = new PdfPTable(4);
+                    //tblFamilyHistory.TotalWidth = 550f;
+                    //tblFamilyHistory.LockedWidth = true;
+
+                    //// 1st row
+                    //tblFamilyHistory.AddCell(GetBoldCell("Relation", 1, 1));
+                    //tblFamilyHistory.AddCell(GetBoldCell("Age", 1, 1));
+                    //tblFamilyHistory.AddCell(GetBoldCell("If deceased:", 1, 1));
+                    //tblFamilyHistory.AddCell(GetBoldCell("Health  Conditions", 1, 1));
+
+                    //// 2nd row
+                    ////tblFamilyHistory.AddCell(GetBoldCell("", 1, 1));
+                    ////tblFamilyHistory.AddCell(GetBoldCell("", 1, 1));
+                    ////tblFamilyHistory.AddCell(GetBoldCell("Age at death", 1, 1));
+                    ////tblFamilyHistory.AddCell(GetBoldCell("Cause of death", 1, 1));
+                    ////tblFamilyHistory.AddCell(GetBoldCell("", 1, 1));
+
+                    ////uri = Utility.GetServiceUrl("familyhistory");
+                    //uri = Utility.GetServiceUrl("familyhistory");
+
+                    //postData = new IgJObject();
+                    //postData.Add("PatientID", iPatient);
+                    //List<FamilyHistory> objfamhdr = Utility.PostRequest<FamilyHistory>(uri, postData.ToString(Formatting.None));
+
+
+
+                    ////List<FamilyHistory> objfamhdr = null;
+                    ////uri = ConfigurationManager.AppSettings["serviceURL"] + "/familyhistory";
+                    ////postData = "{\"Pin\":\"" + PinValue + "\",\"PatientID\":\"" + iPatient + "\"}";
+                    ////objfamhdr = Utility.PostRequest<FamilyHistory>(uri, postData);
+
+                    ////      IList<FamilyHistoryInfo> iFamilyHistoryInfo = (new GHPFamilyHistoryBLL()).GetFamilyHistoryHdr(iPatient, Convert.ToInt32(Session["UID"]));
+                    //if (objfamhdr.Count > 0)
+                    //{
+                    //    ViewState["FamilyHistoryId"] = objfamhdr[0].FamilyHistoryId.ToString();
+                    //    string noofsiblings = objfamhdr[0].NoOfSibling.ToString();
+                    //    string noofchildrens = objfamhdr[0].NoOfChildren.ToString();
+
+                    //    //Mother
+
+                    //    tblFamilyHistory.AddCell(GetCell("Mother", 1, 1));
+
+                    //    uri = Utility.GetServiceUrl("familyhistorydtl");
+                    //    //uri = Utility.GetServiceUrl("patientfamilyhistory");
+                    //    postData = new IgJObject();
+                    //    postData.Add("PatientID", iPatient);
+                    //    postData.Add("FamilyHistoryId", Convert.ToInt32(ViewState["FamilyHistoryId"]));
+                    //    postData.Add("MedicalHistoryOf", "Mother");
+
+                    //    List<FamilyHistoryDetailInfo> objfammother = Utility.PostRequest<FamilyHistoryDetailInfo>(uri, postData.ToString(Formatting.None));
+
+                    //    //List<FamilyHistoryDetailInfo> objfammother = null;
+                    //    //uri = ConfigurationManager.AppSettings["serviceURL"] + "/familyhistorydtl";
+                    //    //postData = "{\"Pin\":\"" + PinValue + "\",\"PatientID\":\"" + iPatient + "\",
+                    //    //    \"FamilyHistoryId\":\"" + Convert.ToInt32(ViewState["FamilyHistoryId"]) + "\",\"MedicalHistoryOf\":\"Mother\"}";
+                    //    //objfammother = Utility.PostRequest<FamilyHistoryDetailInfo>(uri, postData);
+
+                    //    if (objfammother.Count > 0)
+                    //    {
+                    //        if (objfammother[0].AgeOfLiving.ToString() == "0")
+                    //        {
+                    //            tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //        }
+                    //        else
+                    //        {
+                    //            tblFamilyHistory.AddCell(GetCell(objfammother[0].AgeOfLiving.ToString(), 1, 1));
+                    //        }
+                    //        if (objfammother[0].LivingOrDeceased == "Living")
+                    //        {
+                    //            PdfPTable tblFamilyHistoryInner = new PdfPTable(4);
+                    //            tblFamilyHistoryInner.TotalWidth = 550f;
+
+                    //            tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
+                    //            tblFamilyHistoryInner.AddCell(GetInnerCell("Yes", "", 1, 1));
+                    //            tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
+                    //            tblFamilyHistoryInner.AddCell(GetInnerCell("No", "", 1, 1));
+
+                    //            tblFamilyHistory.AddCell(tblFamilyHistoryInner);
+                    //        }
+                    //        else
+                    //        {
+                    //            PdfPTable tblFamilyHistoryInner = new PdfPTable(4);
+                    //            tblFamilyHistoryInner.TotalWidth = 550f;
+
+                    //            tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
+                    //            tblFamilyHistoryInner.AddCell(GetInnerCell("Yes", "", 1, 1));
+                    //            tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
+                    //            tblFamilyHistoryInner.AddCell(GetInnerCell("No", "", 1, 1));
+
+                    //            tblFamilyHistory.AddCell(tblFamilyHistoryInner);
+                    //        }
+                    //        //if (iMotherHistoryDetail[0].AgeAtDeath.ToString() == "0")
+                    //        //{
+                    //        //    tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //        //}
+                    //        //else
+                    //        //{
+                    //        //    tblFamilyHistory.AddCell(GetCell(iMotherHistoryDetail[0].AgeAtDeath.ToString(), 1, 1));
+                    //        //}
+
+                    //        //tblFamilyHistory.AddCell(GetCell(iMotherHistoryDetail[0].CauseOfDeath.ToString(), 1, 1));
+                    //        tblFamilyHistory.AddCell(GetCell(objfammother[0].MajorHealthProblem.ToString(), 1, 1));
+                    //    }
+                    //    else
+                    //    {
+                    //        tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //        tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //        tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //        tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //    }
+
+                    //    //Father
+                    //    uri = Utility.GetServiceUrl("familyhistorydtl");
+                    //    postData = new IgJObject();
+                    //    postData.Add("PatientID", iPatient);
+                    //    postData.Add("FamilyHistoryId", Convert.ToInt32(ViewState["FamilyHistoryId"]));
+                    //    postData.Add("MedicalHistoryOf", "Father");
+                    //    List<FamilyHistoryDetailInfo> objfather = Utility.PostRequest<FamilyHistoryDetailInfo>(uri, postData.ToString(Formatting.None));
+
+
+                    //    //tblFamilyHistory.AddCell(GetCell("Father", 1, 1));
+                    //    //List<FamilyHistoryDetailInfo> objfather = null;
+                    //    //uri = ConfigurationManager.AppSettings["serviceURL"] + "/familyhistorydtl";
+                    //    //postData = "{\"Pin\":\"" + PinValue + "\",\"PatientId\":\"" + iPatient + "\",
+                    //    //    \"FamilyHistoryId\":\"" + Convert.ToInt32(ViewState["FamilyHistoryId"]) + "\",\"MedicalHistoryOf\":\"Father\"}";
+                    //    //objfather = Utility.PostRequest<FamilyHistoryDetailInfo>(uri, postData);
+
+                    //    if (objfather.Count > 0)
+                    //    {
+                    //        if (objfather[0].AgeOfLiving.ToString() == "0")
+                    //        {
+                    //            tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //        }
+                    //        else
+                    //        {
+                    //            tblFamilyHistory.AddCell(GetCell(objfather[0].AgeOfLiving.ToString(), 1, 1));
+                    //        }
+                    //        if (objfather[0].LivingOrDeceased == "Living")
+                    //        {
+                    //            PdfPTable tblFamilyHistoryInner = new PdfPTable(4);
+                    //            tblFamilyHistoryInner.TotalWidth = 550f;
+
+                    //            tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
+                    //            tblFamilyHistoryInner.AddCell(GetInnerCell("Yes", "", 1, 1));
+                    //            tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
+                    //            tblFamilyHistoryInner.AddCell(GetInnerCell("No", "", 1, 1));
+
+                    //            tblFamilyHistory.AddCell(tblFamilyHistoryInner);
+                    //        }
+                    //        else
+                    //        {
+                    //            PdfPTable tblFamilyHistoryInner = new PdfPTable(4);
+                    //            tblFamilyHistoryInner.TotalWidth = 550f;
+
+                    //            tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
+                    //            tblFamilyHistoryInner.AddCell(GetInnerCell("Yes", "", 1, 1));
+                    //            tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
+                    //            tblFamilyHistoryInner.AddCell(GetInnerCell("No", "", 1, 1));
+
+                    //            tblFamilyHistory.AddCell(tblFamilyHistoryInner);
+                    //        }
+                    //        //if (iFatherHistoryDetail[0].AgeAtDeath.ToString() == "0")
+                    //        //{
+                    //        //    tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //        //}
+                    //        //else
+                    //        //{
+                    //        //    tblFamilyHistory.AddCell(GetCell(iFatherHistoryDetail[0].AgeAtDeath.ToString(), 1, 1));
+                    //        //}
+
+                    //        //tblFamilyHistory.AddCell(GetCell(iFatherHistoryDetail[0].CauseOfDeath.ToString(), 1, 1));
+                    //        tblFamilyHistory.AddCell(GetCell(objfather[0].MajorHealthProblem.ToString(), 1, 1));
+                    //    }
+                    //    else
+                    //    {
+                    //        tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //        tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //        tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //        tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //    }
+
+                    //    //sibling
+
+
+                    //    tblFamilyHistory.AddCell(GetCell("Do you have Siblings?", 2, 1));
+                    //    tblFamilyHistory.AddCell(GetCell("Number of Siblings:  ", objfamhdr[0].NoOfSibling.ToString(), 2, 1));
+                    //    tblFamilyHistory.AddCell(GetCell("Do you have Children?", 2, 1));
+                    //    tblFamilyHistory.AddCell(GetCell("Number of Children:  ", objfamhdr[0].NoOfChildren.ToString(), 2, 1));
+                    //    //if (iFamilyHistoryInfo[0].Siblings == "Yes")
+                    //    //{
+                    //    //    PdfPTable tblFamilyHistoryInner = new PdfPTable(5);
+                    //    //    tblFamilyHistoryInner.TotalWidth = 550f;
+                    //    //    tblFamilyHistoryInner.AddCell(GetCell("Do you have Siblings?"));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCell("Yes"));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCell("No"));
+
+                    //    //    tblFamilyHistory.AddCell(tblFamilyHistoryInner);
+                    //    //}
+                    //    //else
+                    //    //{
+                    //    //    PdfPTable tblFamilyHistoryInner = new PdfPTable(5);
+                    //    //    tblFamilyHistoryInner.TotalWidth = 550f;
+                    //    //    tblFamilyHistoryInner.AddCell(GetCell("Do you have Siblings"));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCell("Yes"));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCell("No"));
+
+                    //    //    tblFamilyHistory.AddCell(tblFamilyHistoryInner);
+                    //    //}
+
+                    //    //if (iFamilyHistoryInfo[0].Children == "Yes")
+                    //    //{
+                    //    //    PdfPTable tblFamilyHistoryInner = new PdfPTable(5);
+                    //    //    tblFamilyHistoryInner.TotalWidth = 550f;
+                    //    //    tblFamilyHistory.AddCell(GetCell("Do you have Children?"));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCell("Yes"));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCell("No"));
+
+                    //    //    tblFamilyHistory.AddCell(tblFamilyHistoryInner);
+                    //    //}
+                    //    //else
+                    //    //{
+                    //    //    PdfPTable tblFamilyHistoryInner = new PdfPTable(5);
+                    //    //    tblFamilyHistoryInner.TotalWidth = 550f;
+                    //    //    tblFamilyHistory.AddCell(GetCell("Do you have Children?"));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCellImage(ntChkdImg));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCell("Yes"));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCellImage(chkdImg));
+                    //    //    tblFamilyHistoryInner.AddCell(GetCell("No"));
+
+                    //    //    tblFamilyHistory.AddCell(tblFamilyHistoryInner);
+                    //    //}
+
+                    //    //    FamilyHistoryDetail oSiblingFamilyHistoryDetail = new FamilyHistoryDetail();
+                    //    //    oSiblingFamilyHistoryDetail.FamilyHistoryId = Convert.ToInt32(ViewState["FamilyHistoryId"]);//hdnFamilyHistory.Value
+                    //    //    oSiblingFamilyHistoryDetail.MedicalHistoryOf = "Sibling";
+                    //    //    oSiblingFamilyHistoryDetail.PatientId = iPatient;
+                    //    //    oSiblingFamilyHistoryDetail.UserId = Convert.ToInt32(Session["UID"]);
+
+                    //    //    IList<FamilyHistoryDetail> iSiblingHistoryDetail = (new GHPFamilyHistoryBLL()).GetFamilyHistoryDtl(oSiblingFamilyHistoryDetail);
+                    //    //    if (iSiblingHistoryDetail.Count > 0)
+                    //    //    {
+                    //    //        for (int i = 0; i < iSiblingHistoryDetail.Count; i++)
+                    //    //        {
+                    //    //            int j = i + 1;
+                    //    //            tblFamilyHistory.AddCell(GetCell("Sibling#" + j, 1, 1));
+
+                    //    //            if (iSiblingHistoryDetail[i].AgeOfLiving.ToString() == "0")
+                    //    //            {
+                    //    //                tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //    //            }
+                    //    //            else
+                    //    //            {
+                    //    //                tblFamilyHistory.AddCell(GetCell(iSiblingHistoryDetail[i].AgeOfLiving.ToString(), 1, 1));
+                    //    //            }
+                    //    //            if (iSiblingHistoryDetail[i].AgeAtDeath.ToString() == "0")
+                    //    //            {
+                    //    //                tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //    //            }
+                    //    //            else
+                    //    //            {
+                    //    //                tblFamilyHistory.AddCell(GetCell(iSiblingHistoryDetail[i].AgeAtDeath.ToString(), 1, 1));
+                    //    //            }
+
+                    //    //            tblFamilyHistory.AddCell(GetCell(iSiblingHistoryDetail[i].CauseOfDeath.ToString(), 1, 1));
+                    //    //            tblFamilyHistory.AddCell(GetCell(iSiblingHistoryDetail[i].MajorHealthProblem.ToString(), 1, 1));
+                    //    //        }
+                    //    //    }
+
+                    //    //    //children
+                    //    //    FamilyHistoryDetail oChildFamilyHistoryDetail = new FamilyHistoryDetail();
+                    //    //    oChildFamilyHistoryDetail.FamilyHistoryId = Convert.ToInt32(ViewState["FamilyHistoryId"]);
+                    //    //    oChildFamilyHistoryDetail.PatientId = iPatient;
+                    //    //    oChildFamilyHistoryDetail.MedicalHistoryOf = "Children";
+                    //    //    oChildFamilyHistoryDetail.UserId = Convert.ToInt32(Session["UID"]);
+
+                    //    //    IList<FamilyHistoryDetail> iChildHistoryDetail = (new GHPFamilyHistoryBLL()).GetFamilyHistoryDtl(oChildFamilyHistoryDetail);
+                    //    //    if (iChildHistoryDetail.Count > 0)
+                    //    //    {
+                    //    //        for (int i = 0; i < iChildHistoryDetail.Count; i++)
+                    //    //        {
+                    //    //            int j = i + 1;
+                    //    //            tblFamilyHistory.AddCell(GetCell("Child#" + j, 1, 1));
+
+                    //    //            if (iChildHistoryDetail[i].AgeOfLiving.ToString() == "0")
+                    //    //            {
+                    //    //                tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //    //            }
+                    //    //            else
+                    //    //            {
+                    //    //                tblFamilyHistory.AddCell(GetCell(iChildHistoryDetail[i].AgeOfLiving.ToString(), 1, 1));
+                    //    //            }
+                    //    //            if (iChildHistoryDetail[i].AgeAtDeath.ToString() == "0")
+                    //    //            {
+                    //    //                tblFamilyHistory.AddCell(GetCell("", 1, 1));
+                    //    //            }
+                    //    //            else
+                    //    //            {
+                    //    //                tblFamilyHistory.AddCell(GetCell(iChildHistoryDetail[i].AgeAtDeath.ToString(), 1, 1));
+                    //    //            }
+
+                    //    //            tblFamilyHistory.AddCell(GetCell(iChildHistoryDetail[i].CauseOfDeath.ToString(), 1, 1));
+                    //    //            tblFamilyHistory.AddCell(GetCell(iChildHistoryDetail[i].MajorHealthProblem.ToString(), 1, 1));
+                    //    //        }
+                    //    //    }
+
+
+                    //    //}
+
+                    //}
+
+
+                    //dc.Add(tblFamilyHistory);
+
+                    //#endregion
 
                     #region Lifestyle
 
