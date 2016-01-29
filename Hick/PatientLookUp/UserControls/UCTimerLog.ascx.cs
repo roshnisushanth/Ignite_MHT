@@ -12,6 +12,7 @@ using System.IO;
 using Hick.Models;
 using IGNITE.DBUtility;
 using System.Drawing;
+using System.Globalization;
 
 namespace Hick.PatientLookUp.UserControls
 {
@@ -121,8 +122,8 @@ namespace Hick.PatientLookUp.UserControls
                         {
                             DataRow dr = dt.NewRow();
                             DateTime dateval = new DateTime();
-
-                            dateval = DateTime.Parse(DBHelper.getString(sdr,"ConversationDate"));
+                            string converstionDate = DBHelper.getString(sdr, "ConversationDate");
+                            dateval = DateTime.ParseExact(converstionDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             dr[0] = dateval.ToString(Utility.GlobalDateMonthDayYearFormat);
                             dr[1] = "System";
 
@@ -192,7 +193,9 @@ namespace Hick.PatientLookUp.UserControls
                             DateTime dateval = new DateTime();
                             if (!string.IsNullOrEmpty(DBHelper.getString(sdr1,"ConversationDate")))
                             {
-                                dateval = DateTime.Parse(DBHelper.getString(sdr1,"ConversationDate"));
+                                string converstionDate = DBHelper.getString(sdr1, "ConversationDate");
+                                dateval = DateTime.ParseExact(converstionDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                //dateval = DateTime.Parse(DBHelper.getString(sdr1,"ConversationDate"));
                                 dr[0] = dateval.ToString(Utility.GlobalDateMonthDayYearFormat);
                             }
                             else
@@ -271,7 +274,9 @@ namespace Hick.PatientLookUp.UserControls
 
                             if (!string.IsNullOrEmpty(Convert.ToString(sdr2["ConversationDate"])))
                             {
-                                dateval = DateTime.Parse(Convert.ToString(sdr2["ConversationDate"]));
+                                string converstionDate = Convert.ToString(sdr2["ConversationDate"]);
+                                dateval = DateTime.ParseExact(converstionDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                //dateval = DateTime.Parse(Convert.ToString(sdr2["ConversationDate"]));
                                 dr[0] = dateval.ToString(Utility.GlobalDateMonthDayYearFormat);
                             }
                             else

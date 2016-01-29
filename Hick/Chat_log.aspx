@@ -44,7 +44,10 @@
         .ui-dialog-titlebar-close{display: inline-block;
     height: 37px !important;   width: 34px !important;}
         div#divcontrols{float: inherit; text-align: center;  width: 100%}
-        #divcontrols .btnclearchat {font-weight: bold;}
+        #divcontrols .btnclearchat {font-weight: bold;}    
+        .ui-dialog-titlebar.ui-widget-header.ui-corner-all.ui-helper-clearfix{display:none;}
+        div#divexportpopup {overflow: hidden; padding: 0; }
+        .pop-img{margin-top: -5px; }
     </style>
 </head>
 <body>
@@ -311,9 +314,10 @@
         </footer>
     <div style="display: none;">
         <div id="divexportpopup">
-            <!--<div class="exportChat_heading" style="width:100%">
+           <div class="exportChat_heading" style="width:100%">
                     Export Chat
-                </div>-->
+                <img src="Images/popup_close.png" id="chatpopupclose" class="pop-img" />
+            </div>
             <div id="divcontent" style="overflow: auto; float: left; width: 100%;">
                 <table id="tblexport" class="tblexport" border="0" width="100%">
                     <tr class="trheaderrow">
