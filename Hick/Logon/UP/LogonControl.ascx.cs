@@ -27,6 +27,12 @@ namespace Hick.Logon.UP
 
             var retObj = new LoginBLL().UserLogin(enc.EncryptData(txtusername.Value, enc.GetEncryptType()), enc.EncryptData(txtpassword.Value, enc.GetEncryptType()));
             new Index().PostLoginProcess(retObj, Response);
+            
+            if (retObj.Success == false)
+            {
+                lblerrormsg.Text = "Invalid Username or Password";
+            }
+           
         }
     }
 }

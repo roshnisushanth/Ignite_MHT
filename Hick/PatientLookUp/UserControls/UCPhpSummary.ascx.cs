@@ -29,8 +29,6 @@ namespace Hick.PatientLookUp.UserControls
         {
             if (!Page.IsPostBack)
             {
-
-             
                 long patientid = 0;
                 if (!String.IsNullOrEmpty(Request.QueryString["ptid"]))
                 {
@@ -44,7 +42,7 @@ namespace Hick.PatientLookUp.UserControls
                 {
                     patientid = Convert.ToInt64(Session["PatientID"]);
                 }
-                patientid = 62078;
+              
                 BindMedications(patientid);
                 BindConditions(patientid);
                 BindFamilyHistory(patientid);
@@ -1225,10 +1223,19 @@ namespace Hick.PatientLookUp.UserControls
 
                     tblDemographics.AddCell(GetCell(objColl[0].Weight + " " + "lbs", 1, 1));
                     tblDemographics.AddCell(GetCell(objColl[0].Gender, 1, 1));
+<<<<<<< HEAD
+                    if (!string.IsNullOrEmpty(objColl[0].DOB))
+                    {
+                        int age = new DateTime(DateTime.Now.Subtract(Convert.ToDateTime(objColl[0].DOB.ToString())).Ticks).Year - 1;
+                        tblDemographics.AddCell(GetCell(age.ToString(), 1, 1));
+                        tblDemographics.AddCell(GetCell(objColl[0].BP, 1, 1));
+                    }
+=======
                     DateTime db= DateTime.ParseExact(objColl[0].DOB, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                     int age = new DateTime(DateTime.Now.Subtract(db).Ticks).Year - 1;
                     tblDemographics.AddCell(GetCell(age.ToString(), 1, 1));
                     tblDemographics.AddCell(GetCell(objColl[0].BP, 1, 1));
+>>>>>>> 5446e835746f617cd6637c0ab281d07785a52d08
                     dc.Add(tblDemographics);
 
                     #endregion
@@ -1275,64 +1282,129 @@ namespace Hick.PatientLookUp.UserControls
                     tblIdentification.AddCell(GetCell("First Name: ", objColl[0].FirstName.ToString(), 2, 1));
 
                     // 2nd row
-                    tblIdentification.AddCell(GetCell("Middle Name: ", objColl[0].MiddleName, 2, 1));
-                    tblIdentification.AddCell(GetCell("Maiden Name: ", objColl[0].MaidenName.ToString(), 2, 1));
-
+                    if (!string.IsNullOrEmpty(objColl[0].MaidenName))
+                    {
+                        tblIdentification.AddCell(GetCell("Middle Name: ", objColl[0].MiddleName, 2, 1));
+                        tblIdentification.AddCell(GetCell("Maiden Name: ", objColl[0].MaidenName.ToString(), 2, 1));
+                    }
                     // 3rd row. 
-                    tblIdentification.AddCell(GetCell("Last 4 digits of SSN: ", objColl[0].LastName, 2, 1));
-                    tblIdentification.AddCell(GetCell("HICN: ", objColl[0].HICN.ToString(), 2, 1));
+                    if (!string.IsNullOrEmpty(objColl[0].LastName))
+                    {
 
+                        tblIdentification.AddCell(GetCell("Last 4 digits of SSN: ", objColl[0].LastName, 2, 1));
+                    }
+                    if (!string.IsNullOrEmpty(objColl[0].HICN))
+                    {
+                        tblIdentification.AddCell(GetCell("HICN: ", objColl[0].HICN.ToString(), 2, 1));
+                    }
                     //4th row
+
+                    if (!string.IsNullOrEmpty(objColl[0].DOB))
+                    {
+                        //DateTime bdate = Convert.ToDateTime(objColl[0].DOB.ToString());
+
                     DateTime bdate = DateTime.ParseExact(objColl[0].DOB, "MM/dd/yyyy", CultureInfo.InvariantCulture);
 
-                    int date = bdate.Day;
-                    int month = bdate.Month;
-                    int year = bdate.Year;
 
-                    string dob = month.ToString() + "/" + date.ToString() + "/" + year.ToString();
-                    tblIdentification.AddCell(GetCell("DOB: ", dob, 1, 1));
-                    tblIdentification.AddCell(GetCell("Gender: ", objColl[0].Gender, 1, 1));
+                        int date = bdate.Day;
+                        int month = bdate.Month;
+                        int year = bdate.Year;
+
+                        string dob = month.ToString() + "/" + date.ToString() + "/" + year.ToString();
+                        tblIdentification.AddCell(GetCell("DOB: ", dob, 1, 1));
+                    }
+                    if (!string.IsNullOrEmpty(objColl[0].Gender))
+                    {
+                        tblIdentification.AddCell(GetCell("Gender: ", objColl[0].Gender, 1, 1));
+                    }
                     tblIdentification.AddCell(GetCell("Race: ", objColl[0].Race, 2, 1));
 
                     //5th row
-                    tblIdentification.AddCell(GetCell("Home Phone: ", objColl[0].PhoneNumber.ToString(), 1, 1));
-                    tblIdentification.AddCell(GetCell("Cell Phone: ", objColl[0].CellPhone.ToString(), 1, 1));
-                    tblIdentification.AddCell(GetCell("Email Address: ", objColl[0].EmailId.ToString(), 2, 1));
+                    if (!string.IsNullOrEmpty(objColl[0].PhoneNumber))
+                    {
+                        tblIdentification.AddCell(GetCell("Home Phone: ", objColl[0].PhoneNumber.ToString(), 1, 1));
+                    }
+                    if (!string.IsNullOrEmpty(objColl[0].CellPhone))
+                    {
+                        tblIdentification.AddCell(GetCell("Cell Phone: ", objColl[0].CellPhone.ToString(), 1, 1));
+                    }
+                    if (!string.IsNullOrEmpty(objColl[0].EmailId))
+                    {
 
+                        tblIdentification.AddCell(GetCell("Email Address: ", objColl[0].EmailId.ToString(), 2, 1));
+                    }
                     // 6th row. 
-                    tblIdentification.AddCell(GetCell("Primary Address: ", objColl[0].Address1.ToString(), 2, 1));
-                    tblIdentification.AddCell(GetCell("Alternate Address: ", objColl[0].AlterAddress1.ToString(), 2, 1));
+                    if (!string.IsNullOrEmpty(objColl[0].Address1))
+                    {
+                        tblIdentification.AddCell(GetCell("Primary Address: ", objColl[0].Address1.ToString(), 2, 1));
+                    }
+                    if (!string.IsNullOrEmpty(objColl[0].AlterAddress1))
+                    {
 
+                        tblIdentification.AddCell(GetCell("Alternate Address: ", objColl[0].AlterAddress1.ToString(), 2, 1));
+                    }
                     //7th row
                     string blood = "";
-                    if (objColl[0].BloodType.ToString() == "Select")
+                    if (!string.IsNullOrEmpty(objColl[0].BloodType) && objColl[0].BloodType.ToString() == "Select")
                     {
                         blood = "";
                     }
-                    else
+                    else if (!string.IsNullOrEmpty(objColl[0].BloodType))
                     {
                         blood = objColl[0].BloodType.ToString();
                     }
-                    tblIdentification.AddCell(GetCell("Eye Color: ", objColl[0].EyeColor.ToString()));
-                    tblIdentification.AddCell(GetCell("Hair Color: ", objColl[0].HairColor.ToString()));
+
+                    if (!string.IsNullOrEmpty(objColl[0].EyeColor))
+                    {
+                        tblIdentification.AddCell(GetCell("Eye Color: ", objColl[0].EyeColor.ToString()));
+                    }
+                    if (!string.IsNullOrEmpty(objColl[0].HairColor))
+                    {
+                        tblIdentification.AddCell(GetCell("Hair Color: ", objColl[0].HairColor.ToString()));
+                    }
+
                     tblIdentification.AddCell(GetCell("Blood/RH Type: ", blood));
+
                     tblIdentification.AddCell(GetCell("Birthmark/Scars: ", objColl[0].Birthmark));
-
                     //8th row
-                    tblIdentification.AddCell(GetCell("Primary Insurance: ", objColl[0].PrimaryFinancialClass.ToString()));
-                    tblIdentification.AddCell(GetCell("Company Name: ", objColl[0].PrimaryHealthInsurance));
-                    tblIdentification.AddCell(GetCell("Group Number: ", ""));
-                    tblIdentification.AddCell(GetCell("Policy Number: ", objColl[0].OriginalPolicyNumber.ToString()));
+                    if (!string.IsNullOrEmpty(objColl[0].PrimaryFinancialClass))
+                    {
+                        tblIdentification.AddCell(GetCell("Primary Insurance: ", objColl[0].PrimaryFinancialClass.ToString()));
+                    }
+                    if (!string.IsNullOrEmpty(objColl[0].PrimaryHealthInsurance))
+                    {
+                        tblIdentification.AddCell(GetCell("Company Name: ", objColl[0].PrimaryHealthInsurance));
+                    }
 
+                    tblIdentification.AddCell(GetCell("Group Number: ", ""));
+                    if (!string.IsNullOrEmpty(objColl[0].OriginalPolicyNumber))
+                    {
+                        tblIdentification.AddCell(GetCell("Policy Number: ", objColl[0].OriginalPolicyNumber.ToString()));
+                    }
                     //8th row
-                    tblIdentification.AddCell(GetCell("Secondary Insurance: ", objColl[0].SecondaryFinancialClass.ToString()));
-                    tblIdentification.AddCell(GetCell("Company Name: ", objColl[0].SecondaryHealthInsurance.ToString()));
+                    if (!string.IsNullOrEmpty(objColl[0].SecondaryFinancialClass))
+                    {
+                        tblIdentification.AddCell(GetCell("Secondary Insurance: ", objColl[0].SecondaryFinancialClass.ToString()));
+                    }
+                    if (!string.IsNullOrEmpty(objColl[0].SecondaryHealthInsurance))
+                    {
+                        tblIdentification.AddCell(GetCell("Company Name: ", objColl[0].SecondaryHealthInsurance.ToString()));
+                    }
                     tblIdentification.AddCell(GetCell("Group Number: ", ""));
-                    tblIdentification.AddCell(GetCell("Policy Number: ", objColl[0].SecondaryPolicyNumber));
+                    if (!string.IsNullOrEmpty(objColl[0].SecondaryPolicyNumber))
+                    {
 
+                        tblIdentification.AddCell(GetCell("Policy Number: ", objColl[0].SecondaryPolicyNumber));
+                    }
                     // 9th row. 
-                    tblIdentification.AddCell(GetCell("For Original Medicare only, Name of PBB: ", objColl[0].OrginalBP.ToString(), 2, 1));
-                    tblIdentification.AddCell(GetCell("Policy Number: ", objColl[0].OriginalPolicyNumber.ToString(), 2, 1));
+                    if (!string.IsNullOrEmpty(objColl[0].OrginalBP))
+                    {
+                        tblIdentification.AddCell(GetCell("For Original Medicare only, Name of PBB: ", objColl[0].OrginalBP.ToString(), 2, 1));
+                    }
+                    if (!string.IsNullOrEmpty(objColl[0].OriginalPolicyNumber))
+                    {
+                        tblIdentification.AddCell(GetCell("Policy Number: ", objColl[0].OriginalPolicyNumber.ToString(), 2, 1));
+                    }
                     dc.Add(tblIdentification);
 
                     #endregion

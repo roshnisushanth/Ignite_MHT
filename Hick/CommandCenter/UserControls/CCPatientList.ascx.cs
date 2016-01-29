@@ -76,8 +76,13 @@ namespace Hick.CommandCenter.UserControls
                                     string firstname = !String.IsNullOrEmpty(Convert.ToString(reader["Firstname"])) ? Convert.ToString(reader["Firstname"]) : "NA";
                                     objuser.Firstname = ecd.DecryptData(firstname, ecd.GetEncryptType());
                                     string dob = !String.IsNullOrEmpty(Convert.ToString(reader["dateofbirth"])) ? Convert.ToString(reader["dateofbirth"]) : "NA";
-                                    objuser.DateOfBirth = ecd.DecryptData(dob, ecd.GetEncryptType());
-                                    
+                                   // objuser.DateOfBirth = ecd.DecryptData(dob, ecd.GetEncryptType());
+
+                                    objuser.DateOfBirth = ecd.DecryptData(DBHelper.getString(reader, "dateofbirth"), ecd.GetEncryptType()).ToString();
+                                    objuser.DateOfBirth = Convert.ToDateTime(objuser.DateOfBirth).ToString("MM-dd-yyyy");
+                                    //  user.DateOfBirth = ecd.DecryptData(DBHelper.getString(reader, "dateofbirth"), ecd.GetEncryptType()).ToString();
+                                    //   user.DateOfBirth = Convert.ToDateTime(user.DateOfBirth).ToString("MM-dd-yyyy");
+
                                     string PhoneNumber = !String.IsNullOrEmpty((reader["phone_number"]).ToString()) ? (reader["phone_number"]).ToString() : "NA";
                                     objuser.Physician = ecd.DecryptData(reader["PhysicianFirst"].ToString(), ecd.GetEncryptType());
                                     objuser.Physician = objuser.Physician + " " + ecd.DecryptData(reader["PhysicianLast"].ToString(), ecd.GetEncryptType()); 

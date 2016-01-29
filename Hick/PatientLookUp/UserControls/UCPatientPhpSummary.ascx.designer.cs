@@ -292,15 +292,6 @@ namespace Hick.PatientLookUp.UserControls {
         protected global::System.Web.UI.WebControls.TextBox txtTodate;
         
         /// <summary>
-        /// btn_submitvitals control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_submitvitals;
-        
-        /// <summary>
         /// lblGraphResult control.
         /// </summary>
         /// <remarks>
@@ -308,6 +299,33 @@ namespace Hick.PatientLookUp.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGraphResult;
+        
+        /// <summary>
+        /// btnBindCondition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBindCondition;
+        
+        /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// UPHistoricView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UPHistoricView;
         
         /// <summary>
         /// currentuserId control.

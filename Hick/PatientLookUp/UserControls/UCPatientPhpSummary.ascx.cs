@@ -18,18 +18,20 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using IGNITE_MODEL.Encounters;
 
 namespace Hick.PatientLookUp.UserControls
 {
     public partial class UCPatientPhpSummary : System.Web.UI.UserControl
     {
-       public string currentuser;
+        long patientid = 0;
+        public string currentuser;
         PHPService PHPService = new PHPService();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                long patientid = 0;
+
                 if (!string.IsNullOrEmpty(Session["ReferenceID"]as string))
                 {
                     patientid = Convert.ToInt64(Session["ReferenceID"] as string);
@@ -484,6 +486,7 @@ namespace Hick.PatientLookUp.UserControls
             {
             }
         }
+
         protected void btn_submitvitals_Click(object sender, System.EventArgs e)
         {
             try
@@ -608,12 +611,12 @@ namespace Hick.PatientLookUp.UserControls
                         if (ddlSelectVitals.SelectedItem.ToString() == "Blood Pressure")
                         {
                             Session["groupedData"] = Date + "|" + VitalVal + "|" + Vitalbpvalue;
-                            Page.RegisterStartupScript("validation", "<script type=text/javascript> bind_linechartforbp();</script>");
+                          //  Page.RegisterStartupScript("validation", "<script type=text/javascript> bind_linechartforbp(); parent.$(parent.document).trigger('Condition');</script>");
                         }
                         else
                         {
                             Session["groupedData"] = Date + "|" + VitalVal;
-                            Page.RegisterStartupScript("validation", "<script type=text/javascript> bind_barchart();</script>");
+                           // Page.RegisterStartupScript("validation", "<script type=text/javascript> bind_barchart(); parent.$(parent.document).trigger('Condition');</script>");
                         }
 
                     }
@@ -625,7 +628,9 @@ namespace Hick.PatientLookUp.UserControls
                     //lblGraphResult.Style.Value = "color:Red";
                 }
 
+                // Page.RegisterStartupScript(GetType(), "scrpt", " parent.$(parent.document).trigger('Condition');parent.Cancelbtn_Condition();", true);
 
+                //Page.RegisterStartupScript("validation", "<script type=text/javascript> parent.$(parent.document).trigger('Condition');parent.Cancelbtn_Condition();</script>");
             }
 
             catch (Exception exc)
@@ -633,6 +638,160 @@ namespace Hick.PatientLookUp.UserControls
 
             }
         }
+
+
+        //protected void ajaxbtn_HistoricViewClick(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        List<VitalSignsInfo> objColl = null;
+
+
+        //        //string PinValue = ConfigurationManager.AppSettings["Bridge_Base"];
+        //        var uri = Utility.GetServiceUrl("vitalsignsgraph");
+
+        //        IgJObject postData = new IgJObject();
+        //        postData.Add("PatientID", Session["PatientID"].ToString());
+
+        //        //postData.Add("Pin", PinValue);
+        //        postData.Add("FromDate", txtFromdate.Text);
+        //        postData.Add("ToDate", txtTodate.Text);
+
+        //        objColl = Utility.PostRequest<VitalSignsInfo>(uri, postData.ToString(Formatting.None));
+
+        //        if (objColl.Count > 0)
+        //        {
+        //            Session["groupedData"] = null;
+        //            var sbDate = new StringBuilder();
+        //            var sbVital = new StringBuilder();
+        //            var sbVitalbp = new StringBuilder();
+        //            string HeightInInches;
+        //            string WeightInlbs;
+        //            string TempInFaren;
+
+        //            DataTable dt_data = LINQToDataTable(objColl);
+        //            string vitalsignType = ddlSelectVitals.SelectedItem.ToString();//Request.Form["ddlSelectVitals"].ToString();   
+        //            int count = dt_data.Rows.Count;
+        //            for (int i = 0; i < dt_data.Rows.Count; i++)
+        //            {
+        //                if (vitalsignType.ToLower().Equals("height") && !string.IsNullOrEmpty(dt_data.Rows[i]["Height"].ToString()))
+        //                {
+
+        //                    if (dt_data.Rows[i]["HeightUnits"].ToString().ToLower().StartsWith("c"))
+        //                    {
+        //                        HeightInInches = (Math.Round((Convert.ToDouble(dt_data.Rows[i]["Height"].ToString())) * 0.393701, 1)).ToString();
+        //                        sbVital.Append(",").Append(HeightInInches);
+        //                    }
+        //                    else
+        //                    {
+        //                        sbVital.Append(",").Append(dt_data.Rows[i]["Height"].ToString());
+        //                    }
+        //                    sbDate.Append(",").Append(dt_data.Rows[i]["CreatedDate"].ToString().Replace(",", ""));
+        //                    count--;
+        //                }
+        //                else if (vitalsignType.ToLower().Equals("weight") && !string.IsNullOrEmpty(dt_data.Rows[i]["Weight"].ToString()))
+        //                {
+        //                    if (dt_data.Rows[i]["WeightUnits"].ToString() == "kg")
+        //                    {
+        //                        WeightInlbs = (Math.Round((Convert.ToDouble(dt_data.Rows[i]["Weight"].ToString())) * 2.20462, 1)).ToString();
+        //                        sbVital.Append(",").Append(WeightInlbs);
+        //                    }
+        //                    else
+        //                    {
+        //                        sbVital.Append(",").Append(dt_data.Rows[i]["Weight"].ToString());
+        //                    }
+
+        //                    sbDate.Append(",").Append(dt_data.Rows[i]["CreatedDate"].ToString().Replace(",", ""));
+        //                    count--;
+        //                }
+        //                else if (vitalsignType.ToLower().Equals("temperature") && !string.IsNullOrEmpty(dt_data.Rows[i]["Temperature"].ToString()))
+        //                {
+
+        //                    if (dt_data.Rows[i]["TemperatureUnit"].ToString().ToLower().StartsWith("c"))
+        //                    {
+        //                        TempInFaren = (Math.Round((Convert.ToDouble(dt_data.Rows[i]["Temperature"].ToString())) * 9 / 5 + 32, 1)).ToString();
+        //                        sbVital.Append(",").Append(TempInFaren);
+        //                    }
+        //                    else
+        //                    {
+        //                        sbVital.Append(",").Append(dt_data.Rows[i]["Temperature"].ToString());
+        //                    }
+
+        //                    sbDate.Append(",").Append(dt_data.Rows[i]["CreatedDate"].ToString().Replace(",", ""));
+        //                    count--;
+        //                }
+        //                else if (vitalsignType.ToLower().Equals("pulse") && !string.IsNullOrEmpty(dt_data.Rows[i]["Pulse"].ToString()))
+        //                {
+        //                    sbVital.Append(",").Append(dt_data.Rows[i]["Pulse"].ToString());
+
+        //                    sbDate.Append(",").Append(dt_data.Rows[i]["CreatedDate"].ToString().Replace(",", ""));
+        //                    count--;
+        //                }
+        //                else if (vitalsignType.ToLower().Trim().Equals("respiration") && !string.IsNullOrEmpty(dt_data.Rows[i]["Respiration"].ToString()))
+        //                {
+        //                    sbVital.Append(",").Append(dt_data.Rows[i]["Respiration"].ToString());
+
+        //                    sbDate.Append(",").Append(dt_data.Rows[i]["CreatedDate"].ToString().Replace(",", ""));
+        //                    count--;
+        //                }
+        //                else if (vitalsignType.ToLower().Equals("blood pressure") && !string.IsNullOrEmpty(dt_data.Rows[i]["BloodPressure"].ToString()))
+        //                {
+        //                    string[] BP = dt_data.Rows[i]["BloodPressure"].ToString().Split('/');
+        //                    sbVital.Append(",").Append(BP[0].ToString());
+        //                    sbVitalbp.Append(",").Append(BP[1].ToString());
+
+        //                    sbDate.Append(",").Append(dt_data.Rows[i]["CreatedDate"].ToString().Replace(",", ""));
+        //                    count--;
+        //                }
+
+        //            }
+        //            if (count == dt_data.Rows.Count)
+        //            {
+        //                //  lblGraphResult.Text = "No data found for the selected criteria.";
+        //                //  lblGraphResult.Style.Value = "color:Red";
+        //            }
+        //            else
+        //            {
+        //                //string Date = sbDate.ToString().TrimStart(',').TrimEnd(',');
+        //                //string VitalVal = sbVital.ToString().TrimStart(',').TrimEnd(',');
+        //                //Session["groupedData"] = Date + "|" + VitalVal;
+
+        //                //Page.RegisterStartupScript("validation", "<script type=text/javascript> bind_barchart();</script>");
+
+        //                string Date = sbDate.ToString().TrimStart(',').TrimEnd(',');
+        //                string VitalVal = sbVital.ToString().TrimStart(',').TrimEnd(',');
+        //                string Vitalbpvalue = sbVitalbp.ToString().TrimStart(',').TrimEnd(',');
+        //                if (ddlSelectVitals.SelectedItem.ToString() == "Blood Pressure")
+        //                {
+        //                    Session["groupedData"] = Date + "|" + VitalVal + "|" + Vitalbpvalue;
+        //                    //  Page.RegisterStartupScript("validation", "<script type=text/javascript> bind_linechartforbp(); parent.$(parent.document).trigger('Condition');</script>");
+        //                }
+        //                else
+        //                {
+        //                    Session["groupedData"] = Date + "|" + VitalVal;
+        //                    // Page.RegisterStartupScript("validation", "<script type=text/javascript> bind_barchart(); parent.$(parent.document).trigger('Condition');</script>");
+        //                }
+
+        //            }
+
+        //        }
+        //        else
+        //        {
+        //            // lblGraphResult.Text = "No data found for the selected criteria.";
+        //            //lblGraphResult.Style.Value = "color:Red";
+        //        }
+
+        //        // Page.RegisterStartupScript(GetType(), "scrpt", " parent.$(parent.document).trigger('Condition');parent.Cancelbtn_Condition();", true);
+
+        //        //Page.RegisterStartupScript("validation", "<script type=text/javascript> parent.$(parent.document).trigger('Condition');parent.Cancelbtn_Condition();</script>");
+        //    }
+
+        //    catch (Exception exc)
+        //    {
+
+        //    }
+        //}
+
         public DataTable LINQToDataTable<T>(IEnumerable<T> varlist)
         {
             DataTable dtReturn = new DataTable();
