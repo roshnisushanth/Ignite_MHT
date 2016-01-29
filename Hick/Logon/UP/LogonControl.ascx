@@ -3,7 +3,9 @@
 
 <div class="border align ">
     <div class="form-group ">
-        <label for="usrnme" class="fontweight">Username:</label>
+       
+        <label for="usrnme" class="fontweight">Username:</label> 
+          <asp:Label ID="lblerrormsg" runat="server" ForeColor="red"  Text="" ></asp:Label>
         <input type="text" class="form-control textarea" onclick="func()" runat="server" id="txtusername" />
     </div>
     <div class="form-group">

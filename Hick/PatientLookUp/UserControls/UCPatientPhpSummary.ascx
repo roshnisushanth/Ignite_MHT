@@ -959,6 +959,9 @@
                  <div class="form-group clearfix">
     <label for="" class="col-sm-3 col-md-3 col-lg-3 control-label">Select Vital</label>
     <div class="col-sm-4 col-md-4 col-lg-4">
+
+        
+
      <asp:DropDownList ID="ddlSelectVitals" runat="server" style="height:28px;">
                            
                             <asp:ListItem>Height</asp:ListItem>
@@ -968,6 +971,8 @@
                             <asp:ListItem>Respiration </asp:ListItem>
                             <asp:ListItem>Blood Pressure</asp:ListItem>
                         </asp:DropDownList>
+
+                   
     </div>
   </div>
 
@@ -997,17 +1002,33 @@
   </div>
   
                  <div align="center">   
-                     <asp:Button runat="server" ID="btn_submitvitals" 
-                        CssClass="btn_standard" Text="Submit" onclick="btn_submitvitals_Click" ></asp:Button>
-               
+                      <input type="button" id="btn_submitvitals" value="Submit" class="btn_standard" onclick="submitVital()"/> 
+                     <%--<Button ID="btn_submitvitals" 
+                        CssClass="btn_standard" Text="Submit" onclick="submitVital()" ></Button>
+               --%>
                          </div>
 
                          <div>
                     <div>
                         <asp:Label ID="lblGraphResult" runat="server"></asp:Label>
                      
+                        <asp:Button ID="btnBindCondition" runat="server" Text="Update Grid" OnClick="btn_submitvitals_Click" />
+
+         <asp:ScriptManager ID="ScriptManager1" runat="server">
+         </asp:ScriptManager> 
+       <asp:UpdatePanel ID="UPHistoricView" runat="server" UpdateMode="Conditional">
+            <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="btnBindCondition" EventName="Click" />                  
+            </Triggers>
+            <ContentTemplate> 
+
+
                        <div id="LineGraph" >
                         </div>
+
+                </ContentTemplate>
+        </asp:UpdatePanel>
+
                     </div>
                 </div>
 
@@ -2807,6 +2828,7 @@ function closefamPopup() {
             xyz1();
 
         }
+
         function xyz1() {
             options2 = {
 
@@ -2903,6 +2925,7 @@ function closefamPopup() {
             }
 
         }
+
         $.barchart1 = function () {
 
             $.ajax({
@@ -2977,6 +3000,7 @@ function closefamPopup() {
                 }
             });
         }
+
         function showsharepopupdiv() {
             var popuphight = window.innerHeight - 200;
             var popupwidth = window.innerWidth - 490;
@@ -3006,6 +3030,29 @@ function closefamPopup() {
 
         }
 
+        function Cancelbtn_Condition() {
+
+            $("#divshowconditions").dialog('close');
+
+        }
+
+        $(function HideButton() {
+           document.getElementById("<%= btnBindCondition.ClientID %>").style.display = "none";
+       });
+
+        $(function () {
+           $(document).on('Condition', function () {
+               document.getElementById('<%= btnBindCondition.ClientID %>').click();
+               bind_barchart();
+           });
+        });
+
+        function submitVital() {
+
+            document.getElementById('<%= btnBindCondition.ClientID %>').click();
+               bind_barchart();
+
+        }
     </script>
 </body>   
 </html>

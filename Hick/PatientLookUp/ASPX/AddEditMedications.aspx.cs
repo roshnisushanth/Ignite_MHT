@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Hick.Models;
 using System.Configuration;
 using Newtonsoft.Json;
+using System.Data.SqlClient;
 
 namespace Hick.PatientLookUp.ASPX
 {
@@ -84,6 +85,16 @@ namespace Hick.PatientLookUp.ASPX
         }
         protected void savemedications(object sender, EventArgs e)
         {
+//            using (SqlCommand sqlCommand = new SqlCommand("SELECT COUNT(*) from users where user_name like @username AND password like @password", sqlConnection))
+//            {
+//                SqlConnection sqlconnection = new SqlConnection()
+//                sqlConnection.Open();
+//                sqlCommand.Parameters.AddWithValue("@username", userName);
+//                sqlCommand.Parameters.AddWithValue("@password", passWord);
+//                int userCount = (int)sqlCommand.ExecuteScalar();
+   
+//}
+
             SaveDetails();
         }
 

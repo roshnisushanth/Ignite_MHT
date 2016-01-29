@@ -11,6 +11,7 @@ using System.Text;
 using System.IO;
 using Hick.Models;
 using IGNITE.DBUtility;
+using System.Drawing;
 
 namespace Hick.PatientLookUp.UserControls
 {
@@ -21,12 +22,50 @@ namespace Hick.PatientLookUp.UserControls
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string constr = ConfigurationManager.ConnectionStrings["HickConnectionString"].ConnectionString.ToString();
+            SqlConnection conn = new SqlConnection();
+
+            conn.ConnectionString = constr;
+            conn.Open();
+
             hdnPatientId.Value = Convert.ToString(Session["patientid"]);
             hdnUserId.Value = Convert.ToString(Session["userid"]);
 
+            SqlCommand command = new SqlCommand("sp_hick_timer_patientdetails", conn);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@patient_id", hdnPatientId.Value);
+
+
+            SqlDataReader sdr1 = command.ExecuteReader();
+            while (sdr1.Read())
+            {
+
+                lblfname.Text = sdr1["FirstName"].ToString();
+                lbllname.Text = sdr1["LastName"].ToString();
+
+            }
+
+            lblfname.ForeColor = Color.Red;
+            lbllname.ForeColor = Color.Red;
             patientid = hdnPatientId.Value;
+            SqlCommand command1 = new SqlCommand("select task_date from hick_tasks where patient_id=" + hdnPatientId.Value, conn);
+            SqlDataReader sdr2 = command1.ExecuteReader();
+            while (sdr2.Read())
+            {
+                lblmonth.Text = sdr2["task_date"].ToString();
+
+            }
+
+            ////lblmonth.Text = Convert.ToDateTime(lblmonth.Text).ToString("MM");
+            string temp = Convert.ToDateTime(lblmonth.Text).ToString("MM-dd-yyyy");
+            //var temp1=temp
+            //  lblmonth.Text = temp;
+            string tem = Convert.ToDateTime(lblmonth.Text).ToString("MMM");
+            // string mon = temp.ToString("MMM");
+            lblmonth.Text = tem.ToString();
             userid = hdnUserId.Value;
-            
+            conn.Close();
+            lblmonth.ForeColor = Color.Red;
             BindTaskDetails();
         }
 

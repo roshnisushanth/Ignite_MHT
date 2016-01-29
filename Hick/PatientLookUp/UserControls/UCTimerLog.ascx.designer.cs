@@ -31,6 +31,33 @@ namespace Hick.PatientLookUp.UserControls {
         protected global::System.Web.UI.WebControls.HiddenField hdnUserId;
         
         /// <summary>
+        /// lblfname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblfname;
+        
+        /// <summary>
+        /// lbllname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbllname;
+        
+        /// <summary>
+        /// lblmonth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmonth;
+        
+        /// <summary>
         /// lblhours control.
         /// </summary>
         /// <remarks>

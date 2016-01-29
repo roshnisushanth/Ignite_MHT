@@ -102,7 +102,8 @@ namespace Hick
                                 user.Favorites = DBHelper.getInt(reader, "fav_status");
                                 user.PhoneNumber = DBHelper.getString(reader, "phone_number");
                                 user.FileExt = DBHelper.getString(reader, "ConsentFormExt");
-                                user.DateOfBirth = ecd.DecryptData(DBHelper.getString(reader, "dateofbirth"), ecd.GetEncryptType());
+                                user.DateOfBirth = ecd.DecryptData(DBHelper.getString(reader, "dateofbirth"), ecd.GetEncryptType()).ToString();
+                                user.DateOfBirth = Convert.ToDateTime(user.DateOfBirth).ToString("MM-dd-yyyy");
                                 user.ConsentFormUploaded = DBHelper.getBool(reader, "HasFormUploaded");
                                 user.showConsentButton = !DBHelper.getBool(reader, "HasFormUploaded") ? "block" : "none";
                                 user.showDownloadButton = DBHelper.getBool(reader, "HasFormUploaded") ? "block" : "none";
