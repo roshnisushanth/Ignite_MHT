@@ -2556,6 +2556,7 @@ namespace Hick
                         {
                             while (sdr.Read())
                             {
+                                string s = sdr["total_time"].ToString();
                                 Utility.CalculateTimeSpan(ref totaltime, Convert.ToString(sdr["total_time"]));
                                 duration = Convert.ToString(totaltime);
                             }
