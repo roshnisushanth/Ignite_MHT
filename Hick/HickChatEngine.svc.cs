@@ -16,6 +16,7 @@ using IGNITE.DBUtility;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Dal.Encryption;
+using System.Globalization;
 
 namespace Hick
 {
@@ -998,7 +999,8 @@ namespace Hick
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.AddWithValue("@CurrentId", currentid);
                             command.Parameters.AddWithValue("@PeerId", peerid);
-                            command.Parameters.AddWithValue("@ConvDate", Utility.ConvertDateToUTC(timezone, Convert.ToDateTime(logdate)));
+                            
+                            command.Parameters.AddWithValue("@ConvDate", Utility.ConvertDateToUTC(timezone, DateTime.ParseExact(logdate, "MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture)));
                             if (groupid != 0)
                             {
                                 command.Parameters.AddWithValue("@GroupId", groupid);
@@ -1050,7 +1052,7 @@ namespace Hick
                                 {
                                     command.Parameters.AddWithValue("@GroupId", string.Empty);
                                 }
-                                command.Parameters.AddWithValue("@Date", Utility.ConvertDateToUTC(timezone, Convert.ToDateTime(logdate)));
+                                command.Parameters.AddWithValue("@Date", Utility.ConvertDateToUTC(timezone, DateTime.ParseExact(logdate, "MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture)));
 
                                 using (SqlDataReader reader = command.ExecuteReader())
                                 {
@@ -1422,7 +1424,7 @@ namespace Hick
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.AddWithValue("@CurrentUserId", currentid);
                             command.Parameters.AddWithValue("@PeerId", peerid);
-                            command.Parameters.AddWithValue("@Date", Utility.ConvertDateToUTC(timezone, Convert.ToDateTime(logdate)));
+                            command.Parameters.AddWithValue("@Date", Utility.ConvertDateToUTC(timezone, DateTime.ParseExact(logdate, "MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture)));
                             command.Parameters.AddWithValue("@GroupId", groupid);
 
                             using (SqlDataReader reader = command.ExecuteReader())
@@ -1464,9 +1466,10 @@ namespace Hick
                                             objvideolog.Status = Convert.ToInt32(reader["Status"]);
                                             objvideolog.PeerID = Convert.ToInt32(reader["PeerId"]);
 
-                                            DateTime dtraw = Convert.ToDateTime(reader["ConversationDate"]);
+                                            DateTime dtraw = DateTime.ParseExact(reader["ConversationDate"].ToString(), "MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture);
                                             objvideolog.ConversationDate = Convert.ToString(Utility.ConvertDateToLocal(timezone, dtraw));
-                                            objvideolog.ConversationEndTime = reader["ConversationEndTime"] != DBNull.Value ? Convert.ToString(Utility.ConvertDateToLocal(timezone, Convert.ToDateTime(reader["ConversationEndTime"]))) : string.Empty;
+                                            
+                                            objvideolog.ConversationEndTime = reader["ConversationEndTime"] != DBNull.Value ? Convert.ToString(Utility.ConvertDateToLocal(timezone, DateTime.ParseExact(reader["ConversationEndTime"].ToString(), "MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture))) : string.Empty;
                                             DateTime dt = Utility.ConvertDateToLocal(timezone, dtraw);
 
                                             objvideolog.Time = dt.ToString("MMM dd") + ", " + dt.ToString("hh:mm tt");

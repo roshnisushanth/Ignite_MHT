@@ -209,7 +209,11 @@ div.patient_search_right_frame{margin:5px 0;}
         parent.popup_close();
     });
 
+ function ClosePopupresu() {
 
+        $("#divlabresult").dialog('close');
+
+    }
 
    
 </script>

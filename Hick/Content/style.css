@@ -1715,6 +1715,7 @@ span#StatusLabel, #StatusLabelsucess{text-align:left;  font-family: 'Helvetica N
     font-size:13px;
     margin-bottom:4px;
 }
+
 .main-error, .main-errors{display:none; color:#ff0000;}
 .main-errors{width: 88%; clear: both; float: right; text-align: left;}
 .chec-main { margin-top: 5px;}
@@ -1736,4 +1737,22 @@ span#cke_1_contents {
 .pop-img{cursor: pointer;  margin-right: 0px;  margin-top: -35px; width:32px; position:inherit!important; float:right;}
    .rgt-lab .popup_textbox {
     width: 100%;
+}
+   .patsearch_border.care h1{font-size:15px; font-weight:bold; margin:0; padding-bottom:10px;}
+   .care-ul{margin:0; padding:0;}
+   .care-ul li{list-style:none;}
+   .patsearch_border.care p {
+    text-align: left;
+    padding: 0 15px;
+}
+ ul.new-lists {
+    margin: 0;
+    padding: 5px 0 3px 18px;
+}
+
+img#closebtn {
+    display: none;
+}
+.list a#signout {
+    float: right; padding-right:10px;
 }

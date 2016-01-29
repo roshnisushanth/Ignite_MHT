@@ -284,7 +284,6 @@ body
 
 
 
-
 .popup_header.pop {
     background-color: #cccccc;
     margin-top: 2px;
@@ -292,4 +291,13 @@ body
 }
 .closes {
     float: right;
+}
+img.js-careplan {
+    width: 36px!important;
+}
+.list .listTabletOff.js-commandcenter {
+    display: inline-block;
+}
+.listTabletOff.js-commandcenter {
+    display: none;
 }
