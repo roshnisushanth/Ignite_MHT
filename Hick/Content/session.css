@@ -94,3 +94,12 @@ textarea#txteditsessionnote {
 .sess-tab tr:nth-child(2) table {
     margin-top: 46px;    border-top: 1px #ccc solid;
 }
+
+
+
+.sess-tab tr.top-ses th:nth-child(4) {
+    margin-left: -14px!important;
+}
+.sess-tab tr.top-ses th:nth-child(5) {
+    margin-left: -7px;
+}

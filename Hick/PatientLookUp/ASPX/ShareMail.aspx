@@ -8,34 +8,7 @@
     <link href="~/Content/patientlookup.css" rel="stylesheet" />
     <link href="~/Content/style.css" rel="stylesheet" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-    <%--<script type="text/javascript" src="http://www.html.am/html-editors/ckeditor/ckeditor_4.4.1_full/ckeditor.js"></script>--%>
-    <script type="text/javascript" src="//www.html.am/html-editors/ckeditor/ckeditor_4.4.1_full/ckeditor.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#cancel').click(function () {
-                parent.window.location.href = parent.window.location.href;
-            });
-
-        });
-
-
-        function mailvalidation() {
-            var sEmail = $("#To").val();
-            var filter = /^([\w-\.]+)@direct.((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-            if (filter.test(sEmail)) {
-               
-                return true;
-            }
-            else {
-                alert("Email field will ONLY accept a Direct email ID Ex: exam@direct.exmail.com ");
-                return false;
-            }
-        }
-
-</script>        
+  
     
  
 
@@ -141,8 +114,11 @@
                  <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">Message</label>
     <div class="col-sm-10">     
- <textarea class="ckeditor" id="editor1" name="editor1" runat="server" cols="35" rows="10">
-</textarea>
+
+
+        <div id="sample">
+	<div id="myArea1" style="width: 300px; height: 100px; border: 1px solid #000;"></div>
+
     </div>
   </div>
                 <div class="popup_conter">
@@ -155,7 +131,32 @@
         </div>
                 
              
+
+
      
     </form>
 </body>
 </html>
+
+<script src="../../Scripts/nicEdit.js" type="text/javascript"></script>
+<script>
+var area1, area2;
+
+function toggleArea1() {
+	if(!area1) {
+		area1 = new nicEditor({fullPanel : true}).panelInstance('myArea1',{hasPanel : true});
+	} else {
+		area1.removeInstance('myArea1');
+		area1 = null;
+	}
+}
+
+function addArea2() {
+	area2 = new nicEditor({fullPanel : true}).panelInstance('myArea2');
+}
+function removeArea2() {
+	area2.removeInstance('myArea2');
+}
+
+bkLib.onDomLoaded(function() { toggleArea1(); });
+</script>
