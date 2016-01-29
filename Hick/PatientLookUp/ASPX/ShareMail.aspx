@@ -114,7 +114,7 @@
 
 
         <div id="sample">
-	<div id="myArea1" style="width: 300px; height: 100px; border: 1px solid #000;"></div>
+	<div id="myArea1" style="width: 300px; height: 100px; border: 1px solid #000;" runat="server"></div>
 
     </div>
   </div>

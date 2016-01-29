@@ -109,6 +109,7 @@ namespace Hick.PatientLookUp.ASPX
                 postData.Add("Results", Results.Text);
                 postData.Add("RequestingDoctor", doctor.Text);
                 postData.Add("AdministeredBy", admin.Text);
+                postData.Add("Date", date.Text);
                 postData.Add("ActionItem", action);
 
                 var res = Utility.PostRequestForSave(uri, postData.ToString(Formatting.None));

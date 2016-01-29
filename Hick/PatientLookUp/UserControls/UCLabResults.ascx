@@ -86,7 +86,7 @@ div.patient_search_right_frame{margin:5px 0;}
                             <img style="cursor: pointer;" src="../../Images/button_edit.jpg" alt="Edit" class="edit_labresult"
                                 cid='<%#DataBinder.Eval(Container.DataItem,"LabImagingId")%>' />
                                    <img style="cursor: pointer;" src="../../Images/button_close.jpg" alt="Delete" class="delete_labresult"
-                                cid='<%#DataBinder.Eval(Container.DataItem,"LabImagingId")%>' /></div>
+                               onclick="return deletelabrslt(<%#DataBinder.Eval(Container.DataItem,"LabImagingId")%>)" /></div>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -114,6 +114,29 @@ div.patient_search_right_frame{margin:5px 0;}
         </div>
     </div>
 </div>
+
+    <input type="hidden" id="deletelabrsltId" value="0" />
+        <div style="display: none;">
+    <div id="divdellabrslt" style="z-index: 10000;">
+        <div class="edit_sessionnotediv">
+            
+             <img src='<%=Page.ResolveUrl("~/Images/popup_close.png") %>' onclick="closelabrsltPopup()" class="pull-right "
+                alt="close" />
+              <p>Are you sure want to delete this task</p>
+                <div class="center-txt">                     
+                       <input type="button" id="" name="" value="Yes" class="btn_standard" onclick="LabrsltDelete()"/> 
+                        <input type="button" id="" value="No" class="btn_standard" onclick="closelabrsltPopup()"/>
+                    </div>
+            
+            
+           
+                  
+        </div>
+    </div>
+</div> 
+
+
+
 <script type="text/javascript">
     $(document).ready(function () {
         $("#div_patientsearch").css("display", "block");
@@ -122,28 +145,28 @@ div.patient_search_right_frame{margin:5px 0;}
 
         
 
-        $(".delete_labresult").click(function () {
+        //$(".delete_labresult").click(function () {
            
-            $('.Content').text("Delete");
-            var uid = $(this).attr("cid");
+        //    $('.Content').text("Delete");
+        //    var uid = $(this).attr("cid");
           
-            var data = "{ LabResultID: '" + uid + "'}";
+        //    var data = "{ LabResultID: '" + uid + "'}";
 
-            $.ajax({
-                type: "POST",
-                url: "LabResults.aspx/DeleteLabResults",
-                data: data,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                mode: "queue",
-                success: function (msg) {
-                    location.reload();
-                },
-                error: function (xmlhttprequest, textstatus, errorThrown) {
-                    alert(xmlhttprequest.responseText);
-                }
-            });
-        });
+        //    $.ajax({
+        //        type: "POST",
+        //        url: "LabResults.aspx/DeleteLabResults",
+        //        data: data,
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        mode: "queue",
+        //        success: function (msg) {
+        //            location.reload();
+        //        },
+        //        error: function (xmlhttprequest, textstatus, errorThrown) {
+        //            alert(xmlhttprequest.responseText);
+        //        }
+        //    });
+        //});
         $(".edit_labresult").click(function () {
             $('.Content').text("Edit");
 
@@ -209,7 +232,53 @@ div.patient_search_right_frame{margin:5px 0;}
         parent.popup_close();
     });
 
+    function LabrsltDelete() {
+        var uid = $('#deletelabrsltId').val();
+        $('.Content').text("Delete");
+       // var uid = $(this).attr("cid");
 
+        var data = "{ LabResultID: '" + uid + "'}";
+
+        $.ajax({
+            type: "POST",
+            url: "LabResults.aspx/DeleteLabResults",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            mode: "queue",
+            success: function (msg) {
+                location.reload();
+            },
+            error: function (xmlhttprequest, textstatus, errorThrown) {
+                alert(xmlhttprequest.responseText);
+            }
+        });
+    }
+    function deletelabrslt(id) {
+
+        $('#deletelabrsltId').val(id);
+
+        var popuphight = window.innerHeight - 150;
+        var popupwidth = window.innerWidth - 490;
+
+        $("#divdellabrslt").dialog(
+            {
+                modal: true,
+                height: popuphight,
+                width: popupwidth,
+                resizable: false,
+                //title: "Patient Search",
+                create: function () {
+                    $(".ui-dialog-titlebar").hide();
+                    $(".ui-dialog-content").css("padding", "0px");
+                }
+            });
+    }
+
+
+    function closelabrsltPopup() {
+        $("#divdellabrslt").dialog('close');
+    }
 
    
 </script>

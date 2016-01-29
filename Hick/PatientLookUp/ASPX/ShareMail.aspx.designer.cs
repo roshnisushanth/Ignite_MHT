@@ -67,6 +67,15 @@ namespace Hick.PatientLookUp.ASPX {
         protected global::System.Web.UI.WebControls.Button CCDA;
         
         /// <summary>
+        /// myArea1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl myArea1;
+        
+        /// <summary>
         /// sentmail control.
         /// </summary>
         /// <remarks>

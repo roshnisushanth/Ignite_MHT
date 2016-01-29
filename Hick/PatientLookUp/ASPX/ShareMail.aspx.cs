@@ -43,7 +43,7 @@ namespace Hick.PatientLookUp.ASPX
             {
                 urlPath = ViewState["newFile"].ToString();
             }
-            SentMail(To.Text, Server.HtmlDecode(editor1.Value), subject.Text, urlPath);
+            SentMail(To.Text, Server.HtmlDecode(myArea1.InnerText), subject.Text, urlPath);
             var auditresult = service.AddAuditLog(Convert.ToInt32(Session["userid"].ToString()), 2, "PHP", "Not Applicable", "Not Applicable", DateTime.Now);
             ClientScript.RegisterStartupScript(GetType(), "scrpt", "parent.window.location.href=parent.window.location.href;", true);
         }
