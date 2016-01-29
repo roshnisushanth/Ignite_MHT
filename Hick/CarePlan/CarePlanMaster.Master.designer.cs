@@ -7,10 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Hick.PatientLookUp.ASPX {
+namespace Hick.CarePlan {
     
     
-    public partial class ShareMail {
+    public partial class CarePlanMaster {
+        
+        /// <summary>
+        /// cplhead control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder cplhead;
         
         /// <summary>
         /// form1 control.
@@ -22,57 +31,30 @@ namespace Hick.PatientLookUp.ASPX {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// To control.
+        /// hdnpagekey control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox To;
+        protected global::System.Web.UI.WebControls.HiddenField hdnpagekey;
         
         /// <summary>
-        /// subject control.
+        /// menuModule control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox subject;
+        protected global::System.Web.UI.WebControls.PlaceHolder menuModule;
         
         /// <summary>
-        /// hdnuser control.
+        /// cplPatientLookUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnuser;
-        
-        /// <summary>
-        /// PHP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PHP;
-        
-        /// <summary>
-        /// CCDA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CCDA;
-        
-        /// <summary>
-        /// sentmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button sentmail;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder cplPatientLookUp;
     }
 }
