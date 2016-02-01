@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#DOB').datepicker({ maxDate: new Date() });
+          <%--  $('#DOB').datepicker({ maxDate: new Date() });
             var action = document.getElementById('<%=hdnaction.ClientID%>').value;
             if (action == "Edit") {
                 $('calendar_img').hide();
@@ -22,8 +22,15 @@
                     $('#DOB').datepicker('show');
                     $('calendar_img').show();
                 });
-            }
+            }--%>
 
+
+            $(document).ready(function () {
+                $('#DOB').datepicker({ maxDate: new Date() });
+                $('#calendar_img').click(function () {
+                    $('#DOB').datepicker('show');
+                });
+            });
 
 
             $('#cancel').click(function () {

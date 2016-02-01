@@ -2141,12 +2141,12 @@ function closefamPopup() {
     <div id="divdelencnote" style="z-index: 10000;">
         <div class="edit_sessionnotediv">
             
-             <img src='<%=Page.ResolveUrl("~/Images/popup_close.png") %>' onclick="closeencPopup()" class="pull-right "
+             <img src='<%=Page.ResolveUrl("~/Images/popup_close.png") %>' onclick="closeencPopups()" class="pull-right "
                 alt="close" />
               <p>Are you sure want to delete this task</p>
                 <div class="center-txt">                     
                        <input type="button" id="" name="" value="Yes" class="btn_standard" onclick="EncNoteDelete()"/> 
-                        <input type="button" id="" value="No" class="btn_standard" onclick="closeencPopup()"/>
+                        <input type="button" id="" value="No" class="btn_standard" onclick="closeencPopups()"/>
                     </div>
             
             
@@ -2240,7 +2240,7 @@ function closefamPopup() {
                                 }
                             });
                     }
-                    function closeencPopup() {
+                    function closeencPopups() {
                         $("#divdelencnote").dialog('close');
                     }
 

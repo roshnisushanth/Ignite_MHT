@@ -6,7 +6,9 @@ div.patient_search_right_frame{margin:5px 0;}
 .patsearch_heading.patient #popup_close{margin-right:-164px; margin-top: 0!important;}
 .ui-dialog .ui-dialog-content{overflow:hidden!important;}
 .patsearch_heading.patient #labresultpopup_close { margin-right: -164px;}
-
+.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-draggable[aria-describedby="divdellabrslt"] {
+    height: 185px!important;
+}
 </style> 
     <div class="patsearch_heading patient">
        Lab Results
