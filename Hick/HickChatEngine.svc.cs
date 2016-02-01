@@ -103,8 +103,10 @@ namespace Hick
                                 user.Favorites = DBHelper.getInt(reader, "fav_status");
                                 user.PhoneNumber = DBHelper.getString(reader, "phone_number");
                                 user.FileExt = DBHelper.getString(reader, "ConsentFormExt");
-                                user.DateOfBirth = ecd.DecryptData(DBHelper.getString(reader, "dateofbirth"), ecd.GetEncryptType()).ToString();
-                                user.DateOfBirth = Convert.ToDateTime(user.DateOfBirth).ToString("MM-dd-yyyy");
+                                var dob = ecd.DecryptData(DBHelper.getString(reader, "dateofbirth"), ecd.GetEncryptType());
+                                user.DateOfBirth = DateTime.ParseExact(dob, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy", CultureInfo.InvariantCulture);
+
+                                // user.DateOfBirth = "01/12/2016";
                                 user.ConsentFormUploaded = DBHelper.getBool(reader, "HasFormUploaded");
                                 user.showConsentButton = !DBHelper.getBool(reader, "HasFormUploaded") ? "block" : "none";
                                 user.showDownloadButton = DBHelper.getBool(reader, "HasFormUploaded") ? "block" : "none";
@@ -1001,7 +1003,7 @@ namespace Hick
                             command.Parameters.AddWithValue("@CurrentId", currentid);
                             command.Parameters.AddWithValue("@PeerId", peerid);
                             
-                            command.Parameters.AddWithValue("@ConvDate", Utility.ConvertDateToUTC(timezone, DateTime.ParseExact(logdate, "MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture)));
+                            command.Parameters.AddWithValue("@ConvDate", logdate);
                             if (groupid != 0)
                             {
                                 command.Parameters.AddWithValue("@GroupId", groupid);
@@ -1053,7 +1055,7 @@ namespace Hick
                                 {
                                     command.Parameters.AddWithValue("@GroupId", string.Empty);
                                 }
-                                command.Parameters.AddWithValue("@Date", Utility.ConvertDateToUTC(timezone, DateTime.ParseExact(logdate, "MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture)));
+                                command.Parameters.AddWithValue("@Date", logdate);
 
                                 using (SqlDataReader reader = command.ExecuteReader())
                                 {
@@ -1425,7 +1427,7 @@ namespace Hick
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.AddWithValue("@CurrentUserId", currentid);
                             command.Parameters.AddWithValue("@PeerId", peerid);
-                            command.Parameters.AddWithValue("@Date", Utility.ConvertDateToUTC(timezone, DateTime.ParseExact(logdate, "MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture)));
+                            command.Parameters.AddWithValue("@Date",logdate);
                             command.Parameters.AddWithValue("@GroupId", groupid);
 
                             using (SqlDataReader reader = command.ExecuteReader())
@@ -1462,14 +1464,19 @@ namespace Hick
                                             objvideolog.VideoId = Convert.ToString(reader["VideoId"]);
                                             objvideolog.ParentVideoId = Convert.ToString(reader["ParentVideoId"]);
                                             // objvideolog.ConversationDate = Convert.ToString(reader["ConversationDate"]);
-                                            objvideolog.PeerName = Convert.ToString(reader["peeruser"]);
+
+                                          
+                                            objvideolog.PeerName = ecd.DecryptData(reader["peeruser"].ToString(),ecd.GetEncryptType());
                                             objvideolog.MessageType = Convert.ToInt32(reader["MessageType"]);
                                             objvideolog.Status = Convert.ToInt32(reader["Status"]);
                                             objvideolog.PeerID = Convert.ToInt32(reader["PeerId"]);
 
-                                            DateTime dtraw = DateTime.ParseExact(reader["ConversationDate"].ToString(), "MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture);
+                                            //DateTime dtraw = DateTime.ParseExact(reader["ConversationDate"].ToString(), "MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture);
+                                            //objvideolog.ConversationDate = Convert.ToString(Utility.ConvertDateToLocal(timezone, dtraw));
+
+                                            DateTime dtraw = Convert.ToDateTime(reader["ConversationDate"]);
                                             objvideolog.ConversationDate = Convert.ToString(Utility.ConvertDateToLocal(timezone, dtraw));
-                                            
+
                                             objvideolog.ConversationEndTime = reader["ConversationEndTime"] != DBNull.Value ? Convert.ToString(Utility.ConvertDateToLocal(timezone, DateTime.ParseExact(reader["ConversationEndTime"].ToString(), "MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture))) : string.Empty;
                                             DateTime dt = Utility.ConvertDateToLocal(timezone, dtraw);
 

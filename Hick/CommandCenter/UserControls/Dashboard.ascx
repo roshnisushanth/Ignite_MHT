@@ -211,7 +211,13 @@
     var notcompleted = document.getElementById("<%=hdn_notcompleted.ClientID%>").value;
     var notimerlog = document.getElementById("<%=hdn_notimerlog.ClientID%>").value;
 
+
     $(function () {
+       
+        var categoryLinks = {
+            '> 20m': window.location.origin + '/CommandCenter/ASPX/PLComplete.aspx',
+            '&lt; 20m': window.location.origin + '/CommandCenter/ASPX/PLNotComplete.aspx'
+        };
         $('#div_billinggraph').highcharts({
             chart: {
                 type: 'column'
@@ -230,12 +236,18 @@
             xAxis: {
                 type: 'category',
                 labels: {
+                    formatter: function () {
+                        return '<a href="' + categoryLinks[this.value] + '">' +
+                            this.value + '</a>';
+                    },
                     rotation: -45,
                     style: {
                         fontSize: '13px',
                         fontFamily: 'Verdana, sans-serif'
                     }
+                    
                 }
+
             },
             yAxis: {
                 min: 0,
@@ -256,6 +268,7 @@
                     name: '> 20m',
                     color: '#51B44A',
                     y: parseFloat(completed)
+
                 }, {
                     name: '&lt; 20m',
                     color: '#F05622',
@@ -264,8 +277,8 @@
                     name: 'None',
                     color: '#3E6DA5',
                     y: parseFloat(notimerlog)
-                }]   ,             
-               
+                }],
+
                 dataLabels: {
                     enabled: false,
                     rotation: -90,
@@ -283,6 +296,7 @@
     });
     
 </script>
+
 <script type="text/javascript">
     $("#div_command").css("display", "block");
     $("#command_leftpart").css("display", "block");

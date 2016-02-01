@@ -1,0 +1,105 @@
+﻿body{    margin: 0;   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;}
+img#popup_close {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    cursor: pointer;margin-top:-5px;
+}	
+.search_label{
+    height: 46px;
+    background: #ccc;
+    line-height: 46px;
+    padding-left: 54px;     font-weight: bold;
+}	
+/*.sess-tab th.categ{width:30%}*/
+.sess-tab th{width:16%; display: inline-block;	padding: 14px 0; border-bottom: 0px #ccc solid;	text-align: center;}
+.sess-tab td {
+    border-left: 1px #ccc solid;
+    border-right: 1px #ccc solid; font-size:12px;
+}
+.sess-tab1 td {
+    border-left: 0px #ccc solid;
+    border-right: 0px #ccc solid;
+}
+.sess-tab {
+    border-bottom: 1px #ccc solid;
+	}
+.session-table{
+height: 495px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.sess-tab td{text-align:left;}
+.sess-tab1 td.categ{width:30%}
+.sess-tab1 td{width:16%; display: inline-block;	}
+.sess-tab1 td{text-align:center;}
+.table-div{padding:5px 28px;
+overflow: hidden; border-bottom: 1px solid #ccc; 
+clear:both;}	
+.div-lft{float:left; width:60px;}
+.div-rft{float:left;  padding-left: 18px;}
+.sess-tab tr{border-bottom:1px #ccc solid;}	
+.btn_standard {
+    background-color: #FFCB05;
+    width: auto;
+    height: 30px;
+    min-width: 120px;
+    font-size: 14px;
+    font-weight: 600 !important;
+    border: 0px;
+    color: #000;
+    padding: 5px;
+    margin: 10px;
+}
+.sess-tab tr.ses-act {
+    background: #ccc;
+}
+.ses-pls{font-size:12px;}
+.sess-tab tr:nth-child(2) td {
+    border-top: 1px solid #ccc;
+}
+
+.sess-tab tr:nth-child(2) td td {
+    border-top: 0px solid #ccc;
+}
+.popup_header.Content{
+height: 46px;
+    background: #ccc; padding-left:10px;
+    line-height: 46px;     margin-bottom: 15px;    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:15px;
+    font-weight: bold;}
+textarea#txteditsessionnote {
+    width: 98%; height:240px; outline: none; margin-left:2px;
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button{
+     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:15px; cursor:pointer;
+}
+.search_img_label{width: 47px;height: 46px;     float: left;}
+.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-draggable[aria-describedby="divdelsessionnote"] {
+    width: 390px!important;
+    height: 150px!important;
+    left: 280px!important;
+}
+.editts{padding-top: 12px;width:8%;}
+.divside{float: right; margin-right: 10px;}
+.center-txt{text-align:center;}
+.left-txt{text-align:left}
+.editts img{cursor:pointer;}
+.wid-lab{width:100%;}
+.z-ind{z-index: 10000;}
+.sess-tab tr.top-ses {
+    position: fixed;
+    width: 98%;
+    background:#ffffff;    border-bottom: 0px #ccc solid;
+}
+.sess-tab tr:nth-child(2) table {
+    margin-top: 46px;    border-top: 1px #ccc solid;
+}
+
+
+
+.sess-tab tr.top-ses th:nth-child(4) {
+    margin-left: -14px!important;
+}
+.sess-tab tr.top-ses th:nth-child(5) {
+    margin-left: -7px;
+}

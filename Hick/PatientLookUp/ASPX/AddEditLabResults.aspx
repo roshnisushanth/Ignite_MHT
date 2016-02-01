@@ -91,7 +91,7 @@
           <div class="popup_conter">
               <asp:HiddenField runat="server" ID="buttontype" />
                <asp:Button runat="server" ID="save_testandprocedure" CssClass="btn_standard" Text="Save" OnClick="saveResult" />
-               <input type="button" value="Cancel" name="cancle_edit_allergies" class="btn_standard" id="cancle_labresult" onclick="parent.ClosePopupresu();"/>
+               <input type="button" value="Cancel" name="cancle_edit_allergies" class="btn_standard" id="cancle_labresult" onclick="parent.ClosePopup();"/>
            </div>     
         </div>
     </form>

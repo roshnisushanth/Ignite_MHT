@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TimerLog.master.cs" Inherits="Hick.PatientLookUp.TimerLog" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title></title>
+   <asp:ContentPlaceHolder ID="cplhead" runat="server">
+   </asp:ContentPlaceHolder>
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+       rel="stylesheet" />
+   <link href="~/Content/style.css" rel="stylesheet" />
+   <link href="~/Content/patientlookup.css" rel="stylesheet" />
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+   <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <style type="text/css" >
+        #overlay {
+      visibility: hidden;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     width:100%;
+     height:100%;
+     text-align:center;
+     z-index: 1000;
+     background:rgba(255,255,255,0.6);
+     
+}
+        #overlaysub {
+     width:300px;
+     margin: 100px auto;
+     background: #ffffff;
+     border:1px solid #000000;
+     padding:25px;
+     text-align:center;
+    
+}
+    </style>
+ <script type="text/javascript">
+     function Showoverlay() {
+         el = document.getElementById("overlay");
+         el.style.visibility = "visible";
+     }
+     function Hideoverlay() {
+         el = document.getElementById("overlay");
+         el.style.visibility = "hidden";
+     }
+ </script>
+</head>
+<body style="padding: 0px; position: relative;">
+<div >
+   <form id="form1" runat="server">
+   <asp:HiddenField ID="hdnpagekey" runat="server" Value="" ClientIDMode="Static" />
+   <div class="patsearch_main_div">
+           <asp:ContentPlaceHolder ID="cplPatientLookUp" runat="server">
+           </asp:ContentPlaceHolder>
+   </div>
+   </form>
+      <%		   
+            Response.WriteFile(Page.ResolveUrl("~/Scripts/Confirm.html"));
+        %>
+   </div>
+   
+ <script type="text/javascript">
+
+     var pgkey = $("#hdnpagekey").val();
+     $(".patsearch_listbox").find("li").each(function () {
+
+         var keyattr = $(this).attr("pagekey");
+         if (pgkey == keyattr) {
+             $(this).addClass("active_menu");
+             $(this).parents("li").addClass("active_menu");
+             return false;
+         }
+     });
+   </script>
+</body>
+</html>

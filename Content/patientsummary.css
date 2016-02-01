@@ -1,0 +1,51 @@
+﻿.col-lg-4 ,.col-md-4{
+           padding-right: 5px;
+           padding-left: 5px;
+         }
+      .patsearch_border .boxes {
+    background: transparent;
+}
+     div#large_right_frame .boxes {
+    height: auto!important;
+    margin-bottom: 0px;
+}
+     .phpsummary-sec.clearfix .col-md-4.col-sm-4.col-lg-4 {
+    margin-bottom: 7px;
+}
+     .php-pop{cursor: pointer;margin-top:-5px; margin-right: 0;}
+     .col-lg-1.col-md-1.boxs.pull-right.text-center.php-top{height:auto;line-height:normal;}
+     .down-php{margin-top:30px;}
+     #prf_pic{width:60px; height:60px;}
+     .col-lg-12.col-md-12.rw1.summ-mid.sum-marg{margin-bottom:0;}
+     .ele_center.icd{width: 110px; font-weight: bold; text-align: center;}
+     .ele_center.des{width: 250px; font-weight: bold; text-align: center;}
+     .ele_center.eval{ white-space: nowrap;}
+     .frmeditencounter_popup{}
+    .z-ind{z-index: 10000;}
+    .allergies_popup{}
+    .edit_allergiesdiv{float: left; margin: 3px; width: 99%;}
+    .col-lg-12.col-md-12.view-det {
+    position: absolute;
+    bottom: 24px;
+    right: 22px;
+}
+    .ele_center{margin-left:0;}
+    .col-lg-12.col-md-12.hdr.summ.head{width:67%;}
+    .box-top .btn_standard{margin:15px 20px 10px 20px;}
+    .boxes .col-lg-12.col-md-12.box-top {
+    padding: 0!important;
+}
+    .frmeditencounter_popup{overflow: auto; position: fixed;
+                    width: 54%; height: 346px; border: none; margin-top: 40px;}
+    .patsearch_heading.patient #popup_close{margin-right:0!important;}
+    .allergies_popup{overflow: auto;    position: fixed; width: 54%; height: 346px; border: none; margin-top: 40px;}
+    .frameimmunizationdiv{overflow: auto; position: fixed; width: 54%;
+                    height: 346px; border: none; margin-top: 40px;}
+    .framemedications{overflow: auto; position: fixed; width: 54%;
+                    height: 346px; border: none; margin-top: 40px;}
+    .frmeditconditions_popup{overflow: auto; position: fixed;
+                    width: 54%; height: 346px; border: none; margin-top: 40px;}
+    .frmeditfamily_popup{overflow: auto; position: fixed;
+                    width: 54%; height: 346px; border: none; margin-top: 40px;}
+    .vital .col-lg-3.col-md-3.col-sm-3.col-xs-12{width:24%; padding: 0 1px;}
+    .units{font-weight:bold;}

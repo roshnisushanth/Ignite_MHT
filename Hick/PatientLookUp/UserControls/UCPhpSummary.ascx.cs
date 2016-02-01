@@ -1144,8 +1144,8 @@ namespace Hick.PatientLookUp.UserControls
                     dc.Add(tblImage);
 
                     //LOGO            
-                    String imageFilePath = Server.MapPath("/") + "/images/ignite_logo_small.png";
-                    iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imageFilePath);
+
+                    iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagepath + "/ignite_logo_small.png");
                     image.ScalePercent(40f);
                     //image.SpacingBefore = 100f;
                     image.Alignment = Element.ALIGN_CENTER;
@@ -1223,19 +1223,16 @@ namespace Hick.PatientLookUp.UserControls
 
                     tblDemographics.AddCell(GetCell(objColl[0].Weight + " " + "lbs", 1, 1));
                     tblDemographics.AddCell(GetCell(objColl[0].Gender, 1, 1));
-<<<<<<< HEAD
-                    if (!string.IsNullOrEmpty(objColl[0].DOB))
+
+               if (!string.IsNullOrEmpty(objColl[0].DOB))
                     {
-                        int age = new DateTime(DateTime.Now.Subtract(Convert.ToDateTime(objColl[0].DOB.ToString())).Ticks).Year - 1;
+                        DateTime db = DateTime.ParseExact(objColl[0].DOB, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                        int age = new DateTime(DateTime.Now.Subtract(db).Ticks).Year - 1;
                         tblDemographics.AddCell(GetCell(age.ToString(), 1, 1));
                         tblDemographics.AddCell(GetCell(objColl[0].BP, 1, 1));
                     }
-=======
-                    DateTime db= DateTime.ParseExact(objColl[0].DOB, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                    int age = new DateTime(DateTime.Now.Subtract(db).Ticks).Year - 1;
-                    tblDemographics.AddCell(GetCell(age.ToString(), 1, 1));
-                    tblDemographics.AddCell(GetCell(objColl[0].BP, 1, 1));
->>>>>>> 5446e835746f617cd6637c0ab281d07785a52d08
+
+                    
                     dc.Add(tblDemographics);
 
                     #endregion

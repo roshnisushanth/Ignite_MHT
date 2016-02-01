@@ -1160,7 +1160,13 @@
     <Content Include="Scripts\HighCharts\highcharts-more.js" />
     <Content Include="Scripts\HighCharts\solid-gauge.js" />
     <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\nicEdit.js" />
     <Content Include="Scripts\pop-script.js" />
+    <Content Include="Scripts\timeentry\jquery.plugin.js" />
+    <Content Include="Scripts\timeentry\jquery.plugin.min.js" />
+    <Content Include="Scripts\timeentry\jquery.timeentry.css" />
+    <Content Include="Scripts\timeentry\jquery.timeentry.js" />
+    <Content Include="Scripts\timeentry\jquery.timeentry.min.js" />
     <Content Include="SuperUser\ASPX\AjaxMUReportDetails.aspx" />
     <Content Include="SuperUser\ASPX\MUReport.aspx" />
     <Content Include="PatientLookUp\ASPX\PatientPhpSummary.aspx" />

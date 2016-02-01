@@ -1,0 +1,89 @@
+﻿<style>
+    .blocktext {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p { text-align: center;}
+</style>
+
+
+
+<div style="display: none;">
+    <div id="divMessage" style="z-index: 10000;overflow:hidden">
+        <div class="edit_medicationdiv">
+            <div style="float: left;">
+            </div>
+            <div id="msgheader" class="popup_header Content">
+                
+            </div>
+            <div class="closeImage" id="msgPopupClose" style="float: right; cursor: pointer; margin-top: -35px; margin-right: -3px;">
+            </div>
+        </div>
+        <div id="msgContent" class="Content">
+            <p class="blocktext"></p>
+        </div>
+        <div style="width:100%">
+            <p id="confirmButtons" style="margin: 0 auto; text-align: center;"></p>
+        </div>
+      
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#msgPopupClose").click(function () {
+        $("#divMessage").dialog('close');
+    });
+   
+    function closeConfirmPopup() {
+        $("#divMessage").dialog('close');
+    }
+    function showSucess(btnprops) {
+        $.extend(btnprops, { title: 'Success' });
+        showMessage(btnprops);
+    }
+    function showError(btnprops) {
+        $.extend(btnprops, { title: 'Error' });
+        showMessage(btnprops);
+    }
+    function showMessage(btnprops) {
+        if (!btnprops.answers) { btnprops.answers = ['Ok']; }
+        $("#confirmButtons").html('');
+        $.each(btnprops.answers,
+            function (idx, button) {
+                $("#confirmButtons").append($('<input type="button" value="' + button + '" class="btn_standard" />').click(function () {
+
+                    if (btnprops.callback) {
+                        try {
+                            btnprops.callback(button);
+                        }
+                        catch (exp) { }
+                    }
+                    else if (button == 'Ok') {
+                        closeConfirmPopup();
+                    }
+                }));
+            });
+        if (btnprops.title) {
+            $('#msgheader').html(btnprops.title);
+        }
+
+        if (msgContent) {
+            $('.blocktext').html(btnprops.text);
+        }
+
+        var popupwidth = window.innerWidth - 490;
+        $("#divMessage").dialog(
+            {
+                modal: true,
+                width: popupwidth,
+                resizable: false,
+                //title: "Patient Search",
+                create: function () {
+                    $(".ui-dialog-titlebar").hide();
+                    $(".ui-dialog-content").css("padding", "0px");
+                }
+            });
+    }
+
+</script>

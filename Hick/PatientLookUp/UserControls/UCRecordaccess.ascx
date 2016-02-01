@@ -517,7 +517,9 @@ $("#popupcloseshare").click(function () {
         $("#divdeleteuser").dialog('close');
     });
 
-
+function ClosePopupshares() {
+        $("#divshare").dialog('close');
+    }
 
 </script>
 

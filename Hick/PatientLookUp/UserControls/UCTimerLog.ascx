@@ -26,15 +26,15 @@
                         <img src="../../Images/icon_refresh.png" alt="search_img" />
                     </div>
                     <div class="search_label" id="div_patientsearch" style="display: block;">
-        Timer Log   <b>  <asp:Label ID="lblfname" runat="server"  Text=""></asp:Label></span><span>
-            <asp:Label ID="lbllname" runat="server" Text=""></asp:Label> </span><span>  </b>
+        Timer Log     <asp:Label ID="lblfname" runat="server"  Text=""></asp:Label></span><span>
+            <asp:Label ID="lbllname" runat="server" Text=""></asp:Label> </span><span> 
          <img src='<%=Page.ResolveUrl("~/Images/popup_close.png") %>' id="popup_close" class="pull-right" style="cursor: pointer;margin-top:-8px;"
                 alt="close" />
         <div class="date-time">
 
             <%--<span> 
                 <asp:Label ID="lbldays" runat="server" Text="0"></asp:Label>d </span>--%><span>
-                     <b>    <asp:Label ID="lblmonth" runat="server" Text=""></asp:Label>  </b>
+                      <asp:Label ID="lblmonth" runat="server" Text=""></asp:Label>  
                 <asp:Label ID="lblhours" runat="server" Text="0"></asp:Label>h </span><span>
                     <asp:Label ID="lblmins" runat="server" Text="0"></asp:Label>m </span><span>
                     <asp:Label ID="lblsecs" runat="server" Text="0"></asp:Label>s </span>

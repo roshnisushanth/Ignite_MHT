@@ -13,6 +13,7 @@ using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using IGNITE.DBUtility;
 using Dal.Encryption;
+using System.Globalization;
 
 namespace Hick.CommandCenter.UserControls
 {
@@ -40,7 +41,6 @@ namespace Hick.CommandCenter.UserControls
                     mylabel.Text = "Patient List";
                 }
                 BindPatientsGrid(flag);
-
             }
 
         }
@@ -75,14 +75,15 @@ namespace Hick.CommandCenter.UserControls
                                     objuser.Lastname = ecd.DecryptData(lastname, ecd.GetEncryptType());
                                     string firstname = !String.IsNullOrEmpty(Convert.ToString(reader["Firstname"])) ? Convert.ToString(reader["Firstname"]) : "NA";
                                     objuser.Firstname = ecd.DecryptData(firstname, ecd.GetEncryptType());
-                                    string dob = !String.IsNullOrEmpty(Convert.ToString(reader["dateofbirth"])) ? Convert.ToString(reader["dateofbirth"]) : "NA";
-                                   // objuser.DateOfBirth = ecd.DecryptData(dob, ecd.GetEncryptType());
+                                    // string dob = !String.IsNullOrEmpty(Convert.ToString(reader["dateofbirth"])) ? Convert.ToString(reader["dateofbirth"]) : "NA";
+                                    // objuser.DateOfBirth = ecd.DecryptData(dob, ecd.GetEncryptType());
 
-                                    objuser.DateOfBirth = ecd.DecryptData(DBHelper.getString(reader, "dateofbirth"), ecd.GetEncryptType()).ToString();
-                                    objuser.DateOfBirth = Convert.ToDateTime(objuser.DateOfBirth).ToString("MM-dd-yyyy");
+                                    // objuser.DateOfBirth = ecd.DecryptData(DBHelper.getString(reader, "dateofbirth"), ecd.GetEncryptType()).ToString();
+                                    //  objuser.DateOfBirth = Convert.ToDateTime(objuser.DateOfBirth).ToString("MM-dd-yyyy");
                                     //  user.DateOfBirth = ecd.DecryptData(DBHelper.getString(reader, "dateofbirth"), ecd.GetEncryptType()).ToString();
                                     //   user.DateOfBirth = Convert.ToDateTime(user.DateOfBirth).ToString("MM-dd-yyyy");
-
+                                    var dob = ecd.DecryptData(DBHelper.getString(reader, "dateofbirth"), ecd.GetEncryptType());
+                                    objuser.DateOfBirth = DateTime.ParseExact(dob, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     string PhoneNumber = !String.IsNullOrEmpty((reader["phone_number"]).ToString()) ? (reader["phone_number"]).ToString() : "NA";
                                     objuser.Physician = ecd.DecryptData(reader["PhysicianFirst"].ToString(), ecd.GetEncryptType());
                                     objuser.Physician = objuser.Physician + " " + ecd.DecryptData(reader["PhysicianLast"].ToString(), ecd.GetEncryptType()); 

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Hick.Encounters.EncounterService" CodeBehind="PHPService.svc.cs" %>

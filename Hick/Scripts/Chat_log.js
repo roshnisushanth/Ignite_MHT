@@ -441,7 +441,7 @@ var date = $("#datepicker")[0].value;
 $(function () {
 
     $("#Viewchatlog").click('click', function () {
-        _logdate = $("#datepicker")[0].value + " " + getLocalTime(new Date(), false);
+        _logdate = $("#datepicker")[0].value;
         var jsondata = { currentid: userid, peerid: _peerid, logdate: _logdate, timezone: _timezone, groupid: _groupId };
         $.ajax({
             type: "POST",

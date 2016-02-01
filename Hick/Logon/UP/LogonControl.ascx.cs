@@ -30,7 +30,8 @@ namespace Hick.Logon.UP
             
             if (retObj.Success == false)
             {
-                lblerrormsg.Text = "Invalid Username or Password";
+            //    lblerrormsg.Text = "Invalid Username or Password";
+                lblerror.InnerText= "Invalid Username or Password";
             }
            
         }

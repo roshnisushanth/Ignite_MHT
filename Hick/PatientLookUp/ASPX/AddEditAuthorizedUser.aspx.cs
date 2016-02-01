@@ -1,4 +1,5 @@
-﻿using Hick.Authorized;
+﻿using Dal.Encryption;
+using Hick.Authorized;
 using IGNITE_MODEL.AutherizedUser;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Hick.PatientLookUp.ASPX
     public partial class AddEditAuthorizedUser : System.Web.UI.Page
     {
         AuthorizedService service = new AuthorizedService();
+        EncryptDecryptUtil enc = new EncryptDecryptUtil();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -53,16 +55,15 @@ namespace Hick.PatientLookUp.ASPX
                 action = "Update";
                 authorizedUser = Convert.ToInt32(hdnusr_id.Value);
             }
-            string firstname = FirstName.Text;
-            string lastname = LastName.Text;
+            string firstname = enc.EncryptData(FirstName.Text, enc.GetEncryptType());
+            string lastname = enc.EncryptData(LastName.Text, enc.GetEncryptType());
             string relationship = Relationship.Value;
             string otherrelationship = OtherRelationship.Text;
-            string email = Email.Text;
-            string password = Passcode.Text;
-            int userId = Convert.ToInt32(Session["userid"].ToString());
-             
+            string email = enc.EncryptData(Email.Text, enc.GetEncryptType());
+            string password = enc.EncryptData(Passcode.Text, enc.GetEncryptType());
+            int userId = Convert.ToInt32(Session["userid"].ToString());            
             DateTime date = DateTime.ParseExact(DOB.Text, "MM/dd/yyyy", null);
-            string dob = date.ToString("MM/dd/yyyy");
+            string dob = enc.EncryptData(date.ToString("dd-MM-yyyy"), enc.GetEncryptType());
             string result = service.AddAutherizedUsers(action, userId, authorizedUser, firstname, lastname, dob, relationship, otherrelationship, email, password);
             if (save_User.Text == "Save")
             {

@@ -97,7 +97,7 @@
 <div class="patsearch_heading">
    Record Access
     
- <a id="signout" style="float: right;margin-right: 46px;" href="AuthorizedUserForm.aspx/SignOut" class="btn btn-default btn-link listTabletOff" runat="server" role="button">Sign out</a>
+ <a id="signout" style="float: right;margin-right: 10px;" href="AuthorizedUserForm.aspx/SignOut" class="btn btn-default btn-link listTabletOff" runat="server" role="button">Sign out</a>
 </div>
 <div class="scroll-sec">
     <div class="patsearch_contents newly">
@@ -239,6 +239,10 @@
             $("#divshare").dialog('close');
             location.reload();
         });
+		
+		function ClosePopupshares() {
+        $("#divshare").dialog('close');
+    }
         </script>
 </body>
 </html>

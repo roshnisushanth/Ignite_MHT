@@ -68,7 +68,10 @@
          .nicEdit-main{height:100px; overflow-x:hidden!important; overflow-y:scroll!important; font-size:12px; margin: 0!important;
     width: 100%!important;  outline: none;    padding: 2px 0 2px 2px;}
         .nicEdit-main.nicEdit-selected{height:100px; overflow-x:hidden!important; overflow-y:scroll!important;font-size:12px;}
-        
+        .btn_standard.act {
+   background: green;
+   color: #fff;
+}
         
       
     </style>

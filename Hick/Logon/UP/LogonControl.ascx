@@ -1,11 +1,14 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Debug="true"  CodeBehind="LogonControl.ascx.cs" Inherits="Hick.Logon.UP.LogonControl" %>
 
-
-<div class="border align ">
+<style>
+    .login-error{width:100%; text-align:center; color:#ff0000; }
+</style>
+<div class="border align ">    
+          
+    <div id="lblerror" runat="server" class="login-error"></div>
     <div class="form-group ">
        
         <label for="usrnme" class="fontweight">Username:</label> 
-          <asp:Label ID="lblerrormsg" runat="server" ForeColor="red"  Text="" ></asp:Label>
         <input type="text" class="form-control textarea" onclick="func()" runat="server" id="txtusername" />
     </div>
     <div class="form-group">

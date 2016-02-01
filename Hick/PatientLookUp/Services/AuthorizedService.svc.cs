@@ -129,13 +129,13 @@ namespace Hick.Authorized
                new SqlParameter("@Action",action),
                 new SqlParameter("@UserId",userid),
                   new SqlParameter("@Autherizeduserid",authorizeduserid),
-                    new SqlParameter("@FirstName",enc.EncryptData(firstname,enc.GetEncryptType())),
-                     new SqlParameter("@LastName",enc.EncryptData(lastname,enc.GetEncryptType())),
-                      new SqlParameter("@Email",enc.EncryptData(email,enc.GetEncryptType())),
-                       new SqlParameter("@DOB",enc.EncryptData(dob.ToString(),enc.GetEncryptType())),
-                        new SqlParameter("@Password",enc.EncryptData(password,enc.GetEncryptType())),
+                    new SqlParameter("@FirstName",firstname),
+                     new SqlParameter("@LastName",lastname),
+                      new SqlParameter("@Email",email),
+                       new SqlParameter("@DOB",dob),
+                        new SqlParameter("@Password",password),
                          new SqlParameter("@Relationship",relationship),
-                          new SqlParameter("@OtherRelationship",enc.EncryptData(otherrelationship,enc.GetEncryptType())),
+                          new SqlParameter("@OtherRelationship",otherrelationship),
                             new SqlParameter("@CreatedDate",DateTime.UtcNow)
 
 

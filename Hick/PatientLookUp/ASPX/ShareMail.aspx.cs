@@ -52,6 +52,7 @@ namespace Hick.PatientLookUp.ASPX
         {
             int iPatientid = Convert.ToInt32(hdnuser.Value);
             GeneratePDFFile(iPatientid);
+            PHP.CssClass = "btn_standard act";
         }
 
         protected void CCDA_Click(object sender, EventArgs e)
@@ -71,6 +72,7 @@ namespace Hick.PatientLookUp.ASPX
                 Response.Write(ex.ToString());
                 //var m = ex.ToString();
             }
+            CCDA.CssClass = "btn_standard act";
 
         }
 

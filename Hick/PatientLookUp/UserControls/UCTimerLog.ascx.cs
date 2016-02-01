@@ -13,64 +13,57 @@ using Hick.Models;
 using IGNITE.DBUtility;
 using System.Drawing;
 using System.Globalization;
+using Dal.Encryption;
 
 namespace Hick.PatientLookUp.UserControls
 {
     public partial class UCTimerLog : System.Web.UI.UserControl
     {
-        string patientid = "";
+        string patientid ="";
         string userid = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            EncryptDecryptUtil enc = new EncryptDecryptUtil();
+            hdnPatientId.Value = Convert.ToString(Session["patientid"]);
+            hdnUserId.Value = Convert.ToString(Session["userid"]);
+
+            patientid = hdnPatientId.Value;
+            userid = hdnUserId.Value;
+
+            //For getting the Firstname and Lastname of the patient
             string constr = ConfigurationManager.ConnectionStrings["HickConnectionString"].ConnectionString.ToString();
             SqlConnection conn = new SqlConnection();
 
             conn.ConnectionString = constr;
             conn.Open();
 
-            hdnPatientId.Value = Convert.ToString(Session["patientid"]);
-            hdnUserId.Value = Convert.ToString(Session["userid"]);
-
-            SqlCommand command = new SqlCommand("sp_hick_timer_patientdetails", conn);
+            SqlCommand command = new SqlCommand("sp_hick_FetchUserByID", conn);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@patient_id", hdnPatientId.Value);
-
-
+            //Parameters.AddWithValue("@Username", ecd.EncryptData(uname, ecd.GetEncryptType()));
+            command.Parameters.Add("@UserId", patientid);
             SqlDataReader sdr1 = command.ExecuteReader();
+
             while (sdr1.Read())
             {
+              //string  firstname =sdr1[enc.EncryptData(FirstName, enc.GetEncryptType())];
+                //lblfname.Text = sdr1["FirstName"].ToString();
 
-                lblfname.Text = sdr1["FirstName"].ToString();
-                lbllname.Text = sdr1["LastName"].ToString();
-
+                string  fn = sdr1["FirstName"].ToString();
+                lblfname.Text =enc.DecryptData(fn, enc.GetEncryptType());
+                string ln = sdr1["LastName"].ToString();
+                lbllname.Text = enc.DecryptData(ln, enc.GetEncryptType());
             }
 
-            lblfname.ForeColor = Color.Red;
-            lbllname.ForeColor = Color.Red;
-            patientid = hdnPatientId.Value;
-            SqlCommand command1 = new SqlCommand("select task_date from hick_tasks where patient_id=" + hdnPatientId.Value, conn);
-            SqlDataReader sdr2 = command1.ExecuteReader();
-            while (sdr2.Read())
-            {
-                lblmonth.Text = sdr2["task_date"].ToString();
-
-            }
-
-            ////lblmonth.Text = Convert.ToDateTime(lblmonth.Text).ToString("MM");
-            string temp = Convert.ToDateTime(lblmonth.Text).ToString("MM-dd-yyyy");
-            //var temp1=temp
-            //  lblmonth.Text = temp;
-            string tem = Convert.ToDateTime(lblmonth.Text).ToString("MMM");
-            // string mon = temp.ToString("MMM");
-            lblmonth.Text = tem.ToString();
-            userid = hdnUserId.Value;
-            conn.Close();
-            lblmonth.ForeColor = Color.Red;
             BindTaskDetails();
+
+           
+            lblmonth.Text = DateTime.UtcNow.ToString("MMM");
+            
+
         }
 
-        
+
         public void BindTaskDetails()
         {
             TimeSpan totaltime = new TimeSpan();
@@ -81,7 +74,7 @@ namespace Hick.PatientLookUp.UserControls
             Int32 peerid = Int32.Parse(patientid);
 
             DataTable dt = new DataTable();
-            
+
             dt.Columns.Add("Date");
             dt.Columns.Add("Category");
             dt.Columns.Add("StartTime");

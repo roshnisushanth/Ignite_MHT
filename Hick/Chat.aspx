@@ -132,6 +132,7 @@
                     <a href="#" class="btn btn-default btn-link" id="home" role="button">Contacts</a>
                     <%--  <a href="#" class="btn btn-default btn-link" role="button">Conversation</a>--%>
                     <a class="btn btn-default btn-link listTabletOff" role="button" id="chatlog1">Chat Log </a>
+                    <a  class="btn btn-default btn-link listTabletOff js-commandcenter" role="button" id="chatlog1">Command center </a>
                     <a class="btn btn-default btn-link listTabletOff" role="button" id="auditlog">Audit Log </a>
                     <%-- <a href="#" class="btn btn-default btn-link listTabletOff" role="button">Tools</a>
                     <a href="#" class="btn btn-default btn-link listTabletOff" role="button">Video Call</a>                   
@@ -220,7 +221,8 @@
                                 <img src="images/call-outgoing-icon.png" alt="" title="Initiate Audio Call" class="listTabletOff imgaudiocall" style="padding-left: 8px; height: 25px; cursor: pointer;" /><a id="videochat" style="cursor: pointer;"><img src="images/web_camera.png" class="listTabletOff" style="padding-left: 8px; height: 25px;" title="Initiate Video Call" />
                                 </a>
                                 <img src="images/add-user.png" class="listTabletOff lnkadduser" style="padding-left: 8px; height: 25px; cursor: pointer;" title="Add User" />
-                                <img src="images/command_center_icon.png" title="Command Center" class="listTabletOff js-commandcenter" style="cursor: pointer; padding-left: 8px; height: 25px;" />
+                                 <%-- <img src="images/command_center_icon.png" title="Command Center" class="listTabletOff js-commandcenter" style="cursor: pointer; padding-left: 8px; height: 25px;" /> --%>
+
                                 <img src='<%=Page.ResolveUrl("~/Images/patient_myrecord.png") %>' style="cursor: pointer; height: 25px;" id="tblmyrecord" title="My Record" alt="MR" />
 
                             </nav>

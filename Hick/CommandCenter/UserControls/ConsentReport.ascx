@@ -47,7 +47,7 @@
                     <HeaderTemplate>Date of Birth</HeaderTemplate>
                     <ItemTemplate>
                         <div style="width: 140px; margin: 14px 0;" class="text-center">
-                            <asp:Label CssClass="lbldesc" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"DateOfBirth")%>'></asp:Label>
+                            <asp:Label CssClass="lbldesc" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"DateOfBirth","{0:MM/DD/YYYY}")%>'></asp:Label>
                         </div>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -108,7 +108,7 @@
     var refgpatid;
 
     function downloadURI(uri, name) {
-        alert(uri);
+        //alert(uri);
         var link = document.createElement("a");
         link.download = name;
         link.href = uri;

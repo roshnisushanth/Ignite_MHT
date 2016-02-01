@@ -32,7 +32,7 @@
     <img src='../../Images/popup_close.png' id="popup_close" class="pull-right" style="cursor: pointer; margin-top: -42px;"
         alt="close" />
 </div>
-<div class="patsearch_border demograph">
+<div class="patsearch_border">
     <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 first">
         <div class="first-last clearfix">
             <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
@@ -66,11 +66,16 @@
             <%--  <asp:TextBox ID="txt_phonenumber" runat="server" class="form-control"></asp:TextBox>--%>
         </div>
         <div class="form-group addr">
-            <label>Address</label>
+            <label class="addr-label">Address</label>
             <asp:TextBox ID="txt_address1" runat="server" class="form-control"></asp:TextBox>
-            <%--<label class="addr-label">Address 1</label>--%>
-            <asp:TextBox ID="txt_zipcode" runat="server" class="form-control" style="display:none"></asp:TextBox>
-            <label class="addr-label" style="display:none">Zipcode</label>
+            
+            
+             <label class="addr-label">City</label>          
+             <asp:TextBox ID="txt_city" runat="server" class="form-control"></asp:TextBox>
+
+              <label class="addr-label" >Zipcode</label>
+             <asp:TextBox ID="txt_zipcode" runat="server" class="form-control"></asp:TextBox>
+
         </div>
     </div>
     <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 second">
@@ -90,7 +95,7 @@
             </div>
             <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
                 <div class="form-group">
-                    <label>
+                    <label >
                         SSN</label>
                     <asp:TextBox ID="txt_SSN" runat="server" class="form-control"></asp:TextBox>
                 </div>
@@ -98,11 +103,11 @@
         </div>
         <div class="form-group addr">
             <label>&nbsp;</label>
-                        <label>City</label>
-             <asp:TextBox ID="txt_city" runat="server" class="form-control"></asp:TextBox>
-            <asp:TextBox ID="txt_address2" runat="server" class="form-control" style="display:none"></asp:TextBox>
-            <label class="addr-label" style="display:none">Address 2</label>
-            <asp:DropDownList ID="ddlState" runat="server" class="form-control" style="display:none">
+             <label class="addr-label" >Address 2</label>
+            <asp:TextBox ID="txt_address2" runat="server" class="form-control" ></asp:TextBox>
+
+            <label class="addr-label" >State</label>
+            <asp:DropDownList ID="ddlState" runat="server" class="form-control" >
                 <asp:ListItem Selected="True">Select</asp:ListItem>
                 <asp:ListItem Value="Alabama">Alabama</asp:ListItem>
                 <asp:ListItem Value="Alaska">Alaska</asp:ListItem>
@@ -157,7 +162,11 @@
                 <asp:ListItem Value="Wisconsin">Wisconsin</asp:ListItem>
                 <asp:ListItem Value="Wyoming">Wyoming</asp:ListItem>
             </asp:DropDownList>
-            <label class="addr-label" style="display:none">State</label>
+            
+         
+             
+           
+            
         </div>
     </div>
     <div class="clear">
