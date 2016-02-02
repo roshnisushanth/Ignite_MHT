@@ -111,6 +111,34 @@
     <Compile Include="Base\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="CarePlan\ASPX\careplan-copd.aspx.cs">
+      <DependentUpon>careplan-copd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarePlan\ASPX\careplan-copd.aspx.designer.cs">
+      <DependentUpon>careplan-copd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CarePlan\ASPX\CarePlan.aspx.cs">
+      <DependentUpon>CarePlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarePlan\ASPX\CarePlan.aspx.designer.cs">
+      <DependentUpon>CarePlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CarePlan\CarePlanMaster.Master.cs">
+      <DependentUpon>CarePlanMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarePlan\CarePlanMaster.Master.designer.cs">
+      <DependentUpon>CarePlanMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CarePlan\UserControls\CarePlan.ascx.cs">
+      <DependentUpon>CarePlan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarePlan\UserControls\CarePlan.ascx.designer.cs">
+      <DependentUpon>CarePlan.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Chat.aspx.cs">
       <DependentUpon>Chat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1029,6 +1057,9 @@
     <Content Include="Assemblies\Newtonsoft.Json.Net35.dll" />
     <Content Include="AuditLog.aspx" />
     <Content Include="AuthorizedUserForm.aspx" />
+    <Content Include="CarePlan\ASPX\careplan-copd.aspx" />
+    <Content Include="CarePlan\ASPX\CarePlan.aspx" />
+    <Content Include="CarePlan\UserControls\CarePlan.ascx" />
     <Content Include="PatientLookUp\ASPX\AddEditClinicalDocuments.aspx" />
     <Content Include="CommandCenter\ASPX\BillingReport.aspx" />
     <Content Include="CommandCenter\ASPX\ConsentReport.aspx" />
@@ -1203,6 +1234,10 @@
     <Content Include="Scripts\HighCharts\highcharts.js" />
     <Content Include="Scripts\validate.js" />
     <Content Include="CommandCenter\ASPX\UploadConsentForm.ashx" />
+    <Content Include="CarePlan\ASPX\data.main.json" />
+    <Content Include="CarePlan\CarePlanMaster.Master" />
+    <Content Include="CarePlan\Json\datas.json" />
+    <Content Include="CarePlan\UserControls\datas.json" />
     <None Include="Properties\PublishProfiles\Garage.pubxml" />
     <None Include="Service References\BridgeMessanger\BridgeMessanger.disco" />
     <None Include="Service References\BridgeMessanger\configuration91.svcinfo" />
