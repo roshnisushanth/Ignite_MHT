@@ -111,6 +111,7 @@
     <Compile Include="Base\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+
     <Compile Include="CarePlan\ASPX\careplan-copd.aspx.cs">
       <DependentUpon>careplan-copd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -118,6 +119,7 @@
     <Compile Include="CarePlan\ASPX\careplan-copd.aspx.designer.cs">
       <DependentUpon>careplan-copd.aspx</DependentUpon>
     </Compile>
+
     <Compile Include="CarePlan\ASPX\CarePlan.aspx.cs">
       <DependentUpon>CarePlan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,6 +134,11 @@
     <Compile Include="CarePlan\CarePlanMaster.Master.designer.cs">
       <DependentUpon>CarePlanMaster.Master</DependentUpon>
     </Compile>
+
+    <Compile Include="CarePlan\Services\CarePlanService.svc.cs">
+      <DependentUpon>CarePlanService.svc</DependentUpon>
+    </Compile>
+
     <Compile Include="CarePlan\UserControls\CarePlan.ascx.cs">
       <DependentUpon>CarePlan.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1057,8 +1064,10 @@
     <Content Include="Assemblies\Newtonsoft.Json.Net35.dll" />
     <Content Include="AuditLog.aspx" />
     <Content Include="AuthorizedUserForm.aspx" />
-    <Content Include="CarePlan\ASPX\careplan-copd.aspx" />
+
     <Content Include="CarePlan\ASPX\CarePlan.aspx" />
+    <Content Include="CarePlan\Services\CarePlanService.svc" />
+
     <Content Include="CarePlan\UserControls\CarePlan.ascx" />
     <Content Include="PatientLookUp\ASPX\AddEditClinicalDocuments.aspx" />
     <Content Include="CommandCenter\ASPX\BillingReport.aspx" />

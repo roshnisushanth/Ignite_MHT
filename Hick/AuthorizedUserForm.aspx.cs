@@ -65,8 +65,6 @@ namespace Hick
                 HttpContext.Current.Session["username"] = null;
 
             }
-         
-          
         }
 
         protected void download(object sender, CommandEventArgs e)
