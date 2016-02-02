@@ -21,6 +21,9 @@
     <style>.popup_textbox{margin-left:0;}    
     .lab-result{width: 380px; margin: 0 auto;}
     .rgt-lab {width: 169px; }
+    .ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-draggable[aria-describedby="divdellabrslt"] {
+    height: 185px!important;
+}
     </style>
 </head>
 <body>
