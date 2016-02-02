@@ -9,3 +9,14 @@ C:\Aman_BugID-12289\IGNITE_BLL\obj\Debug\IGNITE_BLL.Properties.Resources.resourc
 C:\Aman_BugID-12289\IGNITE_BLL\obj\Debug\IGNITE_BLL.csproj.GenerateResource.Cache
 C:\Aman_BugID-12289\IGNITE_BLL\obj\Debug\IGNITE_BLL.dll
 C:\Aman_BugID-12289\IGNITE_BLL\obj\Debug\IGNITE_BLL.pdb
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_BLL\bin\Debug\IGNITE_BLL.dll
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_BLL\bin\Debug\IGNITE_BLL.pdb
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_BLL\bin\Debug\IGNITE_DAL.dll
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_BLL\bin\Debug\IGNITE_MODEL.dll
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_BLL\bin\Debug\IGNITE_DAL.pdb
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_BLL\bin\Debug\IGNITE_MODEL.pdb
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_BLL\obj\Debug\IGNITE_BLL.csprojResolveAssemblyReference.cache
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_BLL\obj\Debug\IGNITE_BLL.Properties.Resources.resources
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_BLL\obj\Debug\IGNITE_BLL.csproj.GenerateResource.Cache
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_BLL\obj\Debug\IGNITE_BLL.dll
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_BLL\obj\Debug\IGNITE_BLL.pdb

@@ -5,3 +5,10 @@ C:\Aman_BugID-12289\IGNITE_MODEL\obj\Debug\IGNITE_MODEL.csproj.GenerateResource.
 C:\Aman_BugID-12289\IGNITE_MODEL\obj\Debug\IGNITE_MODEL.dll
 C:\Aman_BugID-12289\IGNITE_MODEL\obj\Debug\IGNITE_MODEL.pdb
 C:\Aman_BugID-12289\IGNITE_MODEL\obj\Debug\IGNITE_MODEL.csprojResolveAssemblyReference.cache
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_MODEL\bin\Debug\IGNITE_MODEL.dll
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_MODEL\bin\Debug\IGNITE_MODEL.pdb
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_MODEL\obj\Debug\IGNITE_MODEL.csprojResolveAssemblyReference.cache
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_MODEL\obj\Debug\IGNITE_MODEL.Properties.Resources.resources
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_MODEL\obj\Debug\IGNITE_MODEL.csproj.GenerateResource.Cache
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_MODEL\obj\Debug\IGNITE_MODEL.dll
+D:\Projects\Clients\Github\Ignite_MHT\IGNITE_MODEL\obj\Debug\IGNITE_MODEL.pdb
