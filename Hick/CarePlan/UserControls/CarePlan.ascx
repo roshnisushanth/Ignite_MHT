@@ -85,12 +85,12 @@
             if (this.checked) {
                 var ids = $(this).attr('id');
                 var vals = $(this).attr('value');
-                //var links = $(this).parent().attr('href', '#');
-                //var finalVar = vals + links;
+                var links = "#"; //$(this).parent().attr('href','');
+                var finalVar = vals + ':' + links;
             }
             //arrCB[id] = (this.checked ? 1 : 0);
 
-            arrCB[id] = vals;
+            arrCB[id] = finalVar;
            
             var arrMN = arrCB[id];
             var value = el.attr('value');
