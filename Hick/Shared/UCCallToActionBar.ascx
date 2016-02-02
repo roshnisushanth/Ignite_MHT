@@ -7,7 +7,7 @@
  
         <img src='<%=Page.ResolveUrl("~/Images/search_icon.png") %>' alt="search_img" style="cursor: pointer; width: 37px;" id="patientsearch" title="Patient LookUp" />
         <%--<img src="images/user-icon.png" style="cursor:pointer;" id="temp_popup"/>--%>
-        <%--<img src='<%=Page.ResolveUrl("~/Images/Careplan.png") %>' style="cursor: pointer;" class="js-careplan" title="Care Plan" alt="CC" />--%>
+        <img src='<%=Page.ResolveUrl("~/Images/Careplan.png") %>' style="cursor: pointer;" class="js-careplan" title="Care Plan" alt="CC" />
         <img src='<%=Page.ResolveUrl("~/Images/icon_details.png") %>' style="cursor: pointer;" class="js-commandcenter" title="Command Center" alt="CC" />
         <span class="tmr-mgmt" style="/*padding-left: 5px; padding-right: 5px; */ padding-top: 9px; padding-bottom: 10px; background-color: #CCCCCC;">
             <img src='<%=Page.ResolveUrl("~/Images/icon_refresh.png") %>' style="cursor: pointer; background-color: #CCCCCC; width: 37px;" id="timermanagement" title="Timer Management" alt="TM" />
