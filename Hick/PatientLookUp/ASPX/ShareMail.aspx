@@ -72,6 +72,7 @@
    background: green;
    color: #fff;
 }
+.new-width{width:335px;}
         
       
     </style>
@@ -88,7 +89,7 @@
     <label for="inputEmail3" class="col-sm-2 control-label">To</label>
     <div class="col-sm-10">
      
-       <asp:TextBox runat="server" ID="To" class="form-control"></asp:TextBox>
+       <asp:TextBox runat="server" ID="To" class="form-control new-width"></asp:TextBox>
         <%--<span class="error">Error</span>--%>
     </div>
   </div>
@@ -96,7 +97,7 @@
     <label for="inputPassword3" class="col-sm-2 control-label">Subject</label>
     <div class="col-sm-10">
 
-               <asp:TextBox runat="server"  ID="subject" class="form-control"></asp:TextBox>
+               <asp:TextBox runat="server"  ID="subject" class="form-control new-width"></asp:TextBox>
     </div>
   </div>
                  <div class="form-group">
@@ -117,7 +118,7 @@
 
 
         <div id="sample">
-	<div id="myArea1" style="width: 300px; height: 100px; border: 1px solid #000;" runat="server"></div>
+	<div id="myArea1" style="width: 360px; height: 100px; border: 1px solid #000;" runat="server"></div>
 
     </div>
   </div>

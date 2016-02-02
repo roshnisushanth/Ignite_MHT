@@ -58,7 +58,7 @@
                         id="dropdowncategory" runat="server">
                         <option value="0">Select Category</option>
                         <option value="1">System</option>
-                        <option value="2">Chart Review</option>
+                        <option value="2">Chat Review</option>
                     </select>
                 </div>
             </div>
