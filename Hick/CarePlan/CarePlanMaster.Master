@@ -61,7 +61,7 @@
             <div id="small_left_frame" class="patient_search_left_frame">
 
 
-<asp:PlaceHolder ID="menuModule" runat="server"></asp:PlaceHolder>
+
                 <div class="search_img_label" style="width: 36px; height: 36px;" id="careplans">
                         <img src="../../Images/Careplan.png" alt="careplan_img" id="careplan_img">
                     </div>
@@ -76,7 +76,8 @@
                             <li pagekey=""><a href="">Care Plan Selection</a></li>
                             <li pagekey=""><a href="">Care Plans Management</a>
                                 <ul class="new-lists">
-                                    <li><a href="">Arrhythma / Stroke</a></li>  
+                                    <li><a href="">CHF</a></li> 
+                                    <li><a href="">COPD</a></li> 
                                 </ul>
 
                             </li>

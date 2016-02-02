@@ -17,7 +17,6 @@
            		<span class="mu-mgmt">
             <img src='<%=Page.ResolveUrl("~/Images/MUdashboard.png") %>' style="cursor: pointer;  width: 37px;" id="mudashboard" title="MU Dashboard" alt="MU" />
 
-            
         </span>     
     </span>
        

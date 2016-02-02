@@ -342,6 +342,9 @@
         </div>
     </div>
 
-
+$("#chatpopupclose").click(function () {
+            $("#divexportpopup").dialog('close');
+        });
+</script>
 </body>
 </html>
