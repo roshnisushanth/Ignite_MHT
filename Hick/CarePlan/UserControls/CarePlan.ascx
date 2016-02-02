@@ -4,7 +4,7 @@
 </style>
 <div class="patsearch_heading patient">
     Care Plan
-    <input type="button" value="APPLY" name="apply" class="btn_standard" id="apply" style=" margin-left :434px;margin-top:-28px;" />
+    <input type="button" value="APPLY" name="apply" class="btn_standard" id="CareplanApply" style=" margin-left :434px;margin-top:-28px;" />
     <img src='<%=Page.ResolveUrl("~/Images/popup_close.png") %>' id="popup_close" class="pull-right" style="cursor: pointer;margin-top:-5px;"
          alt="close" />
 </div>
@@ -75,39 +75,21 @@
 
 
 
-  
+  // careplan 
 
-    $('#apply').click(function () {
-        var arrCB = {};
-        $(".care input[type='checkbox']").each(function () {
-            var el = $(this);
-            var id = el.attr('id');
+    $('#CareplanApply').click(function () {
+        $('.new-lists').html('');
+        var lidata = "<li><a href=''>Diabates</a></li>";
+        $(".care input[type='checkbox']").each(function () {            
             if (this.checked) {
                 var ids = $(this).attr('id');
                 var vals = $(this).attr('value');
-                var links = "#"; //$(this).parent().attr('href','');
-                var finalVar = vals + ':' + links;
+                var links = "#"; 
+                lidata = lidata + "<li><a href='" + links + "'>" + vals + "</a></li> ";
             }
-            //arrCB[id] = (this.checked ? 1 : 0);
-
-            arrCB[id] = finalVar;
-           
-            var arrMN = arrCB[id];
-            var value = el.attr('value');
-            if (arrMN == 1) {
-                alert(value);
-            } else
-            {
-               // alert('No');
-            }
-            //alert(arrMN);
         });
-        var text = JSON.stringify(arrCB);
-        alert(text);
-
-       
+        $('.new-lists').append(lidata);
     });
-
-
-
+       
+   
     </script>

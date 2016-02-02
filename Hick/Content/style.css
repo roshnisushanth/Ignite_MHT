@@ -1762,4 +1762,33 @@ img#closebtn {
     padding: 0 15px;
 }
 
-.care-mang-head{}
+.patsearch_border.diab h1{font-size:17px; font-weight:bold; margin:0; padding:10px 0;}
+   .diab .care-ul{margin:0; padding:0;}
+   .diab .care-ul li:first-child{padding: 4px 3px 4px 4px; font-weight:bold;}
+   .diab .care-ul.first li:first-child{font-weight:normal;}}
+   .diab .care-ul li{list-style:none; padding: 4px 3px 4px 20px;}
+   .patsearch_border.diab p {
+    text-align: left;
+    padding: 0 15px;
+}
+.cont{display:inline-block; width:70px;}
+.inp-bot-sec-line {
+    width: 100px;
+    border-top: 0;
+    margin: 0 8px;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1px #555 solid;
+}
+.inp-bot-line {
+    width: 130px;
+    border-top: 0;
+    margin: 0 8px;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1px #555 solid;
+}
+.care-ul li input[type="checkbox"] {
+    margin: 0 5px 0 0;
+    padding: 0;
+}

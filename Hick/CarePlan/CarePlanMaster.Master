@@ -76,8 +76,7 @@
                             <li pagekey=""><a href="">Care Plan Selection</a></li>
                             <li pagekey=""><a href="">Care Plans Management</a>
                                 <ul class="new-lists">
-                                    <li><a href="">CHF</a></li> 
-                                    <li><a href="">COPD</a></li> 
+                                    
                                 </ul>
 
                             </li>

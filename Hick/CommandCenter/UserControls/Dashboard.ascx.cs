@@ -17,8 +17,11 @@ namespace Hick.CommandCenter.UserControls
 {
     public partial class Dashboard : System.Web.UI.UserControl
     {
+        public string link = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            link = Request.Url.AbsolutePath.Replace("Dashboard.aspx", "");
             BindConditionChart();
             BindCCMChart();
             BindBillingChart();

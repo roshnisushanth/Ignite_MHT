@@ -210,13 +210,13 @@
 
     var notcompleted = document.getElementById("<%=hdn_notcompleted.ClientID%>").value;
     var notimerlog = document.getElementById("<%=hdn_notimerlog.ClientID%>").value;
-
+    var link = '<%=this.link%>';
 
     $(function () {
        
         var categoryLinks = {
-            '> 20m': window.location.origin + '/CommandCenter/ASPX/PLComplete.aspx',
-            '&lt; 20m': window.location.origin + '/CommandCenter/ASPX/PLNotComplete.aspx'
+            '> 20m': window.location.origin + link+'PLComplete.aspx',
+            '&lt; 20m': window.location.origin + link + 'PLNotComplete.aspx'
         };
         $('#div_billinggraph').highcharts({
             chart: {

@@ -46,6 +46,9 @@
         .popup_conter span, .popup_conter div {
         width: 64px;
     }
+        .ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-draggable[aria-labelledby="ui-id-1"] {
+    width: 643px!important;
+}
        
     </style>
 </head>
